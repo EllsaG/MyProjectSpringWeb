@@ -1,8 +1,8 @@
-package com.myproject.controller;
+package com.myproject.controller.startinformation;
 
 import com.myproject.controller.dto.StartInformationRequestDTO;
 import com.myproject.controller.dto.StartInformationResponseDTO;
-import com.myproject.service.StartInformationService;
+import com.myproject.service.startinformation.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +20,12 @@ public class StartInformationController {
     public StartInformationResponseDTO getById(@PathVariable Long startInformId) {
         return new StartInformationResponseDTO(startInformationService.getInformationById(startInformId));
     }
-@PostMapping("/startinformation")
+
+    @PostMapping("/startinformation")
     public String create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
-        return startInformationService.save(startInformationRequestDTO.getName(),
+        startInformationService.save(startInformationRequestDTO.getName(),
                 startInformationRequestDTO.getPower(), startInformationRequestDTO.getAmount());
     }
+
 
 }

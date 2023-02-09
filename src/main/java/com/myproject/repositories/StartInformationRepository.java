@@ -1,9 +1,9 @@
-package com.myproject.repository;
+package com.myproject.repositories;
 
 import com.myproject.entity.StartInformation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface InformationRepository
+public interface StartInformationRepository
         extends JpaRepository <StartInformation, Long> {
 
 }

@@ -1,16 +1,18 @@
 spring:
   jpa:
     database: POSTGRESQL
-    properties.hibernate.temp.use_jdbc_metadata_defaults: false
     hibernate:
       ddl-auto: update
     properties:
+      properties.hibernate.temp.use_jdbc_metadata_defaults: false
   datasource:
-    platform: postgres
     url: jdbc:postgresql://localhost:5432/myproject
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgres
 
 server:
   port: 9999
