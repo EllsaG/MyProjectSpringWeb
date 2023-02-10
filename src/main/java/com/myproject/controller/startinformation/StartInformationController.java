@@ -2,6 +2,7 @@ package com.myproject.controller.startinformation;
 
 import com.myproject.controller.dto.StartInformationRequestDTO;
 import com.myproject.controller.dto.StartInformationResponseDTO;
+import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.service.startinformation.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,9 @@ public class StartInformationController {
         return new StartInformationResponseDTO(startInformationService.getInformationById(startInformId));
     }
 
-    @PostMapping("/startinformation")
+    @PostMapping("/startinformation/create")
     public String create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
-        startInformationService.save(startInformationRequestDTO.getName(),
+        return startInformationService.save(startInformationRequestDTO.getName(),
                 startInformationRequestDTO.getPower(), startInformationRequestDTO.getAmount());
     }
 

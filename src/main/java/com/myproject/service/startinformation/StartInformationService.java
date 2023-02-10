@@ -1,6 +1,5 @@
 package com.myproject.service.startinformation;
 
-import com.myproject.controller.dto.StartInformationRequestDTO;
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.StartInformationRepository;
@@ -22,17 +21,22 @@ public class StartInformationService {
 
     public String save(String name, BigDecimal power, BigInteger amount) {
         StartInformation startInformation = new StartInformation(name, power, amount);
-        return ("Information about the equipment № " +
-                startInformationRepository.save(startInformation).getStartInformId()) +
-                " is saved";
+        return "Information about new equipment № " +
+                startInformationRepository.save(startInformation).getStartInformId() +
+                "\n  name " + name +
+                "\n  power " + power +
+                "\n  amount " + amount +
+                "\nis saved";
     }
 
     public StartInformation getInformationById(Long startInformId) {
         return startInformationRepository.findById(startInformId)
-                .orElseThrow(() ->
-                        new InformationNotFoundException("Unable to find information about equipment with id: " + startInformId));
+                .orElseThrow(() -> new InformationNotFoundException("Unable to find information about equipment with id: " + startInformId));
     }
 
+    public StartInformation update(StartInformation startInformation) {
+        return startInformationRepository.save(startInformation);
+    }
 
 
 }

@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class UpdateRequestDTO {
+    @JsonProperty("startInformId")
     private Long startInformId;
     @JsonProperty("name")
     private String name;

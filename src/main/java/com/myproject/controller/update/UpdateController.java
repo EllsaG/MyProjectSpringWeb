@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UpdateController {
 
-    StartInformationService startInformationService;
+    private final StartInformationUpdateService startInformationUpdateService;
 
     @Autowired
-    public UpdateController(StartInformationService startInformationService) {
-        this.startInformationService = startInformationService;
+    public UpdateController(StartInformationUpdateService startInformationUpdateService) {
+        this.startInformationUpdateService = startInformationUpdateService;
     }
 
-    @PatchMapping("/startinformation/{startInformId}")
-    public String update(@RequestBody StartInformationRequestDTO startInformationRequestDTO,
-                         @PathVariable("startInformId") String startInformId){
-        return startInformationService.save(startInformationRequestDTO.getName(),
-                startInformationRequestDTO.getPower(), startInformationRequestDTO.getAmount());
+    @PatchMapping("/startinformation/update")
+    public String updateInfo(@RequestBody StartInformationRequestDTO startInformationRequestDTO){
+        return startInformationUpdateService.update(startInformationRequestDTO.getStartInformId()
+                ,startInformationRequestDTO.getName(),startInformationRequestDTO.getPower()
+                ,startInformationRequestDTO.getAmount());
     }
 
 
