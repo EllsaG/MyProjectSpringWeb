@@ -1,7 +1,7 @@
 package com.myproject.controller.startinformation;
 
-import com.myproject.controller.dto.StartInformationRequestDTO;
-import com.myproject.controller.dto.StartInformationResponseDTO;
+import com.myproject.controller.dto.startinformation.StartInformationRequestDTO;
+import com.myproject.controller.dto.startinformation.StartInformationResponseDTO;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.service.startinformation.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class StartInformationController {
     }
 
     @GetMapping("/startinformation/{startInformId}")
-    public StartInformationResponseDTO getById(@PathVariable Long startInformId) {
+    public StartInformationResponseDTO getById(@PathVariable Long startInformId)  throws InformationNotFoundException{
         return new StartInformationResponseDTO(startInformationService.getInformationById(startInformId));
     }
 

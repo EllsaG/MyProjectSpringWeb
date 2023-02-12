@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="created a database, start to make controllers">
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="changed the database, completed the &quot;update&quot;, does not show an exception in the json, need to change">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/delete/DeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/delete/DeleteRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/delete/StartInformationDeleteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/update/UpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/update/UpdateRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/StartInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/StartInformationRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/StartInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/StartInformationResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/StartInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/StartInformationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/update/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/update/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/exceptions/InformationNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/exceptions/InformationNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/FullInformationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/FullInformationService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/StartInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/StartInformationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/update/StartInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/update/StartInformationUpdateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +138,9 @@
       <workItem from="1675898687012" duration="635000" />
       <workItem from="1675899404809" duration="15074000" />
       <workItem from="1675984123929" duration="22314000" />
+      <workItem from="1676161450019" duration="1332000" />
+      <workItem from="1676162906686" duration="11470000" />
+      <workItem from="1676176658860" duration="1210000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -211,6 +214,12 @@
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="InformationNotFoundException9929_DebugLabel" />
+        <watch expression="startInformId.value" />
+        <watch expression="startInformationRequestDTO.amount" />
+        <watch expression="method" />
+        <watch expression="method" />
+        <watch expression="((Response)((Response)((ResponseFacade)response).response).coyoteResponse).req" custom="org.apache.catalina.connector.ResponseFacade,org.apache.coyote.Response,org.apache.catalina.connector.Response" />
+        <watch expression="this.logger" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

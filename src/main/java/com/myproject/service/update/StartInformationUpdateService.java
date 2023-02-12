@@ -1,13 +1,9 @@
 package com.myproject.service.update;
 
-import com.myproject.controller.dto.StartInformationRequestDTO;
 import com.myproject.entity.StartInformation;
 import com.myproject.service.startinformation.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

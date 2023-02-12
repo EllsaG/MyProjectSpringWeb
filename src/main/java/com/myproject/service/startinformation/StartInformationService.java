@@ -38,5 +38,9 @@ public class StartInformationService {
         return startInformationRepository.save(startInformation);
     }
 
+    public void delete(StartInformation startInformation) {
+        startInformationRepository.delete(startInformation);
+    }
+
 
 }

@@ -1,4 +1,4 @@
-package com.myproject.controller.dto;
+package com.myproject.controller.dto.startinformation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
