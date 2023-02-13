@@ -10,19 +10,23 @@ import java.math.BigInteger;
 @Entity
 public class StartInformation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long startInformId;
     private String name;
     private BigDecimal power;
     private BigInteger amount;
 
-    public StartInformation(String name, BigDecimal power, BigInteger amount) {
+    public StartInformation(Long startInformId, String name, BigDecimal power, BigInteger amount) {
+        this.startInformId =startInformId;
         this.name = name;
         this.power = power;
         this.amount = amount;
     }
 
     public StartInformation() {
+    }
+
+    public void setStartInformId(Long startInformId) {
+        this.startInformId = startInformId;
     }
 
     public Long getStartInformId() {

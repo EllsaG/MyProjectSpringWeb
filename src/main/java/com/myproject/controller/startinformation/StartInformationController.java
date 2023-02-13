@@ -18,14 +18,15 @@ public class StartInformationController {
     }
 
     @GetMapping("/startinformation/{startInformId}")
-    public StartInformationResponseDTO getById(@PathVariable Long startInformId)  throws InformationNotFoundException{
+    public StartInformationResponseDTO getById(@PathVariable Long startInformId){
         return new StartInformationResponseDTO(startInformationService.getInformationById(startInformId));
     }
 
     @PostMapping("/startinformation/create")
     public String create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
-        return startInformationService.save(startInformationRequestDTO.getName(),
-                startInformationRequestDTO.getPower(), startInformationRequestDTO.getAmount());
+        return startInformationService.save(startInformationRequestDTO.getStartInformId(),
+                startInformationRequestDTO.getName(),startInformationRequestDTO.getPower(),
+                startInformationRequestDTO.getAmount());
     }
 
 
