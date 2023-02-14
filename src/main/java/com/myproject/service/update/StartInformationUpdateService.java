@@ -1,7 +1,7 @@
 package com.myproject.service.update;
 
 import com.myproject.entity.StartInformation;
-import com.myproject.service.startinformation.StartInformationService;
+import com.myproject.service.postget.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
-package com.myproject.controller.dto.update;
+package com.myproject.controller.dto.startinformation.postget;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class UpdateRequestDTO {
+public class StartInformationRequestDTO {
     @JsonProperty("startInformId")
     private Long startInformId;
     @JsonProperty("name")

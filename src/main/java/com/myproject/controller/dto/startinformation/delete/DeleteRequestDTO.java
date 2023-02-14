@@ -1,4 +1,4 @@
-package com.myproject.controller.dto.delete;
+package com.myproject.controller.dto.startinformation.delete;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

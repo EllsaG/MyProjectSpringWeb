@@ -1,4 +1,4 @@
-package com.myproject.controller.dto.startinformation;
+package com.myproject.controller.dto.startinformation.postget;
 
 import com.myproject.entity.StartInformation;
 

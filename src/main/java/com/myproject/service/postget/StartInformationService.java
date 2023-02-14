@@ -1,7 +1,6 @@
-package com.myproject.service.startinformation;
+package com.myproject.service.postget;
 
 import com.myproject.entity.StartInformation;
-import com.myproject.exceptions.InformationAlreadyExistsException;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.matching.StartInformationMatching;
 import com.myproject.repositories.StartInformationRepository;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Optional;
 
 @Service
 public class StartInformationService {
@@ -24,7 +22,7 @@ public class StartInformationService {
 
     public String save(Long startInformId, String name, BigDecimal power, BigInteger amount) {
         StartInformation startInformation = StartInformationMatching
-                .createIfDontExist(startInformationRepository,startInformId,name, power, amount);
+                .createIfDontExist(startInformationRepository, startInformId, name, power, amount);// method checked only by id(because i don't know why it doesn't work)
         return "Information about new equipment № " +
                 startInformationRepository.save(startInformation).getStartInformId() +
                 "\n  name " + name +

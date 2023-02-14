@@ -1,7 +1,7 @@
-package com.myproject.controller.update;
+package com.myproject.controller.startinformation.update;
 
 
-import com.myproject.controller.dto.startinformation.StartInformationRequestDTO;
+import com.myproject.controller.dto.startinformation.postget.StartInformationRequestDTO;
 import com.myproject.service.update.StartInformationUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PatchMapping;
