@@ -14,6 +14,12 @@ public class UpdateRequestDTO {
     private BigDecimal power;
     @JsonProperty("amount")
     private BigInteger amount;
+    @JsonProperty("ki")
+    private BigDecimal ki;
+    @JsonProperty("cosf")
+    private BigDecimal cosf;
+    @JsonProperty("tgf")
+    private BigDecimal tgf;
 
     public Long getStartInformId() {
         return startInformId;
@@ -29,5 +35,17 @@ public class UpdateRequestDTO {
 
     public BigInteger getAmount() {
         return amount;
+    }
+
+    public BigDecimal getKi() {
+        return ki;
+    }
+
+    public BigDecimal getCosf() {
+        return cosf;
+    }
+
+    public BigDecimal getTgf() {
+        return tgf;
     }
 }

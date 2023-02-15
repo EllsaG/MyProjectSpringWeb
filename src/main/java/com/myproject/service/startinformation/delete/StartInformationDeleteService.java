@@ -1,7 +1,7 @@
-package com.myproject.service.delete;
+package com.myproject.service.startinformation.delete;
 
 import com.myproject.entity.StartInformation;
-import com.myproject.service.postget.StartInformationService;
+import com.myproject.service.startinformation.postget.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +23,18 @@ public class StartInformationDeleteService {
         String name = startInformation.getName();
         BigDecimal power = startInformation.getPower();
         BigInteger amount = startInformation.getAmount();
+        BigDecimal Ki = startInformation.getKi();
+        BigDecimal Cosf = startInformation.getCosf();
+        BigDecimal Tgf = startInformation.getTgf();
         startInformationService.delete(startInformation);
         return "Information about  equipment № " + startInformId +
                 "\n  name " + name +
                 "\n  power " + power +
                 "\n  amount " + amount +
-                "\nis deleted";
+                "\n  name " + Ki +
+                "\n  power " + Cosf +
+                "\n  amount " + Tgf +
+                "\nhas been deleted";
     }
 
 

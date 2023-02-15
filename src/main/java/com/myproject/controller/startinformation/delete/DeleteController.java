@@ -1,7 +1,7 @@
 package com.myproject.controller.startinformation.delete;
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationRequestDTO;
-import com.myproject.service.delete.StartInformationDeleteService;
+import com.myproject.service.startinformation.delete.StartInformationDeleteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;

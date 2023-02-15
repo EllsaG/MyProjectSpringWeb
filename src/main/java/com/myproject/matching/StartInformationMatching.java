@@ -32,13 +32,14 @@ public class StartInformationMatching {
 //        this.amount = amount;
 //    }
 
-    public static StartInformation createIfDontExist(StartInformationRepository startInformationRepository, Long startInformId, String name, BigDecimal power, BigInteger amount) {
+    public static StartInformation createIfDontExist(StartInformationRepository startInformationRepository, Long startInformId,
+                                                     String name, BigDecimal power, BigInteger amount, BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
 
         Optional<StartInformation> byId = startInformationRepository.findById(startInformId);
         if (byId.isPresent()) {
             throw new InformationAlreadyExistsException("Information about equipment with id № " + startInformId + " is already exists");
         }
-        return new StartInformation(startInformId, name, power, amount);
+        return new StartInformation(startInformId, name, power, amount, ki, cosf, tgf);
 //        List<StartInformation> all = startInformationRepository.findAll();
 //        all.stream().forEach(e->System.out.println(e.getName() + " " + name + " " + e.getName().equals(name)));
 //        boolean isEmpty ;

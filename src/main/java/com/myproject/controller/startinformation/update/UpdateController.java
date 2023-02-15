@@ -2,7 +2,7 @@ package com.myproject.controller.startinformation.update;
 
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationRequestDTO;
-import com.myproject.service.update.StartInformationUpdateService;
+import com.myproject.service.startinformation.update.StartInformationUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,9 +20,10 @@ public class UpdateController {
 
     @PatchMapping("/startinformation/update")
     public String updateInfo(@RequestBody StartInformationRequestDTO startInformationRequestDTO){
-        return startInformationUpdateService.update(startInformationRequestDTO.getStartInformId()
-                ,startInformationRequestDTO.getName(),startInformationRequestDTO.getPower()
-                ,startInformationRequestDTO.getAmount());
+        return startInformationUpdateService.update(startInformationRequestDTO.getStartInformId(),
+                startInformationRequestDTO.getName(),startInformationRequestDTO.getPower(),
+                startInformationRequestDTO.getAmount(), startInformationRequestDTO.getKi(),
+                startInformationRequestDTO.getCosf(), startInformationRequestDTO.getTgf());
     }
 
 

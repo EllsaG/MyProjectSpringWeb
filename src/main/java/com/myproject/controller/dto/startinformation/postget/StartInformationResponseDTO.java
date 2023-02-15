@@ -1,5 +1,6 @@
 package com.myproject.controller.dto.startinformation.postget;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.myproject.entity.StartInformation;
 
 import java.math.BigDecimal;
@@ -11,20 +12,33 @@ public class StartInformationResponseDTO {
     private String name;
     private BigDecimal power;
     private BigInteger amount;
+    private BigDecimal ki;
+    private BigDecimal cosf;
+    private BigDecimal tgf;
+
+
 
     public StartInformationResponseDTO(StartInformation startInformation) {
         startInformId = startInformation.getStartInformId();
         name = startInformation.getName();
         power = startInformation.getPower();
         amount = startInformation.getAmount();
+        ki = startInformation.getKi();
+        cosf = startInformation.getCosf();
+        tgf = startInformation.getTgf();
     }
 
-    public StartInformationResponseDTO(Long startInformId, String name, BigDecimal power, BigInteger amount) {
+    public StartInformationResponseDTO(Long startInformId, String name, BigDecimal power, BigInteger amount,
+                                       BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
         this.startInformId = startInformId;
         this.name = name;
         this.power = power;
         this.amount = amount;
+        this.ki = ki;
+        this.cosf = cosf;
+        this.tgf = tgf;
     }
+
 
     public Long getStartInformId() {
         return startInformId;
@@ -56,5 +70,29 @@ public class StartInformationResponseDTO {
 
     public void setAmount(BigInteger amount) {
         this.amount = amount;
+    }
+
+    public BigDecimal getKi() {
+        return ki;
+    }
+
+    public void setKi(BigDecimal ki) {
+        this.ki = ki;
+    }
+
+    public BigDecimal getCosf() {
+        return cosf;
+    }
+
+    public void setCosf(BigDecimal cosf) {
+        this.cosf = cosf;
+    }
+
+    public BigDecimal getTgf() {
+        return tgf;
+    }
+
+    public void setTgf(BigDecimal tgf) {
+        this.tgf = tgf;
     }
 }

@@ -1,4 +1,4 @@
-package com.myproject.service.postget;
+package com.myproject.service.startinformation.postget;
 
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
@@ -20,14 +20,18 @@ public class StartInformationService {
         this.startInformationRepository = startInformationRepository;
     }
 
-    public String save(Long startInformId, String name, BigDecimal power, BigInteger amount) {
+    public String save(Long startInformId, String name, BigDecimal power, BigInteger amount,
+                       BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
         StartInformation startInformation = StartInformationMatching
-                .createIfDontExist(startInformationRepository, startInformId, name, power, amount);// method checked only by id(because i don't know why it doesn't work)
+                .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked only by id(because i don't know why it doesn't work)
         return "Information about new equipment № " +
                 startInformationRepository.save(startInformation).getStartInformId() +
                 "\n  name " + name +
                 "\n  power " + power +
                 "\n  amount " + amount +
+                "\n  name " + ki +
+                "\n  power " + cosf +
+                "\n  amount " + tgf +
                 "\nis saved";
     }
 
