@@ -18,15 +18,15 @@ public class StartInformationUpdateService {
         this.startInformationService = startInformationService;
     }
 
-    public String update(Long startInformId, String name, BigDecimal power, BigInteger amount,
-                         BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
+    public String update(Long startInformId, String name, double power, int amount,
+                         double ki, double cosf, double tgf) {
         StartInformation startInformation = startInformationService.getInformationById(startInformId);
         String oldName = startInformation.getName();
-        BigDecimal oldPower = startInformation.getPower();
-        BigInteger oldAmount = startInformation.getAmount();
-        BigDecimal oldKi = startInformation.getKi();
-        BigDecimal oldCosf = startInformation.getCosf();
-        BigDecimal oldTgf = startInformation.getTgf();
+        double oldPower = startInformation.getPower();
+        int oldAmount = startInformation.getAmount();
+        double oldKi = startInformation.getKi();
+        double oldCosf = startInformation.getCosf();
+        double oldTgf = startInformation.getTgf();
         startInformation.setName(name);
         startInformation.setPower(power);
         startInformation.setAmount(amount);

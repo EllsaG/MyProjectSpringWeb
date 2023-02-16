@@ -33,13 +33,19 @@ public class StartInformationMatching {
 //    }
 
     public static StartInformation createIfDontExist(StartInformationRepository startInformationRepository, Long startInformId,
-                                                     String name, BigDecimal power, BigInteger amount, BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
+                                                     String name, double power, int amount, double ki, double cosf, double tgf) {
 
         Optional<StartInformation> byId = startInformationRepository.findById(startInformId);
         if (byId.isPresent()) {
             throw new InformationAlreadyExistsException("Information about equipment with id № " + startInformId + " is already exists");
         }
-        return new StartInformation(startInformId, name, power, amount, ki, cosf, tgf);
+
+
+        double avgDailyActivePower = Math.round(power * ki * 100.0)/100.0; // Среднесменная активная мощность группы электроприемников P_(см ),кВт
+        double avgDailyReactivePower = Math.round(avgDailyActivePower * tgf *100.0)/100.0; // Среднесменная реактивная мощность группы электроприемников Q_см,кВАр
+
+
+        return new StartInformation(startInformId, name, power, amount, ki, cosf, tgf, avgDailyActivePower, avgDailyReactivePower);
 //        List<StartInformation> all = startInformationRepository.findAll();
 //        all.stream().forEach(e->System.out.println(e.getName() + " " + name + " " + e.getName().equals(name)));
 //        boolean isEmpty ;

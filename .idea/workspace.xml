@@ -4,29 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="method checked only by id(because i don't know why it doesn't work).&#10;began create &quot;loads calculation&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/delete/DeleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/UpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/FullInformationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="continued to create the &quot;load calculation&quot;&#10;need add &quot;avg_daily_active_power&quot; and &quot;avg_daily_reactive_power&quot; in the &quot;start_information&quot; table">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForStartTableLoadCalculation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/update/UpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/update/UpdateRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/delete/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/delete/DeleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/postget/StartInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/postget/StartInformationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/update/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/update/UpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/matching/StartInformationMatching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/matching/StartInformationMatching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/delete/StartInformationDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/postget/StartInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/postget/StartInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/update/StartInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/update/StartInformationUpdateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/postget/StartInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/postget/StartInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/update/StartInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/update/StartInformationUpdateService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Interface" />
+        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Class" />
       </list>
     </option>
@@ -160,6 +154,7 @@
       <workItem from="1676373946633" duration="3842000" />
       <workItem from="1676451464214" duration="7087000" />
       <workItem from="1676459632760" duration="9197000" />
+      <workItem from="1676534407503" duration="20586000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -222,7 +217,8 @@
     <MESSAGE value="began to build the application with spring" />
     <MESSAGE value="created a database, start to make controllers" />
     <MESSAGE value="&quot;matching&quot;!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;matching&quot;!!!" />
+    <MESSAGE value="continued to create the &quot;load calculation&quot;&#10;need add &quot;avg_daily_active_power&quot; and &quot;avg_daily_reactive_power&quot; in the &quot;start_information&quot; table" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued to create the &quot;load calculation&quot;&#10;need add &quot;avg_daily_active_power&quot; and &quot;avg_daily_reactive_power&quot; in the &quot;start_information&quot; table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

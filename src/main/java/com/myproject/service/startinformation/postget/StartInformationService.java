@@ -20,8 +20,8 @@ public class StartInformationService {
         this.startInformationRepository = startInformationRepository;
     }
 
-    public String save(Long startInformId, String name, BigDecimal power, BigInteger amount,
-                       BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
+    public String save(Long startInformId, String name, double power, int amount,
+                       double ki, double cosf, double tgf) {
         StartInformation startInformation = StartInformationMatching
                 .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked only by id(because i don't know why it doesn't work)
         return "Information about new equipment № " +

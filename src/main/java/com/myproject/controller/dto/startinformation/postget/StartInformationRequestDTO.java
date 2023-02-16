@@ -12,15 +12,15 @@ public class StartInformationRequestDTO {
     @JsonProperty("name")
     private String name;
     @JsonProperty("power")
-    private BigDecimal power;
+    private double power;
     @JsonProperty("amount")
-    private BigInteger amount;
+    private int amount;
     @JsonProperty("ki")
-    private BigDecimal ki;
+    private double ki;
     @JsonProperty("cosf")
-    private BigDecimal cosf;
+    private double cosf;
     @JsonProperty("tgf")
-    private BigDecimal tgf;
+    private double tgf;
 
     public Long getStartInformId() {
         return startInformId;
@@ -30,23 +30,23 @@ public class StartInformationRequestDTO {
         return name;
     }
 
-    public BigDecimal getPower() {
+    public double getPower() {
         return power;
     }
 
-    public BigInteger getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public BigDecimal getKi() {
+    public double getKi() {
         return ki;
     }
 
-    public BigDecimal getCosf() {
+    public double getCosf() {
         return cosf;
     }
 
-    public BigDecimal getTgf() {
+    public double getTgf() {
         return tgf;
     }
 }

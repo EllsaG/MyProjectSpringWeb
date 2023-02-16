@@ -13,17 +13,23 @@ public class StartInformation {
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "power", nullable = false)
-    private BigDecimal power;
+    private double power;
     @Column(name = "amount", nullable = false)
-    private BigInteger amount;
+    private int amount;
     @Column(name = "k_i", nullable = false)
-    private BigDecimal ki;
+    private double ki;
     @Column(name = "cos_f", nullable = false)
-    private BigDecimal cosf;
+    private double cosf;
     @Column(name = "tg_f", nullable = false)
-    private BigDecimal tgf;
+    private double tgf;
+    @Column(name = "avg_daily_active_power", nullable = false)
+    private double avgDailyActivePower;
+    @Column(name = "avg_daily_reactive_power", nullable = false)
+    private double avgDailyReactivePower;
 
-    public StartInformation(Long startInformId, String name, BigDecimal power, BigInteger amount, BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
+    public StartInformation(Long startInformId, String name, double power, int amount,
+                            double ki, double cosf, double tgf, double avgDailyActivePower,
+                            double avgDailyReactivePower) {
         this.startInformId = startInformId;
         this.name = name;
         this.power = power;
@@ -31,6 +37,8 @@ public class StartInformation {
         this.ki = ki;
         this.cosf = cosf;
         this.tgf = tgf;
+        this.avgDailyActivePower = avgDailyActivePower;
+        this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
     public StartInformation() {
@@ -52,44 +60,60 @@ public class StartInformation {
         this.name = name;
     }
 
-    public BigDecimal getPower() {
+    public double getPower() {
         return power;
     }
 
-    public void setPower(BigDecimal power) {
+    public void setPower(double power) {
         this.power = power;
     }
 
-    public BigInteger getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(BigInteger amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public BigDecimal getKi() {
+    public double getKi() {
         return ki;
     }
 
-    public void setKi(BigDecimal ki) {
+    public void setKi(double ki) {
         this.ki = ki;
     }
 
-    public BigDecimal getCosf() {
+    public double getCosf() {
         return cosf;
     }
 
-    public void setCosf(BigDecimal cosf) {
+    public void setCosf(double cosf) {
         this.cosf = cosf;
     }
 
-    public BigDecimal getTgf() {
+    public double getTgf() {
         return tgf;
     }
 
-    public void setTgf(BigDecimal tgf) {
+    public void setTgf(double tgf) {
         this.tgf = tgf;
+    }
+
+    public double getAvgDailyActivePower() {
+        return avgDailyActivePower;
+    }
+
+    public void setAvgDailyActivePower(double avgDailyActivePower) {
+        this.avgDailyActivePower = avgDailyActivePower;
+    }
+
+    public double getAvgDailyReactivePower() {
+        return avgDailyReactivePower;
+    }
+
+    public void setAvgDailyReactivePower(double avgDailyReactivePower) {
+        this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
     @Override
@@ -102,6 +126,8 @@ public class StartInformation {
                 ", ki=" + ki +
                 ", cosf=" + cosf +
                 ", tgf=" + tgf +
+                ", avgDailyActivePower=" + avgDailyActivePower +
+                ", avgDailyReactivePower=" + avgDailyReactivePower +
                 '}';
     }
 }

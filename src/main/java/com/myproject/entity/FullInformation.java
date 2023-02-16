@@ -1,18 +1,16 @@
 package com.myproject.entity;
 
-import javax.persistence.*;
-import java.math.BigDecimal;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "full_information")
 public class FullInformation {
     @Id
-    @Column(name = "busbar_id", nullable = false)
+    @Column(name = "full_information_id", nullable = false)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "full_information_id", nullable = false)
-    private StartInformation fullInformation;
 
     @Column(name = "name_of_busbar", nullable = false)
     private String nameOfBusbar;
@@ -20,59 +18,51 @@ public class FullInformation {
     @Column(name = "amount", nullable = false)
     private Integer amount;
 
-    @Column(name = "power_of_one", nullable = false)
-    private BigDecimal powerOfOne;
-
     @Column(name = "module")
-    private BigDecimal module;
+    private Double module;
 
-    @Column(name = "cos_f", nullable = false)
-    private BigDecimal cosF;
+    @Column(name = "avg_daily_active_power", nullable = false)
+    private Double avgDailyActivePower;
 
-    @Column(name = "tg_f", nullable = false)
-    private BigDecimal tgF;
-
-    @Column(name = "\"avg_daily_active_power\"", nullable = false)
-    private BigDecimal avgDailyActivePower;
-
-    @Column(name = "\"avg_daily_reactive_power\"", nullable = false)
-    private BigDecimal avgDailyReactivePower;
+    @Column(name = "avg_daily_reactive_power", nullable = false)
+    private Double avgDailyReactivePower;
 
     @Column(name = "effective_amount_of_equipment")
-    private BigDecimal effectiveAmountOfEquipment;
+    private Double effectiveAmountOfEquipment;
 
     @Column(name = "coefficient_max")
-    private BigDecimal coefficientMax;
+    private Double coefficientMax;
 
     @Column(name = "max_active_power")
-    private BigDecimal maxActivePower;
+    private Double maxActivePower;
 
     @Column(name = "max_reactive_power")
-    private BigDecimal maxReactivePower;
+    private Double maxReactivePower;
 
     @Column(name = "max_full_power")
-    private BigDecimal maxFullPower;
+    private Double maxFullPower;
 
     @Column(name = "max_electric_current")
-    private BigDecimal maxElectricCurrent;
+    private Double maxElectricCurrent;
 
     @Column(name = "power_of_group", nullable = false)
-    private BigDecimal powerOfGroup;
+    private Double powerOfGroup;
+
+    @Column(name = "cos_f", nullable = false)
+    private Double cosF;
 
 
-    public FullInformation(Long id, StartInformation fullInformation, String nameOfBusbar, Integer amount,
-                           BigDecimal powerOfOne, BigDecimal module, BigDecimal cosF, BigDecimal tgF,
-                           BigDecimal avgDailyActivePower, BigDecimal avgDailyReactivePower, BigDecimal effectiveAmountOfEquipment,
-                           BigDecimal coefficientMax, BigDecimal maxActivePower, BigDecimal maxReactivePower,
-                           BigDecimal maxFullPower, BigDecimal maxElectricCurrent, BigDecimal powerOfGroup) {
+    @Column(name = "tg_f", nullable = false)
+    private Double tgF;
+
+    public FullInformation(Long id, String nameOfBusbar, Integer amount, Double module,
+                           Double avgDailyActivePower, Double avgDailyReactivePower, Double effectiveAmountOfEquipment,
+                           Double coefficientMax, Double maxActivePower, Double maxReactivePower, Double maxFullPower,
+                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF) {
         this.id = id;
-        this.fullInformation = fullInformation;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
-        this.powerOfOne = powerOfOne;
         this.module = module;
-        this.cosF = cosF;
-        this.tgF = tgF;
         this.avgDailyActivePower = avgDailyActivePower;
         this.avgDailyReactivePower = avgDailyReactivePower;
         this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
@@ -82,6 +72,8 @@ public class FullInformation {
         this.maxFullPower = maxFullPower;
         this.maxElectricCurrent = maxElectricCurrent;
         this.powerOfGroup = powerOfGroup;
+        this.cosF = cosF;
+        this.tgF = tgF;
     }
 
     public FullInformation() {
@@ -93,14 +85,6 @@ public class FullInformation {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public StartInformation getFullInformation() {
-        return fullInformation;
-    }
-
-    public void setFullInformation(StartInformation fullInformation) {
-        this.fullInformation = fullInformation;
     }
 
     public String getNameOfBusbar() {
@@ -119,121 +103,109 @@ public class FullInformation {
         this.amount = amount;
     }
 
-    public BigDecimal getPowerOfOne() {
-        return powerOfOne;
-    }
-
-    public void setPowerOfOne(BigDecimal powerOfOne) {
-        this.powerOfOne = powerOfOne;
-    }
-
-    public BigDecimal getModule() {
+    public Double getModule() {
         return module;
     }
 
-    public void setModule(BigDecimal module) {
+    public void setModule(Double module) {
         this.module = module;
     }
 
-    public BigDecimal getCosF() {
-        return cosF;
-    }
-
-    public void setCosF(BigDecimal cosF) {
-        this.cosF = cosF;
-    }
-
-    public BigDecimal getTgF() {
-        return tgF;
-    }
-
-    public void setTgF(BigDecimal tgF) {
-        this.tgF = tgF;
-    }
-
-    public BigDecimal getAvgDailyActivePower() {
+    public Double getAvgDailyActivePower() {
         return avgDailyActivePower;
     }
 
-    public void setAvgDailyActivePower(BigDecimal avgDailyActivePower) {
+    public void setAvgDailyActivePower(Double avgDailyActivePower) {
         this.avgDailyActivePower = avgDailyActivePower;
     }
 
-    public BigDecimal getAvgDailyReactivePower() {
+    public Double getAvgDailyReactivePower() {
         return avgDailyReactivePower;
     }
 
-    public void setAvgDailyReactivePower(BigDecimal avgDailyReactivePower) {
+    public void setAvgDailyReactivePower(Double avgDailyReactivePower) {
         this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
-    public BigDecimal getEffectiveAmountOfEquipment() {
+    public Double getEffectiveAmountOfEquipment() {
         return effectiveAmountOfEquipment;
     }
 
-    public void setEffectiveAmountOfEquipment(BigDecimal effectiveAmountOfEquipment) {
+    public void setEffectiveAmountOfEquipment(Double effectiveAmountOfEquipment) {
         this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
     }
 
-    public BigDecimal getCoefficientMax() {
+    public Double getCoefficientMax() {
         return coefficientMax;
     }
 
-    public void setCoefficientMax(BigDecimal coefficientMax) {
+    public void setCoefficientMax(Double coefficientMax) {
         this.coefficientMax = coefficientMax;
     }
 
-    public BigDecimal getMaxActivePower() {
+    public Double getMaxActivePower() {
         return maxActivePower;
     }
 
-    public void setMaxActivePower(BigDecimal maxActivePower) {
+    public void setMaxActivePower(Double maxActivePower) {
         this.maxActivePower = maxActivePower;
     }
 
-    public BigDecimal getMaxReactivePower() {
+    public Double getMaxReactivePower() {
         return maxReactivePower;
     }
 
-    public void setMaxReactivePower(BigDecimal maxReactivePower) {
+    public void setMaxReactivePower(Double maxReactivePower) {
         this.maxReactivePower = maxReactivePower;
     }
 
-    public BigDecimal getMaxFullPower() {
+    public Double getMaxFullPower() {
         return maxFullPower;
     }
 
-    public void setMaxFullPower(BigDecimal maxFullPower) {
+    public void setMaxFullPower(Double maxFullPower) {
         this.maxFullPower = maxFullPower;
     }
 
-    public BigDecimal getMaxElectricCurrent() {
+    public Double getMaxElectricCurrent() {
         return maxElectricCurrent;
     }
 
-    public void setMaxElectricCurrent(BigDecimal maxElectricCurrent) {
+    public void setMaxElectricCurrent(Double maxElectricCurrent) {
         this.maxElectricCurrent = maxElectricCurrent;
     }
 
-    public BigDecimal getPowerOfGroup() {
+    public Double getPowerOfGroup() {
         return powerOfGroup;
     }
 
-    public void setPowerOfGroup(BigDecimal powerOfGroup) {
+    public void setPowerOfGroup(Double powerOfGroup) {
         this.powerOfGroup = powerOfGroup;
+    }
+
+    public Double getCosF() {
+        return cosF;
+    }
+
+    public void setCosF(Double cosF) {
+        this.cosF = cosF;
+    }
+
+    public Double getTgF() {
+        return tgF;
+    }
+
+    public void setTgF(Double tgF) {
+        this.tgF = tgF;
     }
 
     @Override
     public String toString() {
         return "FullInformation{" +
                 "id=" + id +
-                ", fullInformation=" + fullInformation +
                 ", nameOfBusbar='" + nameOfBusbar + '\'' +
                 ", amount=" + amount +
-                ", powerOfOne=" + powerOfOne +
                 ", module=" + module +
-                ", cosF=" + cosF +
-                ", tgF=" + tgF +
                 ", avgDailyActivePower=" + avgDailyActivePower +
                 ", avgDailyReactivePower=" + avgDailyReactivePower +
                 ", effectiveAmountOfEquipment=" + effectiveAmountOfEquipment +
@@ -243,6 +215,8 @@ public class FullInformation {
                 ", maxFullPower=" + maxFullPower +
                 ", maxElectricCurrent=" + maxElectricCurrent +
                 ", powerOfGroup=" + powerOfGroup +
+                ", cosF=" + cosF +
+                ", tgF=" + tgF +
                 '}';
     }
 }

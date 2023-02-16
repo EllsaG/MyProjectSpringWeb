@@ -10,11 +10,11 @@ public class StartInformationResponseDTO {
 
     private Long startInformId;
     private String name;
-    private BigDecimal power;
-    private BigInteger amount;
-    private BigDecimal ki;
-    private BigDecimal cosf;
-    private BigDecimal tgf;
+    private double power;
+    private int amount;
+    private double ki;
+    private double cosf;
+    private double tgf;
 
 
 
@@ -28,8 +28,8 @@ public class StartInformationResponseDTO {
         tgf = startInformation.getTgf();
     }
 
-    public StartInformationResponseDTO(Long startInformId, String name, BigDecimal power, BigInteger amount,
-                                       BigDecimal ki, BigDecimal cosf, BigDecimal tgf) {
+    public StartInformationResponseDTO(Long startInformId, String name, double power, int amount,
+                                       double ki, double cosf, double tgf) {
         this.startInformId = startInformId;
         this.name = name;
         this.power = power;
@@ -56,43 +56,43 @@ public class StartInformationResponseDTO {
         this.name = name;
     }
 
-    public BigDecimal getPower() {
+    public double getPower() {
         return power;
     }
 
-    public void setPower(BigDecimal power) {
+    public void setPower(double power) {
         this.power = power;
     }
 
-    public BigInteger getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(BigInteger amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public BigDecimal getKi() {
+    public double getKi() {
         return ki;
     }
 
-    public void setKi(BigDecimal ki) {
+    public void setKi(double ki) {
         this.ki = ki;
     }
 
-    public BigDecimal getCosf() {
+    public double getCosf() {
         return cosf;
     }
 
-    public void setCosf(BigDecimal cosf) {
+    public void setCosf(double cosf) {
         this.cosf = cosf;
     }
 
-    public BigDecimal getTgf() {
+    public double getTgf() {
         return tgf;
     }
 
-    public void setTgf(BigDecimal tgf) {
+    public void setTgf(double tgf) {
         this.tgf = tgf;
     }
 }

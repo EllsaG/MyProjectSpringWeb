@@ -21,11 +21,11 @@ public class StartInformationDeleteService {
     public String delete(Long startInformId){
         StartInformation startInformation= startInformationService.getInformationById(startInformId);
         String name = startInformation.getName();
-        BigDecimal power = startInformation.getPower();
-        BigInteger amount = startInformation.getAmount();
-        BigDecimal Ki = startInformation.getKi();
-        BigDecimal Cosf = startInformation.getCosf();
-        BigDecimal Tgf = startInformation.getTgf();
+        double power = startInformation.getPower();
+        int amount = startInformation.getAmount();
+        double Ki = startInformation.getKi();
+        double Cosf = startInformation.getCosf();
+        double Tgf = startInformation.getTgf();
         startInformationService.delete(startInformation);
         return "Information about  equipment № " + startInformId +
                 "\n  name " + name +
