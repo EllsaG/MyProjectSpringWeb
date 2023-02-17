@@ -11,54 +11,41 @@ public class FullInformation {
     @Id
     @Column(name = "full_information_id", nullable = false)
     private Long id;
-
     @Column(name = "name_of_busbar", nullable = false)
     private String nameOfBusbar;
-
     @Column(name = "amount", nullable = false)
     private Integer amount;
-
     @Column(name = "module")
     private Double module;
-
     @Column(name = "avg_daily_active_power", nullable = false)
     private Double avgDailyActivePower;
-
     @Column(name = "avg_daily_reactive_power", nullable = false)
     private Double avgDailyReactivePower;
-
     @Column(name = "effective_amount_of_equipment")
-    private Double effectiveAmountOfEquipment;
-
+    private Integer effectiveAmountOfEquipment;
     @Column(name = "coefficient_max")
     private Double coefficientMax;
-
     @Column(name = "max_active_power")
     private Double maxActivePower;
-
     @Column(name = "max_reactive_power")
     private Double maxReactivePower;
-
     @Column(name = "max_full_power")
     private Double maxFullPower;
-
     @Column(name = "max_electric_current")
     private Double maxElectricCurrent;
-
     @Column(name = "power_of_group", nullable = false)
     private Double powerOfGroup;
-
     @Column(name = "cos_f", nullable = false)
     private Double cosF;
-
-
     @Column(name = "tg_f", nullable = false)
     private Double tgF;
+    @Column(name = "k_i", nullable = false)
+    private Double kI;
 
     public FullInformation(Long id, String nameOfBusbar, Integer amount, Double module,
-                           Double avgDailyActivePower, Double avgDailyReactivePower, Double effectiveAmountOfEquipment,
+                           Double avgDailyActivePower, Double avgDailyReactivePower, Integer effectiveAmountOfEquipment,
                            Double coefficientMax, Double maxActivePower, Double maxReactivePower, Double maxFullPower,
-                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF) {
+                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double kI) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
@@ -74,6 +61,7 @@ public class FullInformation {
         this.powerOfGroup = powerOfGroup;
         this.cosF = cosF;
         this.tgF = tgF;
+        this.kI = kI;
     }
 
     public FullInformation() {
@@ -127,11 +115,11 @@ public class FullInformation {
         this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
-    public Double getEffectiveAmountOfEquipment() {
+    public Integer getEffectiveAmountOfEquipment() {
         return effectiveAmountOfEquipment;
     }
 
-    public void setEffectiveAmountOfEquipment(Double effectiveAmountOfEquipment) {
+    public void setEffectiveAmountOfEquipment(Integer effectiveAmountOfEquipment) {
         this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
     }
 
@@ -199,6 +187,14 @@ public class FullInformation {
         this.tgF = tgF;
     }
 
+    public Double getkI() {
+        return kI;
+    }
+
+    public void setkI(Double kI) {
+        this.kI = kI;
+    }
+
     @Override
     public String toString() {
         return "FullInformation{" +
@@ -217,6 +213,7 @@ public class FullInformation {
                 ", powerOfGroup=" + powerOfGroup +
                 ", cosF=" + cosF +
                 ", tgF=" + tgF +
+                ", kI=" + kI +
                 '}';
     }
 }

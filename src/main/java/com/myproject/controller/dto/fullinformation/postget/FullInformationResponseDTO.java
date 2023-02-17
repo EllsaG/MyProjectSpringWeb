@@ -11,7 +11,7 @@ public class FullInformationResponseDTO {
     private Double module;
     private Double avgDailyActivePower;
     private Double avgDailyReactivePower;
-    private Double effectiveAmountOfEquipment;
+    private Integer effectiveAmountOfEquipment;
     private Double coefficientMax;
     private Double maxActivePower;
     private Double maxReactivePower;
@@ -20,6 +20,8 @@ public class FullInformationResponseDTO {
     private Double powerOfGroup;
     private Double cosF;
     private Double tgF;
+    private Double kI;
+
 
     public FullInformationResponseDTO(FullInformation fullInformation) {
         id = fullInformation.getId();
@@ -37,12 +39,13 @@ public class FullInformationResponseDTO {
         powerOfGroup = fullInformation.getPowerOfGroup();
         cosF = fullInformation.getCosF();
         tgF = fullInformation.getTgF();
+        kI = fullInformation.getkI();
     }
 
     public FullInformationResponseDTO(Long id, String nameOfBusbar, Integer amount, Double module, Double avgDailyActivePower,
-                                      Double avgDailyReactivePower, Double effectiveAmountOfEquipment, Double coefficientMax,
+                                      Double avgDailyReactivePower, Integer effectiveAmountOfEquipment, Double coefficientMax,
                                       Double maxActivePower, Double maxReactivePower, Double maxFullPower, Double maxElectricCurrent,
-                                      Double powerOfGroup, Double cosF, Double tgF) {
+                                      Double powerOfGroup, Double cosF, Double tgF, Double kI) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
@@ -58,6 +61,7 @@ public class FullInformationResponseDTO {
         this.powerOfGroup = powerOfGroup;
         this.cosF = cosF;
         this.tgF = tgF;
+        this.kI = kI;
     }
 
     public Long getId() {
@@ -108,11 +112,11 @@ public class FullInformationResponseDTO {
         this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
-    public Double getEffectiveAmountOfEquipment() {
+    public Integer getEffectiveAmountOfEquipment() {
         return effectiveAmountOfEquipment;
     }
 
-    public void setEffectiveAmountOfEquipment(Double effectiveAmountOfEquipment) {
+    public void setEffectiveAmountOfEquipment(Integer effectiveAmountOfEquipment) {
         this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
     }
 
@@ -178,5 +182,13 @@ public class FullInformationResponseDTO {
 
     public void setTgF(Double tgF) {
         this.tgF = tgF;
+    }
+
+    public Double getkI() {
+        return kI;
+    }
+
+    public void setkI(Double kI) {
+        this.kI = kI;
     }
 }
