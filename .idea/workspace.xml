@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="continued to create the &quot;load calculation&quot;.&#10;Can't make request.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/NumbersAndAmountOfEquipmentsRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/pojo/NumbersAndAmountOfEquipments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
@@ -147,6 +149,8 @@
       <workItem from="1676534407503" duration="20586000" />
       <workItem from="1676624285010" duration="12529000" />
       <workItem from="1676649043798" duration="887000" />
+      <workItem from="1676715016645" duration="13349000" />
+      <workItem from="1676729862618" duration="1113000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -193,7 +197,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="work-now" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -224,6 +228,7 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="com.myproject.controller.dto.pojo.NumbersAndAmountOfEquipments" memberName="numbersOfEquipment" />
         <PinnedItemInfo parentTag="java.lang.Long" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
@@ -236,6 +241,10 @@
         <watch expression="method" />
         <watch expression="((Response)((Response)((ResponseFacade)response).response).coyoteResponse).req" custom="org.apache.catalina.connector.ResponseFacade,org.apache.coyote.Response,org.apache.catalina.connector.Response" />
         <watch expression="this.logger" language="JAVA" />
+        <watch expression="nameOfBusbar" />
+        <watch expression="numbersOfEquipments.get(3)" />
+        <watch expression="startInformationList" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>

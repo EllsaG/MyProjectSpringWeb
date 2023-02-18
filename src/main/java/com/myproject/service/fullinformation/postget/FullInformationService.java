@@ -1,5 +1,7 @@
 package com.myproject.service.fullinformation.postget;
 
+import com.myproject.controller.dto.fullinformation.postget.NumbersAndAmountOfEquipmentsRequestDTO;
+import com.myproject.controller.dto.pojo.NumbersAndAmountOfEquipments;
 import com.myproject.entity.FullInformation;
 import com.myproject.repositories.FullInformationRepository;
 import com.myproject.service.startinformation.postget.StartInformationService;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class FullInformationService {
@@ -22,7 +25,7 @@ public class FullInformationService {
     }
 
     public String save (Long id, String nameOfBusbar,
-                        HashMap<Integer, Integer> numbersAndAmountOfEquipments){
+                        List<NumbersAndAmountOfEquipments> numbersAndAmountOfEquipments){
 
         FullInformation fullInformation =  ForFullTableLoadCalculation.calculation(startInformationService,  id,
                          nameOfBusbar,  numbersAndAmountOfEquipments);

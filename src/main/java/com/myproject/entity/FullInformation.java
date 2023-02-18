@@ -15,8 +15,7 @@ public class FullInformation {
     private String nameOfBusbar;
     @Column(name = "amount", nullable = false)
     private Integer amount;
-    @Column(name = "module")
-    private Double module;
+
     @Column(name = "avg_daily_active_power", nullable = false)
     private Double avgDailyActivePower;
     @Column(name = "avg_daily_reactive_power", nullable = false)
@@ -41,11 +40,13 @@ public class FullInformation {
     private Double tgF;
     @Column(name = "k_i", nullable = false)
     private Double kI;
+    @Column(name = "module", nullable = false)
+    private Double module;
 
-    public FullInformation(Long id, String nameOfBusbar, Integer amount, Double module,
+    public FullInformation(Long id, String nameOfBusbar, Integer amount,
                            Double avgDailyActivePower, Double avgDailyReactivePower, Integer effectiveAmountOfEquipment,
                            Double coefficientMax, Double maxActivePower, Double maxReactivePower, Double maxFullPower,
-                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double kI) {
+                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double kI,Double module) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
