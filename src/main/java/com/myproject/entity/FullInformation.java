@@ -15,7 +15,6 @@ public class FullInformation {
     private String nameOfBusbar;
     @Column(name = "amount", nullable = false)
     private Integer amount;
-
     @Column(name = "avg_daily_active_power", nullable = false)
     private Double avgDailyActivePower;
     @Column(name = "avg_daily_reactive_power", nullable = false)

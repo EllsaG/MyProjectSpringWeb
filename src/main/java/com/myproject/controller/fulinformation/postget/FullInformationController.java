@@ -1,12 +1,13 @@
 package com.myproject.controller.fulinformation.postget;
 
 import com.myproject.controller.dto.fullinformation.postget.FullInformationRequestDTO;
-import com.myproject.controller.dto.pojo.NumbersAndAmountOfEquipments;
+import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
+
+import com.myproject.controller.dto.fullinformation.postget.FullStartInformIdRequestDTO;
+import com.myproject.entity.FullStartInformId;
 import com.myproject.service.fullinformation.postget.FullInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 
@@ -20,13 +21,18 @@ public class FullInformationController {
         this.fullInformationService = fullInformationService;
     }
 
+    @GetMapping("/fullinformation/{fullInformationId}")
+    public FullInformationResponseDTO getById(@PathVariable Long fullInformationId) {
+        return new FullInformationResponseDTO(fullInformationService.getInformationById(fullInformationId));
+    }
+
     @PostMapping("/fullinformation/create")
     public String create(@RequestBody FullInformationRequestDTO fullInformationRequestDTO) {
         return fullInformationService.save(fullInformationRequestDTO.getId(),
                 fullInformationRequestDTO.getNameOfBusbar(),
-                    fullInformationRequestDTO.getNumbersAndAmountOfEquipments().stream()
-                            .map(e -> new NumbersAndAmountOfEquipments(e.getNumbersOfEquipment(),e.getAmountOfEquipments()))
-                            .collect(Collectors.toList())) ;
+                fullInformationRequestDTO.getFullStartInformIdRequestDTO().stream()
+                        .map(e -> new FullStartInformId(e.getNumberOfBusbar(), e.getNumberOfEquipment(), e.getAmountOfEquipment()))
+                        .collect(Collectors.toList()));
     }
 
 

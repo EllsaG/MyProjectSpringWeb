@@ -1,9 +1,11 @@
 package com.myproject.utils;
 
-import com.myproject.controller.dto.fullinformation.postget.NumbersAndAmountOfEquipmentsRequestDTO;
-import com.myproject.controller.dto.pojo.NumbersAndAmountOfEquipments;
+
 import com.myproject.entity.FullInformation;
+import com.myproject.entity.FullStartInformId;
 import com.myproject.entity.StartInformation;
+import com.myproject.exceptions.InformationAlreadyExistsException;
+import com.myproject.repositories.FullInformationRepository;
 import com.myproject.service.startinformation.postget.StartInformationService;
 
 import java.util.*;
@@ -11,40 +13,43 @@ import java.util.stream.Collectors;
 
 public class ForFullTableLoadCalculation {
 
+    public static FullInformation calculation(FullInformationRepository fullInformationRepository, StartInformationService startInformationService,
+                                              Long id, String nameOfBusbar, List<FullStartInformId> fullStartInformId) {
 
-    public static FullInformation calculation(StartInformationService startInformationService, Long id,String nameOfBusbar, List<NumbersAndAmountOfEquipments> numbersAndAmountOfEquipmentsList) {
-
-        HashMap<Integer,Integer> numbersAndAmountOfEquipments = new HashMap<>() ;
-
-        for (int i = 0; i < numbersAndAmountOfEquipmentsList.size() ; i++) {
-            numbersAndAmountOfEquipments.put(numbersAndAmountOfEquipmentsList.get(i).getNumbersOfEquipment(),
-                    numbersAndAmountOfEquipmentsList.get(i).getAmountOfEquipments());
+        Optional<FullInformation> byId = fullInformationRepository.findById(id);
+        if (byId.isPresent()) {
+            throw new InformationAlreadyExistsException("Information about busbar with id № " + id + " is already exists");
         }
 
-        List<Integer> numbersOfEquipments = new ArrayList<>(numbersAndAmountOfEquipments.keySet());
+        HashMap<Long, Integer> numbersAndAmountOfEquipments = new HashMap<>();
+        fullStartInformId.stream()
+                .forEach((e) -> {
+                    numbersAndAmountOfEquipments.put(e.getStartInformId(), e.getAmount());
+                });
 
+        List<Long> numbersOfEquipments = new ArrayList<>(numbersAndAmountOfEquipments.keySet());
 
         Collection<Integer> amountOfEquipments = numbersAndAmountOfEquipments.values();
         List<StartInformation> startInformationList = new ArrayList<>();
+
 
         for (int i = 0; i < numbersOfEquipments.size(); i++) {
             startInformationList.add(startInformationService.getInformationById(Long.valueOf(numbersOfEquipments.get(i))));
         }
 
-
         Integer amount = amountOfEquipments.stream().reduce((a, e) -> a + e).get(); // amount of equipment in busbar
 
         Double powerOfGroup = startInformationList.stream()
-                .map((a) -> a.getPower() * numbersAndAmountOfEquipments.get(a.getStartInformId().intValue()))
+                .map((a) -> a.getPower() * numbersAndAmountOfEquipments.get(a.getStartInformId()))
                 .reduce((a, e) -> (a + e)).get(); // active power of all groups included in the busbar
 
 
         Double avgDailyActivePower = startInformationList.stream()
-                .map((a) -> a.getAvgDailyActivePower() * numbersAndAmountOfEquipments.get(a.getStartInformId().intValue()))
+                .map((a) -> a.getAvgDailyActivePower() * numbersAndAmountOfEquipments.get(a.getStartInformId()))
                 .reduce((a, e) -> (a + e)).get(); // average daily active power of all groups included in the busbar
 
         Double avgDailyReactivePower = startInformationList.stream()
-                .map((a) -> a.getAvgDailyReactivePower() * numbersAndAmountOfEquipments.get(a.getStartInformId().intValue()))
+                .map((a) -> a.getAvgDailyReactivePower() * numbersAndAmountOfEquipments.get(a.getStartInformId()))
                 .reduce((a, e) -> (a + e)).get(); // average daily reactive power of all groups included in the busbar
 
 
@@ -67,15 +72,15 @@ public class ForFullTableLoadCalculation {
         Double maxReactivePower = avgDailyReactivePower; /* max reactive power of the current busbar (at amount > 10)
         At amount <= 10 the formula need to change (in the future)*/
 
-        Double maxFullPower = Math.round(Math.sqrt(Math.pow(maxActivePower,2) +
-                Math.pow(maxReactivePower,2)) * 100.0) / 100.0; // max full power of the current busbar
+        Double maxFullPower = Math.round(Math.sqrt(Math.pow(maxActivePower, 2) +
+                Math.pow(maxReactivePower, 2)) * 100.0) / 100.0; // max full power of the current busbar
 
-        Double maxElectricCurrent = Math.round(((maxFullPower* 1000) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
+        Double maxElectricCurrent = Math.round(((maxFullPower * 1000) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
 
-        return new FullInformation( id,  nameOfBusbar,  amount,
-                 avgDailyActivePower,  avgDailyReactivePower,  effectiveAmountOfEquipment,
-                 coefficientMax,  maxActivePower,  maxReactivePower,  maxFullPower,
-                 maxElectricCurrent,  powerOfGroup,  cosF,  tgF,  kI,  module);
+        return new FullInformation(id, nameOfBusbar, amount,
+                avgDailyActivePower, avgDailyReactivePower, effectiveAmountOfEquipment,
+                coefficientMax, maxActivePower, maxReactivePower, maxFullPower,
+                maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module);
 
     }
 

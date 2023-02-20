@@ -1,11 +1,11 @@
-package com.myproject.controller.dto.fullinformation.postget;
+package com.myproject.controller.dto.fullinformation.update;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.myproject.entity.FullStartInformId;
+import com.myproject.controller.dto.fullinformation.postget.FullStartInformIdRequestDTO;
 
 import java.util.List;
 
-public class FullInformationRequestDTO {
+public class FullInformationUpdateRequestDTO {
     @JsonProperty("id")
     private Long id;
     @JsonProperty("nameOfBusbar")
