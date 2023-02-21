@@ -4,23 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Сompleted to create a &quot;load calculation&quot;.&#10;Now it works!!!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullStartInformIdRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/update/FullInformationUpdateRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullStartInformId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/FullStartInformationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullstartinfromation/FullStartInformationService.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="continued to create the &quot;load calculation&quot;.&#10;Can't make request.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullStartInformIdResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/NumbersAndAmountOfEquipmentsRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/pojo/NumbersAndAmountOfEquipments.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/UpdateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/FullStartInformationRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullstartinfromation/FullStartInformationService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Interface" />
+        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Class" />
       </list>
     </option>
@@ -118,11 +113,6 @@
     ]
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.myproject.controller.dto.fullinformation.update" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="excludedTypes">
       <set>
@@ -136,6 +126,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.All in generated-requests" />
         <item itemvalue="HTTP Request.All in generated-requests" />
         <item itemvalue="HTTP Request.All in generated-requests" />
       </list>
@@ -165,8 +156,6 @@
       <workItem from="1676649043798" duration="887000" />
       <workItem from="1676715016645" duration="13349000" />
       <workItem from="1676729862618" duration="1113000" />
-      <workItem from="1676803564510" duration="7019000" />
-      <workItem from="1676894951012" duration="16170000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -213,7 +202,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="work-now" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -231,8 +220,7 @@
     <MESSAGE value="&quot;matching&quot;!!!" />
     <MESSAGE value="continued to create the &quot;load calculation&quot;&#10;need add &quot;avg_daily_active_power&quot; and &quot;avg_daily_reactive_power&quot; in the &quot;start_information&quot; table" />
     <MESSAGE value="continued to create the &quot;load calculation&quot;.&#10;Can't make request." />
-    <MESSAGE value="Сompleted to create a &quot;load calculation&quot;.&#10;Now it works!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сompleted to create a &quot;load calculation&quot;.&#10;Now it works!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued to create the &quot;load calculation&quot;.&#10;Can't make request." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

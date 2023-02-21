@@ -1,8 +1,6 @@
 package com.myproject.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 
 @Entity
 @Table(name = "start_information")

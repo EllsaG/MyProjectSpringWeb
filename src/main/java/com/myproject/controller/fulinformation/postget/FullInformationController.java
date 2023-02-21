@@ -2,8 +2,6 @@ package com.myproject.controller.fulinformation.postget;
 
 import com.myproject.controller.dto.fullinformation.postget.FullInformationRequestDTO;
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
-
-import com.myproject.controller.dto.fullinformation.postget.FullStartInformIdRequestDTO;
 import com.myproject.entity.FullStartInformId;
 import com.myproject.service.fullinformation.postget.FullInformationService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,7 @@
 package com.myproject.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "full_information")
@@ -41,11 +39,14 @@ public class FullInformation {
     private Double kI;
     @Column(name = "module", nullable = false)
     private Double module;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<FullStartInformId> fullStartInformId;
 
     public FullInformation(Long id, String nameOfBusbar, Integer amount,
                            Double avgDailyActivePower, Double avgDailyReactivePower, Integer effectiveAmountOfEquipment,
                            Double coefficientMax, Double maxActivePower, Double maxReactivePower, Double maxFullPower,
-                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double kI,Double module) {
+                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double kI, Double module,
+                           List<FullStartInformId> fullStartInformId) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
@@ -62,6 +63,7 @@ public class FullInformation {
         this.cosF = cosF;
         this.tgF = tgF;
         this.kI = kI;
+        this.fullStartInformId=fullStartInformId;
     }
 
     public FullInformation() {
@@ -195,13 +197,20 @@ public class FullInformation {
         this.kI = kI;
     }
 
+    public List<FullStartInformId> getFullStartInformId() {
+        return fullStartInformId;
+    }
+
+    public void setFullStartInformId(List<FullStartInformId> fullStartInformId) {
+        this.fullStartInformId = fullStartInformId;
+    }
+
     @Override
     public String toString() {
         return "FullInformation{" +
                 "id=" + id +
                 ", nameOfBusbar='" + nameOfBusbar + '\'' +
                 ", amount=" + amount +
-                ", module=" + module +
                 ", avgDailyActivePower=" + avgDailyActivePower +
                 ", avgDailyReactivePower=" + avgDailyReactivePower +
                 ", effectiveAmountOfEquipment=" + effectiveAmountOfEquipment +
@@ -214,6 +223,8 @@ public class FullInformation {
                 ", cosF=" + cosF +
                 ", tgF=" + tgF +
                 ", kI=" + kI +
+                ", module=" + module +
+                ", fullStartInformId=" + fullStartInformId +
                 '}';
     }
 }

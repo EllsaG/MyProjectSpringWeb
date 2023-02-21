@@ -1,8 +1,8 @@
 package com.myproject.controller.dto.fullinformation.postget;
 
 import com.myproject.entity.FullInformation;
-
-import javax.persistence.Column;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class FullInformationResponseDTO {
     private Long id;
@@ -21,6 +21,7 @@ public class FullInformationResponseDTO {
     private Double cosF;
     private Double tgF;
     private Double kI;
+    private List<FullStartInformIdResponseDTO> fullStartInformIdResponseDTO;
 
 
     public FullInformationResponseDTO(FullInformation fullInformation) {
@@ -40,12 +41,15 @@ public class FullInformationResponseDTO {
         cosF = fullInformation.getCosF();
         tgF = fullInformation.getTgF();
         kI = fullInformation.getkI();
+        fullStartInformIdResponseDTO = fullInformation.getFullStartInformId().stream()
+                .map(FullStartInformIdResponseDTO::new)
+                .collect(Collectors.toList());
     }
 
     public FullInformationResponseDTO(Long id, String nameOfBusbar, Integer amount, Double module, Double avgDailyActivePower,
                                       Double avgDailyReactivePower, Integer effectiveAmountOfEquipment, Double coefficientMax,
                                       Double maxActivePower, Double maxReactivePower, Double maxFullPower, Double maxElectricCurrent,
-                                      Double powerOfGroup, Double cosF, Double tgF, Double kI) {
+                                      Double powerOfGroup, Double cosF, Double tgF, Double kI, List<FullStartInformIdResponseDTO> fullStartInformIdResponseDTO) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
@@ -62,6 +66,7 @@ public class FullInformationResponseDTO {
         this.cosF = cosF;
         this.tgF = tgF;
         this.kI = kI;
+        this.fullStartInformIdResponseDTO = fullStartInformIdResponseDTO;
     }
 
     public Long getId() {
@@ -190,5 +195,13 @@ public class FullInformationResponseDTO {
 
     public void setkI(Double kI) {
         this.kI = kI;
+    }
+
+    public List<FullStartInformIdResponseDTO> getFullStartInformIdResponseDTO() {
+        return fullStartInformIdResponseDTO;
+    }
+
+    public void setFullStartInformIdResponseDTO(List<FullStartInformIdResponseDTO> fullStartInformIdResponseDTO) {
+        this.fullStartInformIdResponseDTO = fullStartInformIdResponseDTO;
     }
 }

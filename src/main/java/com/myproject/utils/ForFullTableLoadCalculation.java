@@ -80,7 +80,7 @@ public class ForFullTableLoadCalculation {
         return new FullInformation(id, nameOfBusbar, amount,
                 avgDailyActivePower, avgDailyReactivePower, effectiveAmountOfEquipment,
                 coefficientMax, maxActivePower, maxReactivePower, maxFullPower,
-                maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module);
+                maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module, fullStartInformId);
 
     }
 
