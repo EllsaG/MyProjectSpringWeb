@@ -29,9 +29,9 @@ public class StartInformationDeleteService {
                 "\n  name " + name +
                 "\n  power " + power +
                 "\n  amount " + amount +
-                "\n  name " + Ki +
-                "\n  power " + Cosf +
-                "\n  amount " + Tgf +
+                "\n  ki " + Ki +
+                "\n  cosf " + Cosf +
+                "\n  tgf " + Tgf +
                 "\nhas been deleted";
     }
 

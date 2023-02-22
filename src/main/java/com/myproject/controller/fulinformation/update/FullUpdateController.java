@@ -28,7 +28,7 @@ public class FullUpdateController {
                 fullInformationUpdateRequestDTO.getFullStartInformIdRequestDTO().stream()
                         .map(e -> new FullStartInformId(e.getNumberOfBusbar(), e.getNumberOfEquipment(), e.getAmountOfEquipment()))
                         .collect(Collectors.toList()));
-        return "information updated";
+        return "Information updated";
     }
 
 

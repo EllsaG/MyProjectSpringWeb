@@ -2,13 +2,11 @@ package com.myproject.service.startinformation.postget;
 
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
-import com.myproject.matching.StartInformationMatching;
 import com.myproject.repositories.StartInformationRepository;
+import com.myproject.utils.ForStartTableLoadCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 
 @Service
 public class StartInformationService {
@@ -22,16 +20,16 @@ public class StartInformationService {
 
     public String save(Long startInformId, String name, double power, int amount,
                        double ki, double cosf, double tgf) {
-        StartInformation startInformation = StartInformationMatching
+        StartInformation startInformation = ForStartTableLoadCalculation
                 .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked only by id(because i don't know why it doesn't work)
         return "Information about new equipment № " +
                 startInformationRepository.save(startInformation).getStartInformId() +
                 "\n  name " + name +
                 "\n  power " + power +
                 "\n  amount " + amount +
-                "\n  name " + ki +
-                "\n  power " + cosf +
-                "\n  amount " + tgf +
+                "\n  ki " + ki +
+                "\n  cosf " + cosf +
+                "\n  tgf " + tgf +
                 "\nis saved";
     }
 

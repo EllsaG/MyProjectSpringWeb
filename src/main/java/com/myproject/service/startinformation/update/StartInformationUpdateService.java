@@ -5,9 +5,6 @@ import com.myproject.service.startinformation.postget.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 @Service
 public class StartInformationUpdateService {
 
@@ -36,16 +33,16 @@ public class StartInformationUpdateService {
                         "\n  name " + oldName +
                         "\n  power " + oldPower +
                         "\n  amount " + oldAmount +
-                        "\n  name " + oldKi +
-                        "\n  power " + oldCosf +
-                        "\n  amount " + oldTgf +
+                        "\n  ki " + oldKi +
+                        "\n  cosf " + oldCosf +
+                        "\n  tgf " + oldTgf +
                 "\nNew information about equipment № "+ startInformId +
                         "\n  name " + name +
                         "\n  power " + power +
                         "\n  amount " + amount +
-                        "\n  name " + ki +
-                        "\n  power " + cosf +
-                        "\n  amount " + tgf ;
+                        "\n  ki " + ki +
+                        "\n  cosf " + cosf +
+                        "\n  tgf " + tgf ;
     }
 
 
