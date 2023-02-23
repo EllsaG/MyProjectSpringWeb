@@ -25,8 +25,8 @@ public class ForStartTableLoadCalculation {
             }
         }
 
-        double avgDailyActivePower = Math.round(power * ki * 100.0) / 100.0; // Среднесменная активная мощность группы электроприемников P_(см ),кВт
-        double avgDailyReactivePower = Math.round(avgDailyActivePower * tgf * 100.0) / 100.0; // Среднесменная реактивная мощность группы электроприемников Q_см,кВАр
+        double avgDailyActivePower = Math.round(power * ki * 100.0) / 100.0; // average daily active power of one equipment
+        double avgDailyReactivePower = Math.round(avgDailyActivePower * tgf * 100.0) / 100.0; // average daily reactive power of one equipment
 
 
         return new StartInformation(startInformId, name, power, amount, ki, cosf, tgf, avgDailyActivePower, avgDailyReactivePower);

@@ -65,7 +65,7 @@ public class ForFullTableLoadCalculation {
                 .reduce((a, b) -> (a + b)).get();/* effective amount of equipment (at amount≥5, kI≤0.2,m≥3 and powerOfGroup ≠ const).
                     In other values (amount, kI and powerOfGroup) the formula need to change (in the future)*/
 
-        Double coefficientMax = k_max(kI, amount); // coefficient max of the current busbar
+        Double coefficientMax = kMax(kI, amount); // coefficient max of the current busbar
 
         Double maxActivePower = Math.round((avgDailyActivePower * coefficientMax) * 100.0) / 100.0;// max active power of the current busbar
 
@@ -94,11 +94,11 @@ public class ForFullTableLoadCalculation {
     }
 
 
-    private static Double k_max(Double kI, Integer amount) {
+    private static Double kMax(Double kI, Integer amount) {
         int b = 0; // for selection from one-dimensional arrays ( at values of kI {0 - 0.1},{0.11 - 0.2},{0.21 - 0.4})
         int j = 0; // for selection from two-dimensional arrays ( at values of amount {0-6, 7-9, 10-14, 16-20, 21-40, 41-70, 71-100, 101-160, 161-200})
 
-        double[][] K_max = {{3.23, 2.72, 2.24, 1.91, 1.62, 1.34, 1.23, 1.17, 1.05},
+        double[][] kMax = {{3.23, 2.72, 2.24, 1.91, 1.62, 1.34, 1.23, 1.17, 1.05},
                 {2.42, 1.99, 1.75, 1.55, 1.34, 1.19, 1.13, 1.1, 1.06},
                 {1.76, 1.52, 1.36, 1.26, 1.19, 1.12, 1.09, 1.06, 1.05}};//(it's not a full values) full values in the table from https://www.calc.ru/Raschetnaya-Nagruzka.html
 
@@ -109,7 +109,7 @@ public class ForFullTableLoadCalculation {
             b = 1;
         } else if (kI > 0.2) {
             b = 2;
-        } //
+        }
 
         if (amount <= 6) {
             b = 0;
@@ -131,7 +131,7 @@ public class ForFullTableLoadCalculation {
             j = 8;
         } // use "else" if amount will be more than 160 \
 
-        return Math.round((K_max[b][j]) * 100.0) / 100.0; //  round to two argument after point
+        return Math.round((kMax[b][j]) * 100.0) / 100.0; //  round to two argument after point
     }
 
 
