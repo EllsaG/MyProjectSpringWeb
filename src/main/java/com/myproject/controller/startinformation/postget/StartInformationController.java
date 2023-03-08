@@ -2,6 +2,7 @@ package com.myproject.controller.startinformation.postget;
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationRequestDTO;
 import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
+import com.myproject.entity.StartInformation;
 import com.myproject.service.startinformation.postget.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +23,15 @@ public class StartInformationController {
     }
 
     @PostMapping("/startinformation/create")
-    public String create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
-        return startInformationService.save(startInformationRequestDTO.getStartInformId(),
+    public StartInformationResponseDTO create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
+        Long startInformId = startInformationRequestDTO.getStartInformId();
+        startInformationService.save(startInformationRequestDTO.getStartInformId(),
                 startInformationRequestDTO.getName(),startInformationRequestDTO.getPower(),
                 startInformationRequestDTO.getAmount(), startInformationRequestDTO.getKi(),
                 startInformationRequestDTO.getCosf(), startInformationRequestDTO.getTgf());
+        StartInformationResponseDTO startInformationResponseDTO = new StartInformationResponseDTO(startInformationService
+                .getInformationById(startInformId));
+        return startInformationResponseDTO;
     }
 
 

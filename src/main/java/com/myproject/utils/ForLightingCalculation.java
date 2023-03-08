@@ -38,7 +38,8 @@ public class ForLightingCalculation {
         return "Ok";
     }
 
-    public static String electricCalculation(Integer amountOfLamps, Double activePowerOneLamp, Integer amountLuminairesPerWidth) {
+    public static String electricCalculation(Integer amountOfLamps, Double activePowerOneLamp,
+                                             Integer amountLuminairesPerWidth) {
 
         final Double coefDemand = 0.9;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
         final Double coefPRA = 1.1;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html

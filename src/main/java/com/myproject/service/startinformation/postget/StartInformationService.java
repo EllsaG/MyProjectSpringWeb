@@ -1,5 +1,6 @@
 package com.myproject.service.startinformation.postget;
 
+import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.StartInformationRepository;
@@ -18,19 +19,11 @@ public class StartInformationService {
         this.startInformationRepository = startInformationRepository;
     }
 
-    public String save(Long startInformId, String name, double power, int amount,
-                       double ki, double cosf, double tgf) {
+    public void save(Long startInformId, String name, double power, int amount,
+                                            double ki, double cosf, double tgf) {
         StartInformation startInformation = ForStartTableLoadCalculation
-                .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked only by id(because i don't know why it doesn't work)
-        return "Information about new equipment № " +
-                startInformationRepository.save(startInformation).getStartInformId() +
-                "\n  name " + name +
-                "\n  power " + power +
-                "\n  amount " + amount +
-                "\n  ki " + ki +
-                "\n  cosf " + cosf +
-                "\n  tgf " + tgf +
-                "\nis saved";
+                .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked only by id(because I don't know why it doesn't work)
+
     }
 
     public StartInformation getInformationById(Long startInformId) {
