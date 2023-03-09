@@ -8,6 +8,8 @@ import com.myproject.utils.ForStartTableLoadCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class StartInformationService {
@@ -20,15 +22,18 @@ public class StartInformationService {
     }
 
     public void save(Long startInformId, String name, double power, int amount,
-                                            double ki, double cosf, double tgf) {
+                     double ki, double cosf, double tgf) {
         StartInformation startInformation = ForStartTableLoadCalculation
-                .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked only by id(because I don't know why it doesn't work)
-
+                .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked  by id and name-power mapping
+        startInformationRepository.save(startInformation);
     }
 
     public StartInformation getInformationById(Long startInformId) {
         return startInformationRepository.findById(startInformId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about equipment with id № " + startInformId));
+    }
+    public List<StartInformation> getAllInformationById() {
+        return startInformationRepository.findAll();
     }
 
     public StartInformation update(StartInformation startInformation) {

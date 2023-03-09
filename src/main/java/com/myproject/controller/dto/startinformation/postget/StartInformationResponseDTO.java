@@ -3,8 +3,10 @@ package com.myproject.controller.dto.startinformation.postget;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.myproject.entity.StartInformation;
 
+import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 public class StartInformationResponseDTO {
 
@@ -15,6 +17,9 @@ public class StartInformationResponseDTO {
     private double ki;
     private double cosf;
     private double tgf;
+    private double avgDailyActivePower;
+    private double avgDailyReactivePower;
+    private List<StartInformation>list;
 
 
 
@@ -26,10 +31,16 @@ public class StartInformationResponseDTO {
         ki = startInformation.getKi();
         cosf = startInformation.getCosf();
         tgf = startInformation.getTgf();
+        avgDailyActivePower = startInformation.getAvgDailyActivePower();
+        avgDailyReactivePower = startInformation.getAvgDailyReactivePower();
+
+    }
+    public StartInformationResponseDTO(List<StartInformation>list) {
+        this.list = list;
     }
 
     public StartInformationResponseDTO(Long startInformId, String name, double power, int amount,
-                                       double ki, double cosf, double tgf) {
+                                       double ki, double cosf, double tgf, double avgDailyActivePower, double avgDailyReactivePower) {
         this.startInformId = startInformId;
         this.name = name;
         this.power = power;
@@ -37,6 +48,8 @@ public class StartInformationResponseDTO {
         this.ki = ki;
         this.cosf = cosf;
         this.tgf = tgf;
+        this.avgDailyActivePower = avgDailyActivePower;
+        this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
 
@@ -94,5 +107,21 @@ public class StartInformationResponseDTO {
 
     public void setTgf(double tgf) {
         this.tgf = tgf;
+    }
+
+    public double getAvgDailyActivePower() {
+        return avgDailyActivePower;
+    }
+
+    public void setAvgDailyActivePower(double avgDailyActivePower) {
+        this.avgDailyActivePower = avgDailyActivePower;
+    }
+
+    public double getAvgDailyReactivePower() {
+        return avgDailyReactivePower;
+    }
+
+    public void setAvgDailyReactivePower(double avgDailyReactivePower) {
+        this.avgDailyReactivePower = avgDailyReactivePower;
     }
 }
