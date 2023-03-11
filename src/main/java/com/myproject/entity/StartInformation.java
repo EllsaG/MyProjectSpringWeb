@@ -135,10 +135,7 @@ public class StartInformation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StartInformation that = (StartInformation) o;
-        return Double.compare(that.power, power) == 0 && amount == that.amount && Double.compare(that.ki, ki) == 0 &&
-                Double.compare(that.cosf, cosf) == 0 && Double.compare(that.tgf, tgf) == 0 && Double.compare(that.avgDailyActivePower, avgDailyActivePower) == 0 &&
-                Double.compare(that.avgDailyReactivePower, avgDailyReactivePower) == 0 && Objects.equals(startInformId, that.startInformId) &&
-                Objects.equals(name, that.name);
+        return Double.compare(that.power, power) == 0 && amount == that.amount && Double.compare(that.ki, ki) == 0 && Double.compare(that.cosf, cosf) == 0 && Double.compare(that.tgf, tgf) == 0 && Double.compare(that.avgDailyActivePower, avgDailyActivePower) == 0 && Double.compare(that.avgDailyReactivePower, avgDailyReactivePower) == 0 && Objects.equals(startInformId, that.startInformId) && Objects.equals(name, that.name);
     }
 
     @Override
