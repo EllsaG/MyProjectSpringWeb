@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @RestController
 public class FullInformationController {
 
-    FullInformationService fullInformationService;
+    private final FullInformationService fullInformationService;
 
     @Autowired
     public FullInformationController(FullInformationService fullInformationService) {
