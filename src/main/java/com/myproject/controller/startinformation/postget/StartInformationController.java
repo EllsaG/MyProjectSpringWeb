@@ -23,8 +23,7 @@ public class StartInformationController {
     }
     @GetMapping("/startinformation/all")
     public StartInformationRefreshResponseDTO getAll(){
-        StartInformationRefreshResponseDTO StartInformationRefreshResponseDTO = new StartInformationRefreshResponseDTO(startInformationService.getAllStartInformation());
-        return StartInformationRefreshResponseDTO;
+        return new StartInformationRefreshResponseDTO(startInformationService.getAllStartInformation());
     }
 
     @PostMapping("/startinformation/create")

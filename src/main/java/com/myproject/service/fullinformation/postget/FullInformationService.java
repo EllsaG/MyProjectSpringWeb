@@ -1,6 +1,7 @@
 package com.myproject.service.fullinformation.postget;
 
 
+import com.myproject.controller.dto.fullinformation.refresh.FullInformationRefreshResponseDTO;
 import com.myproject.entity.FullInformation;
 import com.myproject.entity.FullStartInformId;
 import com.myproject.exceptions.InformationNotFoundException;
@@ -25,21 +26,21 @@ public class FullInformationService {
         this.startInformationService = startInformationService;
     }
 
-    public String save(Long id, String nameOfBusbar,
+    public FullInformationRefreshResponseDTO save(Long id, String nameOfBusbar,
                        List<FullStartInformId> numbersAndAmountOfEquipments) {
 
         FullInformation fullInformation = ForFullTableLoadCalculation.calculation(fullInformationRepository,
                 startInformationService, id, nameOfBusbar, numbersAndAmountOfEquipments);
-
-
         fullInformationRepository.save(fullInformation);
-        return "Information about new busbar is saved ";
-
+        return new FullInformationRefreshResponseDTO(getAllFullInformation());
     }
 
     public FullInformation getInformationById(Long fullInformationId) {
         return fullInformationRepository.findById(fullInformationId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about busbar with id № " + fullInformationId));
+    }
+    public List<FullInformation> getAllFullInformation() {
+        return fullInformationRepository.findAll();
     }
 
     public FullInformation update(Long id, String nameOfBusbar,

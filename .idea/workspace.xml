@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Changed &quot;DeleteController&quot; and &quot;DeleteController&quot; .">
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Little change in &quot;FullInformationController&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/refresh/FullInformationRefreshResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/delete/FullDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/delete/FullDeleteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/postget/FullInformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/postget/StartInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/postget/StartInformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/delete/FullDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/delete/FullDeleteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,37 +82,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vegas/IdeaProjects/MyProjectSpringWeb&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;8d3ed727179cefdc6e9b0363df7e1765&quot;,
-    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/Vegas/IdeaProjects/MyProjectSpringWeb/src/main/java/com/myproject/controller/delete&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Vegas/IdeaProjects/MyProjectSpringWeb/src/main/java/com/myproject/controller/dto/fullinformation",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "spring.configuration.checksum": "8d3ed727179cefdc6e9b0363df7e1765",
+    "two.files.diff.last.used.folder": "C:/Users/Vegas/IdeaProjects/MyProjectSpringWeb/src/main/java/com/myproject/controller/delete",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\controller\dto\fullinformation" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.myproject.controller.dto.startinformation.getall" />
     </key>
@@ -191,6 +204,8 @@
       <workItem from="1678690703004" duration="388000" />
       <workItem from="1678692440489" duration="2808000" />
       <workItem from="1678695919755" duration="5238000" />
+      <workItem from="1678800779981" duration="4595000" />
+      <workItem from="1678878438808" duration="9717000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -258,7 +273,8 @@
     <MESSAGE value="Made the &quot;delete&quot; and &quot;utils&quot;" />
     <MESSAGE value="Began creating &quot;ForLightingCalculation&quot; in &quot;utils&quot;" />
     <MESSAGE value="Changed &quot;StartInformationController&quot; and added &quot;getAll&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed &quot;StartInformationController&quot; and added &quot;getAll&quot;." />
+    <MESSAGE value="Little change in &quot;FullInformationController&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Little change in &quot;FullInformationController&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -267,6 +283,11 @@
           <properties class="com.myproject.exceptions.InformationNotFoundException" package="com.myproject.exceptions" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/update/UpdateController.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -289,6 +310,10 @@
         <watch expression="startInformationList" />
         <watch expression="this" />
         <watch expression="fullStartInformationService" language="JAVA" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="fullInformationRefreshResponseDTO.list.get(0).fullStartInformId" />
+        <watch expression="fullInformationRefreshResponseDTO.list.get(0).fullStartInformId" />
       </configuration>
     </watches-manager>
   </component>

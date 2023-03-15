@@ -36,7 +36,7 @@ public class FullInformation {
     @Column(name = "tg_f", nullable = false)
     private Double tgF;
     @Column(name = "k_i", nullable = false)
-    private Double kI;
+    private Double ki;
     @Column(name = "module", nullable = false)
     private Double module;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -45,7 +45,7 @@ public class FullInformation {
     public FullInformation(Long id, String nameOfBusbar, Integer amount,
                            Double avgDailyActivePower, Double avgDailyReactivePower, Integer effectiveAmountOfEquipment,
                            Double coefficientMax, Double maxActivePower, Double maxReactivePower, Double maxFullPower,
-                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double kI, Double module,
+                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double ki, Double module,
                            List<FullStartInformId> fullStartInformId) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
@@ -62,7 +62,7 @@ public class FullInformation {
         this.powerOfGroup = powerOfGroup;
         this.cosF = cosF;
         this.tgF = tgF;
-        this.kI = kI;
+        this.ki = ki;
         this.fullStartInformId=fullStartInformId;
     }
 
@@ -189,12 +189,12 @@ public class FullInformation {
         this.tgF = tgF;
     }
 
-    public Double getkI() {
-        return kI;
+    public Double getKi() {
+        return ki;
     }
 
-    public void setkI(Double kI) {
-        this.kI = kI;
+    public void setKi(Double ki) {
+        this.ki = ki;
     }
 
     public List<FullStartInformId> getFullStartInformId() {
@@ -222,7 +222,7 @@ public class FullInformation {
                 ", powerOfGroup=" + powerOfGroup +
                 ", cosF=" + cosF +
                 ", tgF=" + tgF +
-                ", kI=" + kI +
+                ", kI=" + ki +
                 ", module=" + module +
                 ", fullStartInformId=" + fullStartInformId +
                 '}';

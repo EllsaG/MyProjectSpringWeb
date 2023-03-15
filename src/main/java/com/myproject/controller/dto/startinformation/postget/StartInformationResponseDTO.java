@@ -1,11 +1,7 @@
 package com.myproject.controller.dto.startinformation.postget;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.myproject.entity.StartInformation;
 
-import javax.persistence.Column;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 
 public class StartInformationResponseDTO {

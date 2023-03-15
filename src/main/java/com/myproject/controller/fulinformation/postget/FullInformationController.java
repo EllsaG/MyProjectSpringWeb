@@ -2,6 +2,7 @@ package com.myproject.controller.fulinformation.postget;
 
 import com.myproject.controller.dto.fullinformation.postget.FullInformationRequestDTO;
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
+import com.myproject.controller.dto.fullinformation.refresh.FullInformationRefreshResponseDTO;
 import com.myproject.entity.FullStartInformId;
 import com.myproject.service.fullinformation.postget.FullInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +24,19 @@ public class FullInformationController {
     public FullInformationResponseDTO getById(@PathVariable Long fullInformationId) {
         return new FullInformationResponseDTO(fullInformationService.getInformationById(fullInformationId));
     }
+    @GetMapping("/fullinformation/all")
+    public FullInformationRefreshResponseDTO getAll() {
+        return new FullInformationRefreshResponseDTO(fullInformationService.getAllFullInformation());
+    }
 
     @PostMapping("/fullinformation/create")
-    public String create(@RequestBody FullInformationRequestDTO fullInformationRequestDTO) {
-        return fullInformationService.save(fullInformationRequestDTO.getId(),
+    public FullInformationRefreshResponseDTO create(@RequestBody FullInformationRequestDTO fullInformationRequestDTO) {
+         return fullInformationService.save(fullInformationRequestDTO.getId(),
                 fullInformationRequestDTO.getNameOfBusbar(),
                 fullInformationRequestDTO.getFullStartInformIdRequestDTO().stream()
                         .map(e -> new FullStartInformId(e.getNumberOfBusbar(), e.getNumberOfEquipment(), e.getAmountOfEquipment()))
                         .collect(Collectors.toList()));
+
     }
 
 

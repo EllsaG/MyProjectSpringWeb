@@ -1,6 +1,7 @@
 package com.myproject.controller.dto.fullinformation.postget;
 
 import com.myproject.entity.FullInformation;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,8 +21,9 @@ public class FullInformationResponseDTO {
     private Double powerOfGroup;
     private Double cosF;
     private Double tgF;
-    private Double kI;
+    private Double ki;
     private List<FullStartInformIdResponseDTO> fullStartInformIdResponseDTO;
+    private List<FullInformation>list;
 
 
     public FullInformationResponseDTO(FullInformation fullInformation) {
@@ -40,7 +42,7 @@ public class FullInformationResponseDTO {
         powerOfGroup = fullInformation.getPowerOfGroup();
         cosF = fullInformation.getCosF();
         tgF = fullInformation.getTgF();
-        kI = fullInformation.getkI();
+        ki = fullInformation.getKi();
         fullStartInformIdResponseDTO = fullInformation.getFullStartInformId().stream()
                 .map(FullStartInformIdResponseDTO::new)
                 .collect(Collectors.toList());
@@ -49,7 +51,7 @@ public class FullInformationResponseDTO {
     public FullInformationResponseDTO(Long id, String nameOfBusbar, Integer amount, Double module, Double avgDailyActivePower,
                                       Double avgDailyReactivePower, Integer effectiveAmountOfEquipment, Double coefficientMax,
                                       Double maxActivePower, Double maxReactivePower, Double maxFullPower, Double maxElectricCurrent,
-                                      Double powerOfGroup, Double cosF, Double tgF, Double kI, List<FullStartInformIdResponseDTO> fullStartInformIdResponseDTO) {
+                                      Double powerOfGroup, Double cosF, Double tgF, Double ki, List<FullStartInformIdResponseDTO> fullStartInformIdResponseDTO) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
@@ -65,9 +67,14 @@ public class FullInformationResponseDTO {
         this.powerOfGroup = powerOfGroup;
         this.cosF = cosF;
         this.tgF = tgF;
-        this.kI = kI;
+        this.ki = ki;
         this.fullStartInformIdResponseDTO = fullStartInformIdResponseDTO;
     }
+
+    public FullInformationResponseDTO(List<FullInformation>list) {
+        this.list = list;
+    }
+
 
     public Long getId() {
         return id;
@@ -189,12 +196,12 @@ public class FullInformationResponseDTO {
         this.tgF = tgF;
     }
 
-    public Double getkI() {
-        return kI;
+    public Double getKi() {
+        return ki;
     }
 
-    public void setkI(Double kI) {
-        this.kI = kI;
+    public void setKi(Double ki) {
+        this.ki = ki;
     }
 
     public List<FullStartInformIdResponseDTO> getFullStartInformIdResponseDTO() {
