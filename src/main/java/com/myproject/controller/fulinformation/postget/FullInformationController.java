@@ -31,12 +31,11 @@ public class FullInformationController {
 
     @PostMapping("/fullinformation/create")
     public FullInformationRefreshResponseDTO create(@RequestBody FullInformationRequestDTO fullInformationRequestDTO) {
-         return fullInformationService.save(fullInformationRequestDTO.getId(),
+        return fullInformationService.save(fullInformationRequestDTO.getId(),
                 fullInformationRequestDTO.getNameOfBusbar(),
                 fullInformationRequestDTO.getFullStartInformIdRequestDTO().stream()
                         .map(e -> new FullStartInformId(e.getNumberOfBusbar(), e.getNumberOfEquipment(), e.getAmountOfEquipment()))
                         .collect(Collectors.toList()));
-
     }
 
 

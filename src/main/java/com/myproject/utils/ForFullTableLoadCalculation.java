@@ -32,28 +32,46 @@ public class ForFullTableLoadCalculation {
         Collection<Integer> amountOfEquipments = numbersAndAmountOfEquipments.values();
         List<StartInformation> startInformationList = new ArrayList<>();
 
+        List<FullStartInformId> fullStartInformIds = new ArrayList<>();
+
 
         for (int i = 0; i < numbersOfEquipments.size(); i++) {
-            startInformationList.add(startInformationService.getInformationById(Long.valueOf(numbersOfEquipments.get(i))));
+            StartInformation informationById = startInformationService.getInformationById(Long.valueOf(numbersOfEquipments.get(i)));
+            informationById.setAmount(numbersAndAmountOfEquipments.get(Long.valueOf(numbersOfEquipments.get(i))));
+            FullStartInformId fullStartInformId1 = new FullStartInformId();
+            fullStartInformId1.setFullInformationId(fullStartInformId.get(i).getFullInformationId());
+            fullStartInformId1.setStartInformId(fullStartInformId.get(i).getStartInformId());
+            fullStartInformId1.setName(informationById.getName());
+            fullStartInformId1.setPower(informationById.getPower());
+            fullStartInformId1.setPowerOfGroup(informationById.getPower() * informationById.getAmount());
+            fullStartInformId1.setAmount(informationById.getAmount());
+            fullStartInformId1.setKi(informationById.getKi());
+            fullStartInformId1.setCosf(informationById.getCosf());
+            fullStartInformId1.setTgf(informationById.getTgf());
+            fullStartInformId1.setAvgDailyActivePower(informationById.getAvgDailyActivePower());
+            fullStartInformId1.setAvgDailyReactivePower(informationById.getAvgDailyReactivePower());
+
+            fullStartInformIds.add(fullStartInformId1);
+            startInformationList.add(informationById);
         }
 
         Integer amount = amountOfEquipments.stream().reduce((a, e) -> a + e).get(); // amount of equipment in busbar
 
-        Double powerOfGroup = startInformationList.stream()
+        Double powerOfGroup = fullStartInformIds.stream()
                 .map((a) -> a.getPower() * numbersAndAmountOfEquipments.get(a.getStartInformId()))
                 .reduce((a, e) -> (a + e)).get(); // active power of all groups included in the busbar
 
 
-        Double avgDailyActivePower = startInformationList.stream()
+        Double avgDailyActivePower = fullStartInformIds.stream()
                 .map((a) -> a.getAvgDailyActivePower() * numbersAndAmountOfEquipments.get(a.getStartInformId()))
                 .reduce((a, e) -> (a + e)).get(); // average daily active power of all groups included in the busbar
 
-        Double avgDailyReactivePower = startInformationList.stream()
+        Double avgDailyReactivePower = fullStartInformIds.stream()
                 .map((a) -> a.getAvgDailyReactivePower() * numbersAndAmountOfEquipments.get(a.getStartInformId()))
                 .reduce((a, e) -> (a + e)).get(); // average daily reactive power of all groups included in the busbar
 
 
-        Double module = module(startInformationList); // module of the current busbar
+        Double module = module(fullStartInformIds); // module of the current busbar
 
         Double kI = Math.round((avgDailyActivePower / powerOfGroup) * 100.0) / 100.0; // utilization factor
 
@@ -80,13 +98,13 @@ public class ForFullTableLoadCalculation {
         return new FullInformation(id, nameOfBusbar, amount,
                 avgDailyActivePower, avgDailyReactivePower, effectiveAmountOfEquipment,
                 coefficientMax, maxActivePower, maxReactivePower, maxFullPower,
-                maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module, fullStartInformId);
+                maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module, fullStartInformIds);
 
     }
 
 
-    private static Double module(List<StartInformation> startInformationList) {
-        List<Double> list = startInformationList.stream()
+    private static Double module(List<FullStartInformId> fullStartInformIds) {
+        List<Double> list = fullStartInformIds.stream()
                 .map((x) -> x.getPower()).collect(Collectors.toList()); // take all "power" from equipment list of the current busbar
         Double min = list.stream().min(Double::compareTo).get();
         Double max = list.stream().max(Double::compareTo).get();
