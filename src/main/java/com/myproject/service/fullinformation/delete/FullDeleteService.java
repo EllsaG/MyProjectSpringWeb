@@ -1,7 +1,6 @@
 package com.myproject.service.fullinformation.delete;
 
-import com.myproject.controller.dto.fullinformation.refresh.FullInformationRefreshResponseDTO;
-import com.myproject.controller.dto.startinformation.refresh.StartInformationRefreshResponseDTO;
+import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
 import com.myproject.entity.FullInformation;
 import com.myproject.service.fullinformation.postget.FullInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +15,10 @@ public class FullDeleteService {
         this.fullInformationService = fullInformationService;
     }
 
-    public FullInformationRefreshResponseDTO deleteInfoById(Long id){
+    public FullInformationResponseDTO deleteInfoById(Long id){
         FullInformation informationById = fullInformationService.getInformationById(id);
         fullInformationService.delete(informationById);
-        return new FullInformationRefreshResponseDTO(fullInformationService.getAllFullInformation());
+        return new FullInformationResponseDTO(fullInformationService.getAllFullInformation());
 
     }
 

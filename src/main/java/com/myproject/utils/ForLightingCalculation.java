@@ -1,9 +1,11 @@
 package com.myproject.utils;
 
+import java.util.HashMap;
+
 public class ForLightingCalculation {
 
-    public static String lightingCalculation(Double widthProductionHall, Double lengthProductionHall,
-                                             Double heightProductionHall, Integer amountLampsInLuminaire) {
+    public static HashMap<Integer, HashMap<Double,Double>> lightingCalculation(Double heightProductionHall, Double widthProductionHall,
+                                                                               Double lengthProductionHall) {
 
         final Double heightOfWorkSurface = 0.8;
 
@@ -28,14 +30,30 @@ public class ForLightingCalculation {
         Integer amountLuminairesPerWidth = (int) Math.floor((widthProductionHall -
                 2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps);
 
-        Double lightFlux = (ratedLight * lengthProductionHall * widthProductionHall * safetyFactor * coefOfLightingIrregularity) /
-                (amountLampsInLuminaire * amountLuminairesPerLength * amountLuminairesPerWidth * coefEfficiencyOfLuminaire);
+        Double lightFlux = Math.ceil((ratedLight * lengthProductionHall * widthProductionHall * safetyFactor * coefOfLightingIrregularity) /
+                (1 * amountLuminairesPerLength * amountLuminairesPerWidth * coefEfficiencyOfLuminaire));
 
-        Double minLightFluxForChooseLuminaire = lightFlux * 1.4;
+        Double minLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.4);
 
-        Double maxLightFluxForChooseLuminaire = lightFlux * 1.6;
+        Double maxLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.6);
 
-        return "Ok";
+        HashMap<Integer, HashMap<Double,Double>> lightFluxAtAmountOfLamps = new HashMap<>();// min and max LightFluxForChooseLuminaire at 1, 2, 3 and 4 lamps in the Luminaire
+
+        HashMap<Double,Double> atOneLamp = new HashMap<>();
+        atOneLamp.put(minLightFluxForChooseLuminaire, maxLightFluxForChooseLuminaire);
+        HashMap<Double,Double> atTwoLamp = new HashMap<>();
+        atTwoLamp.put(Math.ceil(minLightFluxForChooseLuminaire/2), Math.ceil(maxLightFluxForChooseLuminaire/2));
+        HashMap<Double,Double> atThreeLamp = new HashMap<>();
+        atThreeLamp.put(Math.ceil(minLightFluxForChooseLuminaire/3), Math.ceil(maxLightFluxForChooseLuminaire/3));
+        HashMap<Double,Double> atFourLamp = new HashMap<>();
+        atFourLamp.put(Math.ceil(minLightFluxForChooseLuminaire/4), Math.ceil(maxLightFluxForChooseLuminaire/4));
+
+        lightFluxAtAmountOfLamps.put(1,atOneLamp);
+        lightFluxAtAmountOfLamps.put(2,atTwoLamp);
+        lightFluxAtAmountOfLamps.put(3,atThreeLamp);
+        lightFluxAtAmountOfLamps.put(4,atFourLamp);
+
+        return lightFluxAtAmountOfLamps;
     }
 
     public static String electricCalculation(Integer amountOfLamps, Double activePowerOneLamp,
@@ -55,12 +73,14 @@ public class ForLightingCalculation {
         Double fullPower = Math.round(Math.sqrt(Math.pow(activePower, 2) +
                 Math.pow(reactivePower, 2)) * 100.0) / 100.0;
 
-        Double electricCurrent = Math.round(((coefP*fullPower * 1000) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
+        Double electricCurrent = Math.round(((coefP * fullPower * 1000) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
 
-        Double electricCurrentOFOneRowOfLuminaire = Math.round(((coefP*electricCurrent) /
+        Double electricCurrentOFOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
                 (Math.sqrt(3) * 380 * amountLuminairesPerWidth)) * 100) / 100.0;
         return "Ok";
     }
+
+
 
 
 }

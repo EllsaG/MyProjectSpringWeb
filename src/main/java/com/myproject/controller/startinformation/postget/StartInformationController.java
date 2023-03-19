@@ -2,7 +2,6 @@ package com.myproject.controller.startinformation.postget;
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationRequestDTO;
 import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
-import com.myproject.controller.dto.startinformation.refresh.StartInformationRefreshResponseDTO;
 import com.myproject.service.startinformation.postget.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,17 +16,13 @@ public class StartInformationController {
         this.startInformationService = startInformationService;
     }
 
-    @GetMapping("/startinformation/{startInformId}")
-    public StartInformationResponseDTO getById(@PathVariable Long startInformId){
-        return new StartInformationResponseDTO(startInformationService.getInformationById(startInformId));
-    }
     @GetMapping("/startinformation/all")
-    public StartInformationRefreshResponseDTO getAll(){
-        return new StartInformationRefreshResponseDTO(startInformationService.getAllStartInformation());
+    public StartInformationResponseDTO getAll(){
+        return new StartInformationResponseDTO(startInformationService.getAllStartInformation());
     }
 
     @PostMapping("/startinformation/create")
-    public StartInformationRefreshResponseDTO create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
+    public StartInformationResponseDTO create(@RequestBody StartInformationRequestDTO startInformationRequestDTO) {
         return startInformationService.save(startInformationRequestDTO.getStartInformId(),
                 startInformationRequestDTO.getName(),startInformationRequestDTO.getPower(),
                 startInformationRequestDTO.getAmount(), startInformationRequestDTO.getKi(),

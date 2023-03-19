@@ -1,6 +1,6 @@
 package com.myproject.service.startinformation.postget;
 
-import com.myproject.controller.dto.startinformation.refresh.StartInformationRefreshResponseDTO;
+import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.StartInformationRepository;
@@ -21,12 +21,12 @@ public class StartInformationService {
         this.startInformationRepository = startInformationRepository;
     }
 
-    public StartInformationRefreshResponseDTO save(Long startInformId, String name, double power, int amount,
-                                                   double ki, double cosf, double tgf) {
+    public StartInformationResponseDTO save(Long startInformId, String name, double power, int amount,
+                                            double ki, double cosf, double tgf) {
         StartInformation startInformation = ForStartTableLoadCalculation
                 .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked  by id and name-power mapping
         startInformationRepository.save(startInformation);
-        return new StartInformationRefreshResponseDTO(getAllStartInformation());
+        return new StartInformationResponseDTO(getAllStartInformation());
     }
 
     public StartInformation getInformationById(Long startInformId) {
