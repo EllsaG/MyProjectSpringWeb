@@ -2,7 +2,7 @@ package com.myproject.controller.dto.lightinformation.postget;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LightInformationRequestDTO {
+public class LightInformationChooseLuminariesRequestDTO {
     @JsonProperty("heightProductionHall")
     private double heightProductionHall;
     @JsonProperty("widthProductionHall")

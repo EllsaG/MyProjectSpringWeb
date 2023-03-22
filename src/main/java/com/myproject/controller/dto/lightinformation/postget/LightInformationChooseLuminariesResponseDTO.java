@@ -2,11 +2,11 @@ package com.myproject.controller.dto.lightinformation.postget;
 
 import java.util.HashMap;
 
-public class LightInformationResponseDTO {
+public class LightInformationChooseLuminariesResponseDTO {
 
     HashMap<Integer, HashMap<Double,Double>> lightFluxAtAmountOfLamps;
 
-    public LightInformationResponseDTO(HashMap<Integer, HashMap<Double, Double>> lightFluxAtAmountOfLamps) {
+    public LightInformationChooseLuminariesResponseDTO(HashMap<Integer, HashMap<Double, Double>> lightFluxAtAmountOfLamps) {
         this.lightFluxAtAmountOfLamps = lightFluxAtAmountOfLamps;
     }
 

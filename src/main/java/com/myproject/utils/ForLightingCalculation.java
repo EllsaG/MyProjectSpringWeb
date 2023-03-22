@@ -1,8 +1,19 @@
 package com.myproject.utils;
 
+import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
+import com.myproject.entity.LightInformation;
+
 import java.util.HashMap;
 
 public class ForLightingCalculation {
+
+    private static double distanceBetweenRowsOfLamps;
+    private static double distanceBetweenWallAndFirstRowOfLamps;
+    private static int amountLuminairesPerLength;
+    private static int amountLuminairesPerWidth;
+    private static double lightFlux;
+
+
 
     public static HashMap<Integer, HashMap<Double,Double>> lightingCalculation(Double heightProductionHall, Double widthProductionHall,
                                                                                Double lengthProductionHall) {
@@ -20,17 +31,17 @@ public class ForLightingCalculation {
 
         Double heightOverWorkSurface = heightProductionHall - heightOfWorkSurface - heightLampUnderCeiling;
 
-        Double distanceBetweenRowsOfLamps = heightOverWorkSurface * coef;
+        distanceBetweenRowsOfLamps = heightOverWorkSurface * coef;
 
-        Double distanceBetweenWallAndFirstRowOfLamps = (double) Math.round(0.25 * distanceBetweenRowsOfLamps * 10) / 10; // coef "0.25" maybe between 0.25 and 0.3
+         distanceBetweenWallAndFirstRowOfLamps = (double) Math.round(0.25 * distanceBetweenRowsOfLamps * 10) / 10; // coef "0.25" maybe between 0.25 and 0.3
 
-        Integer amountLuminairesPerLength = (int) Math.floor((lengthProductionHall -
-                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps);
+         amountLuminairesPerLength = (int) Math.floor((lengthProductionHall -
+                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps)+1;
 
-        Integer amountLuminairesPerWidth = (int) Math.floor((widthProductionHall -
-                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps);
+         amountLuminairesPerWidth = (int) Math.floor((widthProductionHall -
+                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps)+1;
 
-        Double lightFlux = Math.ceil((ratedLight * lengthProductionHall * widthProductionHall * safetyFactor * coefOfLightingIrregularity) /
+         lightFlux = Math.ceil((ratedLight * lengthProductionHall * widthProductionHall * safetyFactor * coefOfLightingIrregularity) /
                 (1 * amountLuminairesPerLength * amountLuminairesPerWidth * coefEfficiencyOfLuminaire));
 
         Double minLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.4);
@@ -56,28 +67,31 @@ public class ForLightingCalculation {
         return lightFluxAtAmountOfLamps;
     }
 
-    public static String electricCalculation(Integer amountOfLamps, Double activePowerOneLamp,
-                                             Integer amountLuminairesPerWidth) {
+    public static LightInformation electricCalculation(String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
+                                                       int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
 
-        final Double coefDemand = 0.9;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
-        final Double coefPRA = 1.1;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
-        final Double coefP = 1.4;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
-        final Double cosf = 0.95;
-        final Double tgf = 0.33;
+        final double coefDemand = 0.9;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
+        final double coefPRA = 1.1;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
+        final double coefP = 1.4;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
+        final double cosf = 0.95;
+        final double tgf = 0.33;
 
 
-        Double activePower = coefDemand * amountOfLamps * activePowerOneLamp * coefPRA;
+        double activePower = Math.round(coefDemand * (amountOfLampsInOneLuminaire * amountLuminairesPerLength * amountLuminairesPerWidth) * activePowerOneLamp * coefPRA);
 
-        Double reactivePower = activePower * tgf;
+        double reactivePower = Math.round(activePower * tgf);
 
-        Double fullPower = Math.round(Math.sqrt(Math.pow(activePower, 2) +
+        double fullPower = Math.round(Math.sqrt(Math.pow(activePower, 2) +
                 Math.pow(reactivePower, 2)) * 100.0) / 100.0;
 
-        Double electricCurrent = Math.round(((coefP * fullPower * 1000) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
+        double electricCurrent = Math.round(((coefP * fullPower) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
 
-        Double electricCurrentOFOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
-                (Math.sqrt(3) * 380 * amountLuminairesPerWidth)) * 100) / 100.0;
-        return "Ok";
+        double electricCurrentOfOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
+                (Math.sqrt(3) * 0.38 * amountLuminairesPerLength)) * 100) / 100.0;
+
+        return new LightInformation(modelOfLuminaire, modelOfLamp, distanceBetweenRowsOfLamps, distanceBetweenWallAndFirstRowOfLamps,
+                amountLuminairesPerLength, amountLuminairesPerWidth, lightFlux, activePower, reactivePower, fullPower,
+                electricCurrent, electricCurrentOfOneRowOfLuminaire);
     }
 
 
