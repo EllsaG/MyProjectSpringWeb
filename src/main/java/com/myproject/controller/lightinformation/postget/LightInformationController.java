@@ -31,7 +31,8 @@ public class LightInformationController {
     @PostMapping("/lightinformation/create/insertnewluminaries")
     public LightInformationCreateNewResponseDTO createNew(@RequestBody LightInformationCreateNewRequestDTO lightInformationCreateNewRequestDTO) {
         return lightInformationService.createNew(lightInformationCreateNewRequestDTO.getModelOfLuminaire(),
-                lightInformationCreateNewRequestDTO.getModelOfLamp(), lightInformationCreateNewRequestDTO.getAmountOfLampsInOneLuminaire(),
-                lightInformationCreateNewRequestDTO.getLightFluxOneLamp(), lightInformationCreateNewRequestDTO.getActivePowerOneLamp());
+                lightInformationCreateNewRequestDTO.getModelOfLamp(),lightInformationCreateNewRequestDTO.getLightFluxOneLamp(),
+                lightInformationCreateNewRequestDTO.getAmountOfLampsInOneLuminaire(),
+                lightInformationCreateNewRequestDTO.getActivePowerOneLamp());
     }
 }

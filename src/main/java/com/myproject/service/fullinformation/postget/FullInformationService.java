@@ -54,6 +54,8 @@ public class FullInformationService {
         fullInformationRepository.delete(fullInformation);
     }
 
-
+    public void saveLighting(FullInformation fullInformation) {
+        fullInformationRepository.save(fullInformation);
+    }
 
 }

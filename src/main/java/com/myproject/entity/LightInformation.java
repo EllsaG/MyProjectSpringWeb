@@ -14,6 +14,14 @@ public class LightInformation {
     private String modelOfLuminaire;
     @Column(name="model_of_lamp",nullable = false)
     private String modelOfLamp;
+    @Column(name="amount_of_luminaires",nullable = false)
+    private int amountOfLuminaires;
+    @Column(name="amount_of_lamps_in_one_luminaire",nullable = false)
+    private int amountOfLampsInOneLuminaire;
+    @Column(name="power_of_one_lamp",nullable = false)
+    private double powerOfOneLamp;
+    @Column(name="light_flux_of_one_lamp",nullable = false)
+    private double lightFluxOfOneLamp;
     @Column(name="distance_between_rows_of_lamps",nullable = false)
     private double distanceBetweenRowsOfLamps;
     @Column(name="distance_between_wall_and_first_row_of_lamps",nullable = false)
@@ -22,8 +30,6 @@ public class LightInformation {
     private int amountLuminairesPerLength;
     @Column(name="amount_luminaires_per_width",nullable = false)
     private int amountLuminairesPerWidth;
-    @Column(name="light_flux",nullable = false)
-    private double lightFlux;
     @Column(name="active_power",nullable = false)
     private double activePower;
     @Column(name="reactive_power",nullable = false)
@@ -34,27 +40,30 @@ public class LightInformation {
     private double electricCurrent;
     @Column(name="electric_current_of_one_row_of_luminaire",nullable = false)
     private double electricCurrentOfOneRowOfLuminaire;
+    @Column(name = "cos_f", nullable = false)
+    private Double cosF;
+    @Column(name = "tg_f", nullable = false)
+    private Double tgF;
 
 
-
-
-
-
-    public LightInformation(String modelOfLuminaire, String modelOfLamp, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps,
-                            int amountLuminairesPerLength, int amountLuminairesPerWidth, double lightFlux, double activePower, double reactivePower,
-                            double fullPower, double electricCurrent, double electricCurrentOfOneRowOfLuminaire) {
+    public LightInformation(String modelOfLuminaire, String modelOfLamp, int amountOfLuminaires, int amountOfLampsInOneLuminaire, double powerOfOneLamp, double lightFluxOfOneLamp, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps, int amountLuminairesPerLength, int amountLuminairesPerWidth, double activePower, double reactivePower, double fullPower, double electricCurrent, double electricCurrentOfOneRowOfLuminaire, Double cosF, Double tgF) {
         this.modelOfLuminaire = modelOfLuminaire;
         this.modelOfLamp = modelOfLamp;
+        this.amountOfLuminaires = amountOfLuminaires;
+        this.amountOfLampsInOneLuminaire = amountOfLampsInOneLuminaire;
+        this.powerOfOneLamp = powerOfOneLamp;
+        this.lightFluxOfOneLamp = lightFluxOfOneLamp;
         this.distanceBetweenRowsOfLamps = distanceBetweenRowsOfLamps;
         this.distanceBetweenWallAndFirstRowOfLamps = distanceBetweenWallAndFirstRowOfLamps;
         this.amountLuminairesPerLength = amountLuminairesPerLength;
         this.amountLuminairesPerWidth = amountLuminairesPerWidth;
-        this.lightFlux = lightFlux;
         this.activePower = activePower;
         this.reactivePower = reactivePower;
         this.fullPower = fullPower;
         this.electricCurrent = electricCurrent;
         this.electricCurrentOfOneRowOfLuminaire = electricCurrentOfOneRowOfLuminaire;
+        this.cosF = cosF;
+        this.tgF = tgF;
     }
 
     public LightInformation() {
@@ -65,6 +74,22 @@ public class LightInformation {
         return id;
     }
 
+
+    public double getLightFluxOfOneLamp() {
+        return lightFluxOfOneLamp;
+    }
+
+    public void setLightFluxOfOneLamp(double lightFluxOfOneLamp) {
+        this.lightFluxOfOneLamp = lightFluxOfOneLamp;
+    }
+
+    public double getPowerOfOneLamp() {
+        return powerOfOneLamp;
+    }
+
+    public void setPowerOfOneLamp(double powerOfOneLamp) {
+        this.powerOfOneLamp = powerOfOneLamp;
+    }
 
     public String getModelOfLuminaire() {
         return modelOfLuminaire;
@@ -114,12 +139,20 @@ public class LightInformation {
         this.amountLuminairesPerWidth = amountLuminairesPerWidth;
     }
 
-    public double getLightFlux() {
-        return lightFlux;
+    public int getAmountOfLuminaires() {
+        return amountOfLuminaires;
     }
 
-    public void setLightFlux(double lightFlux) {
-        this.lightFlux = lightFlux;
+    public void setAmountOfLuminaires(int amountOfLuminaires) {
+        this.amountOfLuminaires = amountOfLuminaires;
+    }
+
+    public int getAmountOfLampsInOneLuminaire() {
+        return amountOfLampsInOneLuminaire;
+    }
+
+    public void setAmountOfLampsInOneLuminaire(int amountOfLampsInOneLuminaire) {
+        this.amountOfLampsInOneLuminaire = amountOfLampsInOneLuminaire;
     }
 
     public double getActivePower() {
@@ -161,4 +194,22 @@ public class LightInformation {
     public void setElectricCurrentOfOneRowOfLuminaire(double electricCurrentOfOneRowOfLuminaire) {
         this.electricCurrentOfOneRowOfLuminaire = electricCurrentOfOneRowOfLuminaire;
     }
+
+    public Double getCosF() {
+        return cosF;
+    }
+
+    public void setCosF(Double cosF) {
+        this.cosF = cosF;
+    }
+
+    public Double getTgF() {
+        return tgF;
+    }
+
+    public void setTgF(Double tgF) {
+        this.tgF = tgF;
+    }
+
+
 }

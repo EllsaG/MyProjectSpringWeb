@@ -76,8 +76,9 @@ public class ForLightingCalculation {
         final double cosf = 0.95;
         final double tgf = 0.33;
 
+        int amountOfLuminaires = amountLuminairesPerLength * amountLuminairesPerWidth;
 
-        double activePower = Math.round(coefDemand * (amountOfLampsInOneLuminaire * amountLuminairesPerLength * amountLuminairesPerWidth) * activePowerOneLamp * coefPRA);
+        double activePower = Math.round(coefDemand * (amountOfLampsInOneLuminaire * amountOfLuminaires ) * activePowerOneLamp * coefPRA);
 
         double reactivePower = Math.round(activePower * tgf);
 
@@ -89,9 +90,10 @@ public class ForLightingCalculation {
         double electricCurrentOfOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
                 (Math.sqrt(3) * 0.38 * amountLuminairesPerLength)) * 100) / 100.0;
 
-        return new LightInformation(modelOfLuminaire, modelOfLamp, distanceBetweenRowsOfLamps, distanceBetweenWallAndFirstRowOfLamps,
-                amountLuminairesPerLength, amountLuminairesPerWidth, lightFlux, activePower, reactivePower, fullPower,
-                electricCurrent, electricCurrentOfOneRowOfLuminaire);
+        return new LightInformation(modelOfLuminaire, modelOfLamp,amountOfLuminaires, amountOfLampsInOneLuminaire,
+                activePowerOneLamp,lightFluxOneLamp, distanceBetweenRowsOfLamps,
+                distanceBetweenWallAndFirstRowOfLamps, amountLuminairesPerLength, amountLuminairesPerWidth,
+                activePower, reactivePower, fullPower, electricCurrent, electricCurrentOfOneRowOfLuminaire, cosf, tgf);
     }
 
 
