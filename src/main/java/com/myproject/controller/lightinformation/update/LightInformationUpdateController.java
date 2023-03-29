@@ -16,7 +16,7 @@ public class LightInformationUpdateController {
 
     private final LightInformationUpdateService lightInformationUpdateService;
 
-@Autowired
+    @Autowired
     public LightInformationUpdateController(LightInformationUpdateService lightInformationUpdateService) {
         this.lightInformationUpdateService = lightInformationUpdateService;
     }
@@ -30,7 +30,7 @@ public class LightInformationUpdateController {
 
     @PostMapping("/lightinformation/update/insertnewluminaries")
     public LightInformationCreateNewResponseDTO update(@RequestBody LightInformationUpdateRequestDTO lightInformationUpdateRequestDTO) {
-        return lightInformationUpdateService.update(lightInformationUpdateRequestDTO.getLightInformId(),lightInformationUpdateRequestDTO.getModelOfLuminaire(),
+        return lightInformationUpdateService.update(lightInformationUpdateRequestDTO.getLightingId(), lightInformationUpdateRequestDTO.getModelOfLuminaire(),
                 lightInformationUpdateRequestDTO.getModelOfLamp(), lightInformationUpdateRequestDTO.getAmountOfLampsInOneLuminaire(),
                 lightInformationUpdateRequestDTO.getLightFluxOneLamp(), lightInformationUpdateRequestDTO.getActivePowerOneLamp());
     }

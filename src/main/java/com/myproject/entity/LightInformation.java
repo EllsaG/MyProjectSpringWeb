@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class LightInformation {
     @Id
     @Column(name="id",nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="model_of_luminaire",nullable = false)
@@ -45,8 +44,8 @@ public class LightInformation {
     @Column(name = "tg_f", nullable = false)
     private Double tgF;
 
-
-    public LightInformation(String modelOfLuminaire, String modelOfLamp, int amountOfLuminaires, int amountOfLampsInOneLuminaire, double powerOfOneLamp, double lightFluxOfOneLamp, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps, int amountLuminairesPerLength, int amountLuminairesPerWidth, double activePower, double reactivePower, double fullPower, double electricCurrent, double electricCurrentOfOneRowOfLuminaire, Double cosF, Double tgF) {
+    public LightInformation(Long id, String modelOfLuminaire, String modelOfLamp, int amountOfLuminaires, int amountOfLampsInOneLuminaire, double powerOfOneLamp, double lightFluxOfOneLamp, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps, int amountLuminairesPerLength, int amountLuminairesPerWidth, double activePower, double reactivePower, double fullPower, double electricCurrent, double electricCurrentOfOneRowOfLuminaire, Double cosF, Double tgF) {
+        this.id = id;
         this.modelOfLuminaire = modelOfLuminaire;
         this.modelOfLamp = modelOfLamp;
         this.amountOfLuminaires = amountOfLuminaires;
@@ -74,6 +73,9 @@ public class LightInformation {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public double getLightFluxOfOneLamp() {
         return lightFluxOfOneLamp;

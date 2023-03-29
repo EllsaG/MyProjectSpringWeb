@@ -3,8 +3,8 @@ package com.myproject.controller.dto.lightinformation.update;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LightInformationUpdateRequestDTO {
-    @JsonProperty("lightInformId")
-    private long lightInformId;
+    @JsonProperty("lightingId")
+    private long lightingId;
     @JsonProperty("modelOfLuminaire")
     private String modelOfLuminaire;
     @JsonProperty("modelOfLamp")
@@ -16,8 +16,8 @@ public class LightInformationUpdateRequestDTO {
     @JsonProperty("activePowerOneLamp")
     private double activePowerOneLamp;
 
-    public long getLightInformId() {
-        return lightInformId;
+    public long getLightingId() {
+        return lightingId;
     }
 
     public String getModelOfLuminaire() {

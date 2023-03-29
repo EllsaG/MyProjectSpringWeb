@@ -67,7 +67,7 @@ public class ForLightingCalculation {
         return lightFluxAtAmountOfLamps;
     }
 
-    public static LightInformation electricCalculation(String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
+    public static LightInformation electricCalculation(Long lightingId,String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
                                                        int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
 
         final double coefDemand = 0.9;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
@@ -90,7 +90,7 @@ public class ForLightingCalculation {
         double electricCurrentOfOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
                 (Math.sqrt(3) * 0.38 * amountLuminairesPerLength)) * 100) / 100.0;
 
-        return new LightInformation(modelOfLuminaire, modelOfLamp,amountOfLuminaires, amountOfLampsInOneLuminaire,
+        return new LightInformation(lightingId, modelOfLuminaire, modelOfLamp,amountOfLuminaires, amountOfLampsInOneLuminaire,
                 activePowerOneLamp,lightFluxOneLamp, distanceBetweenRowsOfLamps,
                 distanceBetweenWallAndFirstRowOfLamps, amountLuminairesPerLength, amountLuminairesPerWidth,
                 activePower, reactivePower, fullPower, electricCurrent, electricCurrentOfOneRowOfLuminaire, cosf, tgf);

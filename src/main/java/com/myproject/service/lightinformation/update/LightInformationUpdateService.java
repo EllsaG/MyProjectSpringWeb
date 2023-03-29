@@ -30,7 +30,7 @@ public class LightInformationUpdateService {
                                                           double lightFluxOneLamp, double activePowerOneLamp) {
         LightInformation lightInformationById = lightInformationService.getLightInformationById(lightInformId);
         lightInformationService.deleteById(lightInformationById);
-        return lightInformationService.createNew(modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
+        return lightInformationService.createNew(lightInformId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
     }
 
 

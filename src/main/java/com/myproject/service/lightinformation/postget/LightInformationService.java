@@ -45,13 +45,13 @@ public class LightInformationService {
     }
 
 
-    public LightInformationCreateNewResponseDTO createNew(String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
+    public LightInformationCreateNewResponseDTO createNew(Long lightingId,String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
                                                           int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
-        LightInformation lightInformation = electricCalculation(modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
+        LightInformation lightInformation = electricCalculation(lightingId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
         lightInformationRepository.save(lightInformation);
 
         FullInformation fullInformation = new FullInformation();
-        fullInformation.setId(lightInformation.getId());
+        fullInformation.setId(lightingId);
         fullInformation.setNameOfBusbar("Освещение");
         fullInformation.setAmount(lightInformation.getAmountOfLuminaires()*lightInformation.getAmountOfLampsInOneLuminaire());
         fullInformation.setAvgDailyActivePower(lightInformation.getActivePower());
@@ -81,9 +81,9 @@ public class LightInformationService {
 
     }
 
-    public LightInformationCreateNewResponseDTO update(String modelOfLuminaire, String modelOfLamp, int amountOfLampsInOneLuminaire,
+    public LightInformationCreateNewResponseDTO update(long lightingId,String modelOfLuminaire, String modelOfLamp, int amountOfLampsInOneLuminaire,
                                                        double lightFluxOneLamp, double activePowerOneLamp) {
-        LightInformation lightInformation = electricCalculation(modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
+        LightInformation lightInformation = electricCalculation(lightingId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
         lightInformationRepository.save(lightInformation);
 
         return new LightInformationCreateNewResponseDTO(getAllLightInformation());
