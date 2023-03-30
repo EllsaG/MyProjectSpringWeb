@@ -1,22 +1,21 @@
 package com.myproject.utils;
 
-import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
+import com.myproject.entity.ForChooseLuminaire;
 import com.myproject.entity.LightInformation;
+import com.myproject.exceptions.InformationAlreadyExistsException;
+import com.myproject.repositories.ForChooseLuminaireRepository;
+import com.myproject.repositories.LightInformationRepository;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 public class ForLightingCalculation {
 
-    private static double distanceBetweenRowsOfLamps;
-    private static double distanceBetweenWallAndFirstRowOfLamps;
-    private static int amountLuminairesPerLength;
-    private static int amountLuminairesPerWidth;
-    private static double lightFlux;
 
-
-
-    public static HashMap<Integer, HashMap<Double,Double>> lightingCalculation(Double heightProductionHall, Double widthProductionHall,
-                                                                               Double lengthProductionHall) {
+    public ForChooseLuminaire lightingCalculation(Long lightingId,
+            Double heightProductionHall, Double widthProductionHall,
+            Double lengthProductionHall) {
 
         final Double heightOfWorkSurface = 0.8;
 
@@ -31,44 +30,61 @@ public class ForLightingCalculation {
 
         Double heightOverWorkSurface = heightProductionHall - heightOfWorkSurface - heightLampUnderCeiling;
 
-        distanceBetweenRowsOfLamps = heightOverWorkSurface * coef;
+        double distanceBetweenRowsOfLamps = heightOverWorkSurface * coef;
 
-         distanceBetweenWallAndFirstRowOfLamps = (double) Math.round(0.25 * distanceBetweenRowsOfLamps * 10) / 10; // coef "0.25" maybe between 0.25 and 0.3
+        double distanceBetweenWallAndFirstRowOfLamps = (double) Math.round(0.25 * distanceBetweenRowsOfLamps * 10) / 10; // coef "0.25" maybe between 0.25 and 0.3
 
-         amountLuminairesPerLength = (int) Math.floor((lengthProductionHall -
-                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps)+1;
+        int amountLuminairesPerLength = (int) Math.floor((lengthProductionHall -
+                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps) + 1;
 
-         amountLuminairesPerWidth = (int) Math.floor((widthProductionHall -
-                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps)+1;
+        int amountLuminairesPerWidth = (int) Math.floor((widthProductionHall -
+                2 * distanceBetweenWallAndFirstRowOfLamps) / distanceBetweenRowsOfLamps) + 1;
 
-         lightFlux = Math.ceil((ratedLight * lengthProductionHall * widthProductionHall * safetyFactor * coefOfLightingIrregularity) /
+        double lightFlux = Math.ceil((ratedLight * lengthProductionHall * widthProductionHall * safetyFactor * coefOfLightingIrregularity) /
                 (1 * amountLuminairesPerLength * amountLuminairesPerWidth * coefEfficiencyOfLuminaire));
 
-        Double minLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.4);
+        return new ForChooseLuminaire(lightingId, distanceBetweenRowsOfLamps, distanceBetweenWallAndFirstRowOfLamps,
+                amountLuminairesPerLength, amountLuminairesPerWidth, lightFlux);
 
-        Double maxLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.6);
+    }
 
-        HashMap<Integer, HashMap<Double,Double>> lightFluxAtAmountOfLamps = new HashMap<>();// min and max LightFluxForChooseLuminaire at 1, 2, 3 and 4 lamps in the Luminaire
+    public HashMap<Integer, HashMap<Double, Double>> forResponseLightingCalculation(ForChooseLuminaireRepository forChooseLuminaireRepository) {
 
-        HashMap<Double,Double> atOneLamp = new HashMap<>();
+        List<ForChooseLuminaire> all = forChooseLuminaireRepository.findAll();
+        double lightFlux = all.get(0).getLightFlux();
+
+        double minLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.4);
+        double maxLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.6);
+
+        HashMap<Integer, HashMap<Double, Double>> lightFluxAtAmountOfLamps = new HashMap<>();// min and max LightFluxForChooseLuminaire at 1, 2, 3 and 4 lamps in the Luminaire
+
+        HashMap<Double, Double> atOneLamp = new HashMap<>();
         atOneLamp.put(minLightFluxForChooseLuminaire, maxLightFluxForChooseLuminaire);
-        HashMap<Double,Double> atTwoLamp = new HashMap<>();
-        atTwoLamp.put(Math.ceil(minLightFluxForChooseLuminaire/2), Math.ceil(maxLightFluxForChooseLuminaire/2));
-        HashMap<Double,Double> atThreeLamp = new HashMap<>();
-        atThreeLamp.put(Math.ceil(minLightFluxForChooseLuminaire/3), Math.ceil(maxLightFluxForChooseLuminaire/3));
-        HashMap<Double,Double> atFourLamp = new HashMap<>();
-        atFourLamp.put(Math.ceil(minLightFluxForChooseLuminaire/4), Math.ceil(maxLightFluxForChooseLuminaire/4));
+        HashMap<Double, Double> atTwoLamp = new HashMap<>();
+        atTwoLamp.put(Math.ceil(minLightFluxForChooseLuminaire / 2), Math.ceil(maxLightFluxForChooseLuminaire / 2));
+        HashMap<Double, Double> atThreeLamp = new HashMap<>();
+        atThreeLamp.put(Math.ceil(minLightFluxForChooseLuminaire / 3), Math.ceil(maxLightFluxForChooseLuminaire / 3));
+        HashMap<Double, Double> atFourLamp = new HashMap<>();
+        atFourLamp.put(Math.ceil(minLightFluxForChooseLuminaire / 4), Math.ceil(maxLightFluxForChooseLuminaire / 4));
 
-        lightFluxAtAmountOfLamps.put(1,atOneLamp);
-        lightFluxAtAmountOfLamps.put(2,atTwoLamp);
-        lightFluxAtAmountOfLamps.put(3,atThreeLamp);
-        lightFluxAtAmountOfLamps.put(4,atFourLamp);
+        lightFluxAtAmountOfLamps.put(1, atOneLamp);
+        lightFluxAtAmountOfLamps.put(2, atTwoLamp);
+        lightFluxAtAmountOfLamps.put(3, atThreeLamp);
+        lightFluxAtAmountOfLamps.put(4, atFourLamp);
 
         return lightFluxAtAmountOfLamps;
     }
 
-    public static LightInformation electricCalculation(Long lightingId,String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
-                                                       int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
+
+    public LightInformation electricCalculation(ForChooseLuminaireRepository forChooseLuminaireRepository, LightInformationRepository lightInformationRepository, Long lightingId, String modelOfLuminaire,
+                                                String modelOfLamp, double lightFluxOneLamp, int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
+
+        Optional<LightInformation> byId = lightInformationRepository.findById(lightingId);
+
+        if (byId.isPresent()) {
+            throw new InformationAlreadyExistsException("Information about lighting with id № " + lightingId + " is already exists");
+        }
+
 
         final double coefDemand = 0.9;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
         final double coefPRA = 1.1;// check http://electricalschool.info/main/lighting/296-kak-opredelit-raschetnuju-moshhnost.html
@@ -76,9 +92,17 @@ public class ForLightingCalculation {
         final double cosf = 0.95;
         final double tgf = 0.33;
 
+        List<ForChooseLuminaire> all = forChooseLuminaireRepository.findAll();
+
+        double distanceBetweenRowsOfLamps = all.get(0).getDistanceBetweenRowsOfLamps();
+        double distanceBetweenWallAndFirstRowOfLamps = all.get(0).getDistanceBetweenWallAndFirstRowOfLamps();
+        int amountLuminairesPerLength = all.get(0).getAmountLuminairesPerLength();
+        int amountLuminairesPerWidth = all.get(0).getAmountLuminairesPerWidth();
+
+
         int amountOfLuminaires = amountLuminairesPerLength * amountLuminairesPerWidth;
 
-        double activePower = Math.round(coefDemand * (amountOfLampsInOneLuminaire * amountOfLuminaires ) * activePowerOneLamp * coefPRA);
+        double activePower = Math.round(coefDemand * (amountOfLampsInOneLuminaire * amountOfLuminaires) * activePowerOneLamp * coefPRA);
 
         double reactivePower = Math.round(activePower * tgf);
 
@@ -90,13 +114,11 @@ public class ForLightingCalculation {
         double electricCurrentOfOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
                 (Math.sqrt(3) * 0.38 * amountLuminairesPerLength)) * 100) / 100.0;
 
-        return new LightInformation(lightingId, modelOfLuminaire, modelOfLamp,amountOfLuminaires, amountOfLampsInOneLuminaire,
-                activePowerOneLamp,lightFluxOneLamp, distanceBetweenRowsOfLamps,
+        return new LightInformation(lightingId, modelOfLuminaire, modelOfLamp, amountOfLuminaires, amountOfLampsInOneLuminaire,
+                activePowerOneLamp, lightFluxOneLamp, distanceBetweenRowsOfLamps,
                 distanceBetweenWallAndFirstRowOfLamps, amountLuminairesPerLength, amountLuminairesPerWidth,
                 activePower, reactivePower, fullPower, electricCurrent, electricCurrentOfOneRowOfLuminaire, cosf, tgf);
     }
-
-
 
 
 }

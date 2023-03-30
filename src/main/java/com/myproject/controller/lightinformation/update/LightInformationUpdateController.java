@@ -23,7 +23,8 @@ public class LightInformationUpdateController {
 
     @PostMapping("/lightinformation/update/forchooseluminaries")
     public LightInformationChooseLuminariesResponseDTO chooseLuminaries(@RequestBody LightInformationChooseLuminariesRequestDTO lightInformationChooseLuminariesRequestDTO) {
-        return lightInformationUpdateService.forChooseLuminaries(lightInformationChooseLuminariesRequestDTO.getHeightProductionHall(),
+        return lightInformationUpdateService.forChooseLuminaries(lightInformationChooseLuminariesRequestDTO.getLightingId(),
+                lightInformationChooseLuminariesRequestDTO.getHeightProductionHall(),
                 lightInformationChooseLuminariesRequestDTO.getWidthProductionHall(), lightInformationChooseLuminariesRequestDTO.getLengthProductionHall());
 
     }
