@@ -3,6 +3,7 @@ package com.myproject.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "for_choose_luminaire")
 public class ForChooseLuminaire {
 
     @Id
