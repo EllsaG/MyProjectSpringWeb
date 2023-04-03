@@ -2,10 +2,6 @@ package com.myproject.utils;
 
 public class ChoosingOfTransformers {
 
-//    Исходные данные:
-//- Среднесменная реактивная мощность Qсм = 60,7 кВАр
-//- Максимальная полная мощность Smax = 691,8 кВА
-
 
     double avgDailyActivePower;
     double avgDailyReactivePower;

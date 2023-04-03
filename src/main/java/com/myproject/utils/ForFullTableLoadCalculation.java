@@ -79,9 +79,26 @@ public class ForFullTableLoadCalculation {
 
         Double cosF = Math.round(Math.sqrt(1 / (1 + Math.pow(tgF, 2))) * 100.0) / 100.0; //cosf
 
-        Integer effectiveAmountOfEquipment = amountOfEquipments.stream()
-                .reduce((a, b) -> (a + b)).get();/* effective amount of equipment (at amount≥5, kI≤0.2,m≥3 and powerOfGroup ≠ const).
-                    In other values (amount, kI and powerOfGroup) the formula need to change (in the future)*/
+        Integer effectiveAmountOfEquipment;// effective amount of equipment
+
+        if(amount>5 && kI>0.2 && module>3) {
+            List<Double> list = fullStartInformIds.stream()
+                    .map(FullStartInformId::getPower).collect(Collectors.toList()); // take all "power" from equipment list of the current busbar
+            double maxPowerOfOne = list.stream().max(Double::compareTo).get();
+            effectiveAmountOfEquipment = (int) (2*powerOfGroup/maxPowerOfOne);
+        } else if(amount<5 && kI>0.2 && module>3) {
+            double aDouble = fullStartInformIds.stream()
+                    .map((e) -> Math.pow(e.getPower(), 2) * e.getAmount())
+                    .reduce(Double::sum)
+                    .get();
+            effectiveAmountOfEquipment = (int) (Math.pow(powerOfGroup,2)*aDouble);
+        } else{
+            effectiveAmountOfEquipment = amountOfEquipments.stream()
+                    .reduce((a, b) -> (a + b)).get();
+        }
+
+
+
 
         Double coefficientMax = kMax(kI, amount); // coefficient max of the current busbar
 
@@ -100,6 +117,87 @@ public class ForFullTableLoadCalculation {
                 coefficientMax, maxActivePower, maxReactivePower, maxFullPower,
                 maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module, fullStartInformIds);
 
+    }
+
+
+    public static FullInformation calculationMainBusbar(FullInformationRepository fullInformationRepository,
+                                                        Long id, String nameOfBusbar, List<Long> numbersBusbarsIncludedInMain) {
+
+        List<FullInformation> allById = fullInformationRepository.findAllById(numbersBusbarsIncludedInMain);
+
+        Integer amount = allById.stream()
+                .map((a)->a.getAmount())
+                .reduce(Integer::sum).get(); // amount of equipment in all busbars
+
+        Double powerOfGroup = allById.stream()
+                .map(FullInformation::getPowerOfGroup)
+                .reduce(Double::sum).get(); // active power of all groups included in the busbar
+
+
+        Double avgDailyActivePower = allById.stream()
+                .map(FullInformation::getAvgDailyActivePower)
+                .reduce(Double::sum).get(); // average daily active power of all groups included in the busbar
+
+        Double avgDailyReactivePower = allById.stream()
+                .map(FullInformation::getAvgDailyReactivePower)
+                .reduce(Double::sum).get(); // average daily reactive power of all groups included in the busbar
+
+        List<Double> list = allById.stream()
+                .map(FullInformation::getModule).collect(Collectors.toList()); // take all "power" from equipment list of the current busbar
+        Double min = list.stream().min(Double::compareTo).get();
+        Double max = list.stream().max(Double::compareTo).get();
+
+        double module =  Math.round((max / min) * 10.0) / 10.0;  // round to one argument after point
+
+
+        Double kI = Math.round((avgDailyActivePower / powerOfGroup) * 100.0) / 100.0; // utilization factor
+
+        Double tgF = Math.round((avgDailyReactivePower / avgDailyActivePower) * 100.0) / 100.0; // tgf
+
+        Double cosF = Math.round(Math.sqrt(1 / (1 + Math.pow(tgF, 2))) * 100.0) / 100.0; //cosf
+
+
+        Integer effectiveAmountOfEquipment;// effective amount of equipment
+
+        if(amount>5 && kI>0.2 && module>3) {
+            List<Double> list2 = allById.stream()
+                    .map(FullInformation::getPowerOfGroup).collect(Collectors.toList()); // take all "power" from equipment list of the current busbar
+            double maxPowerOfOne = list2.stream().max(Double::compareTo).get();
+            effectiveAmountOfEquipment = (int) (2*powerOfGroup/maxPowerOfOne);
+        } else if(amount<5 && kI>0.2 && module>3) {
+            double aDouble = allById.stream()
+                    .map((e) -> Math.pow(e.getPowerOfGroup(), 2) * e.getAmount())
+                    .reduce(Double::sum)
+                    .get();
+            effectiveAmountOfEquipment = (int) (Math.pow(powerOfGroup,2)*aDouble);
+        } else{
+            effectiveAmountOfEquipment = allById.stream()
+                    .map(FullInformation::getAmount)
+                    .reduce(Integer::sum).get();
+        }
+
+
+
+
+        Double coefficientMax = kMax(kI, amount); // coefficient max of the current busbar
+
+        Double maxActivePower = Math.round((avgDailyActivePower * coefficientMax) * 100.0) / 100.0;// max active power of the current busbar
+
+        Double maxReactivePower = avgDailyReactivePower; /* max reactive power of the current busbar (at amount > 10)
+        At amount <= 10 the formula need to change (in the future)*/
+
+        Double maxFullPower = Math.round(Math.sqrt(Math.pow(maxActivePower, 2) +
+                Math.pow(maxReactivePower, 2)) * 100.0) / 100.0; // max full power of the current busbar
+
+        Double maxElectricCurrent = Math.round(((maxFullPower * 1000) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
+
+
+        List<FullStartInformId> list1 = new ArrayList<>();
+
+        return new FullInformation(id, nameOfBusbar, amount,
+                avgDailyActivePower, avgDailyReactivePower, effectiveAmountOfEquipment,
+                coefficientMax, maxActivePower, maxReactivePower, maxFullPower,
+                maxElectricCurrent, powerOfGroup, cosF, tgF, kI, module, list1);
     }
 
 

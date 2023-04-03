@@ -34,6 +34,14 @@ public class FullInformationService {
         fullInformationRepository.save(fullInformation);
         return new FullInformationResponseDTO(getAllFullInformation());
     }
+    public FullInformationResponseDTO saveMainBusbar(Long id, String nameOfBusbar,
+                                           List<Long> numbersBusbarsIncludedInMain) {
+
+        FullInformation fullInformation = ForFullTableLoadCalculation.calculationMainBusbar(fullInformationRepository,
+                id, nameOfBusbar, numbersBusbarsIncludedInMain);
+        fullInformationRepository.save(fullInformation);
+        return new FullInformationResponseDTO(getAllFullInformation());
+    }
 
     public FullInformation getInformationById(Long fullInformationId) {
         return fullInformationRepository.findById(fullInformationId)

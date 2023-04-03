@@ -1,5 +1,6 @@
 package com.myproject.controller.fulinformation.postget;
 
+import com.myproject.controller.dto.fullinformation.postget.FullInformationMainBusbarRequestDTO;
 import com.myproject.controller.dto.fullinformation.postget.FullInformationRequestDTO;
 
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
@@ -35,5 +36,11 @@ public class FullInformationController {
                         .collect(Collectors.toList()));
     }
 
+    @PostMapping("/fullinformation/create/main")
+    public FullInformationResponseDTO createMainBusbar(@RequestBody FullInformationMainBusbarRequestDTO fullInformationMainBusbarRequestDTO) {
+        return fullInformationService.saveMainBusbar(fullInformationMainBusbarRequestDTO.getId(),
+                fullInformationMainBusbarRequestDTO.getNameOfBusbar(),
+                fullInformationMainBusbarRequestDTO.getNumbersBusbarsIncludedInMain());
+    }
 
 }

@@ -2,9 +2,7 @@ package com.myproject.utils;
 
 public class ReactivePowerCompensation {
 
-//    Номинальное напряжение питающей сети U_ном  = 380/220 В;
-//    Коэффициент, учитывающий повышение коэффициента мощности
-//            = 0.9
+
 
     double avgDailyActivePower;
     double cosfBeforeCompensation;

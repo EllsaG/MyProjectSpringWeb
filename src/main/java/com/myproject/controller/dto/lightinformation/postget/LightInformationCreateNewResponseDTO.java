@@ -19,4 +19,6 @@ public class LightInformationCreateNewResponseDTO {
     public void setList(List<LightInformation> list) {
         this.list = list;
     }
+
+
 }
