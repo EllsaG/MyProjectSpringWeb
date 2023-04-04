@@ -15,9 +15,8 @@ public class LightInformationDeleteController {
         this.lightInformationDeleteService = lightInformationDeleteService;
     }
     @DeleteMapping("/lightinformatiion/delete/{lightInformId}")
-    public LightInformationCreateNewResponseDTO deleteById(@PathVariable Long lightInformId){
-        LightInformationCreateNewResponseDTO lightInformationCreateNewResponseDTO = lightInformationDeleteService.deleteById(lightInformId);
-        return lightInformationCreateNewResponseDTO;
+    public LightInformationCreateNewResponseDTO deleteById(@PathVariable long lightInformId){
+        return lightInformationDeleteService.deleteById(lightInformId);
     }
 
 

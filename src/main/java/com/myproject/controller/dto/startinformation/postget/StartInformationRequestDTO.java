@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StartInformationRequestDTO {
     @JsonProperty("startInformId")
-    private Long startInformId;
+    private long startInformId;
     @JsonProperty("name")
     private String name;
     @JsonProperty("power")
@@ -19,7 +19,7 @@ public class StartInformationRequestDTO {
     @JsonProperty("tgf")
     private double tgf;
 
-    public Long getStartInformId() {
+    public long getStartInformId() {
         return startInformId;
     }
 

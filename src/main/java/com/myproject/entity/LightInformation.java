@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class LightInformation {
     @Id
     @Column(name="id",nullable = false)
-    private Long id;
+    private long id;
 
     @Column(name="model_of_luminaire",nullable = false)
     private String modelOfLuminaire;
@@ -40,11 +40,14 @@ public class LightInformation {
     @Column(name="electric_current_of_one_row_of_luminaire",nullable = false)
     private double electricCurrentOfOneRowOfLuminaire;
     @Column(name = "cos_f", nullable = false)
-    private Double cosF;
+    private double cosF;
     @Column(name = "tg_f", nullable = false)
-    private Double tgF;
+    private double tgF;
 
-    public LightInformation(Long id, String modelOfLuminaire, String modelOfLamp, int amountOfLuminaires, int amountOfLampsInOneLuminaire, double powerOfOneLamp, double lightFluxOfOneLamp, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps, int amountLuminairesPerLength, int amountLuminairesPerWidth, double activePower, double reactivePower, double fullPower, double electricCurrent, double electricCurrentOfOneRowOfLuminaire, Double cosF, Double tgF) {
+    public LightInformation(long id, String modelOfLuminaire, String modelOfLamp, int amountOfLuminaires, int amountOfLampsInOneLuminaire,
+                            double powerOfOneLamp, double lightFluxOfOneLamp, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps,
+                            int amountLuminairesPerLength, int amountLuminairesPerWidth, double activePower, double reactivePower, double fullPower,
+                            double electricCurrent, double electricCurrentOfOneRowOfLuminaire, double cosF, double tgF) {
         this.id = id;
         this.modelOfLuminaire = modelOfLuminaire;
         this.modelOfLamp = modelOfLamp;
@@ -69,28 +72,12 @@ public class LightInformation {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
-    }
-
-    public double getLightFluxOfOneLamp() {
-        return lightFluxOfOneLamp;
-    }
-
-    public void setLightFluxOfOneLamp(double lightFluxOfOneLamp) {
-        this.lightFluxOfOneLamp = lightFluxOfOneLamp;
-    }
-
-    public double getPowerOfOneLamp() {
-        return powerOfOneLamp;
-    }
-
-    public void setPowerOfOneLamp(double powerOfOneLamp) {
-        this.powerOfOneLamp = powerOfOneLamp;
     }
 
     public String getModelOfLuminaire() {
@@ -107,6 +94,38 @@ public class LightInformation {
 
     public void setModelOfLamp(String modelOfLamp) {
         this.modelOfLamp = modelOfLamp;
+    }
+
+    public int getAmountOfLuminaires() {
+        return amountOfLuminaires;
+    }
+
+    public void setAmountOfLuminaires(int amountOfLuminaires) {
+        this.amountOfLuminaires = amountOfLuminaires;
+    }
+
+    public int getAmountOfLampsInOneLuminaire() {
+        return amountOfLampsInOneLuminaire;
+    }
+
+    public void setAmountOfLampsInOneLuminaire(int amountOfLampsInOneLuminaire) {
+        this.amountOfLampsInOneLuminaire = amountOfLampsInOneLuminaire;
+    }
+
+    public double getPowerOfOneLamp() {
+        return powerOfOneLamp;
+    }
+
+    public void setPowerOfOneLamp(double powerOfOneLamp) {
+        this.powerOfOneLamp = powerOfOneLamp;
+    }
+
+    public double getLightFluxOfOneLamp() {
+        return lightFluxOfOneLamp;
+    }
+
+    public void setLightFluxOfOneLamp(double lightFluxOfOneLamp) {
+        this.lightFluxOfOneLamp = lightFluxOfOneLamp;
     }
 
     public double getDistanceBetweenRowsOfLamps() {
@@ -139,22 +158,6 @@ public class LightInformation {
 
     public void setAmountLuminairesPerWidth(int amountLuminairesPerWidth) {
         this.amountLuminairesPerWidth = amountLuminairesPerWidth;
-    }
-
-    public int getAmountOfLuminaires() {
-        return amountOfLuminaires;
-    }
-
-    public void setAmountOfLuminaires(int amountOfLuminaires) {
-        this.amountOfLuminaires = amountOfLuminaires;
-    }
-
-    public int getAmountOfLampsInOneLuminaire() {
-        return amountOfLampsInOneLuminaire;
-    }
-
-    public void setAmountOfLampsInOneLuminaire(int amountOfLampsInOneLuminaire) {
-        this.amountOfLampsInOneLuminaire = amountOfLampsInOneLuminaire;
     }
 
     public double getActivePower() {
@@ -197,21 +200,19 @@ public class LightInformation {
         this.electricCurrentOfOneRowOfLuminaire = electricCurrentOfOneRowOfLuminaire;
     }
 
-    public Double getCosF() {
+    public double getCosF() {
         return cosF;
     }
 
-    public void setCosF(Double cosF) {
+    public void setCosF(double cosF) {
         this.cosF = cosF;
     }
 
-    public Double getTgF() {
+    public double getTgF() {
         return tgF;
     }
 
-    public void setTgF(Double tgF) {
+    public void setTgF(double tgF) {
         this.tgF = tgF;
     }
-
-
 }

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LightInformationChooseLuminariesRequestDTO {
     @JsonProperty("lightingId")
-    private Long lightingId;
+    private long lightingId;
     @JsonProperty("heightProductionHall")
     private double heightProductionHall;
     @JsonProperty("widthProductionHall")
@@ -12,7 +12,7 @@ public class LightInformationChooseLuminariesRequestDTO {
     @JsonProperty("lengthProductionHall")
     private double lengthProductionHall;
 
-    public Long getLightingId() {
+    public long getLightingId() {
         return lightingId;
     }
 

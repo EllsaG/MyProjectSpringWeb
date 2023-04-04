@@ -9,12 +9,12 @@ public class FullStartInformId {
     @Id
     @Column(name = "f_s_inform_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     @Column(name = "full_information_id", nullable = false)
-    private Long fullInformationId;
+    private long fullInformationId;
     @Column(name = "start_inform_id", nullable = false)
-    private Long startInformId;
+    private long startInformId;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "power", nullable = false)
@@ -34,13 +34,13 @@ public class FullStartInformId {
     @Column(name = "avg_daily_reactive_power", nullable = false)
     private double avgDailyReactivePower;
 
-    public FullStartInformId(Long fullInformationId, Long startInformId, Integer amount) {
+    public FullStartInformId(long fullInformationId, long startInformId, int amount) {
         this.fullInformationId = fullInformationId;
         this.startInformId = startInformId;
         this.amount = amount;
     }
 
-    public FullStartInformId(Long fullInformationId, Long startInformId, String name, double power,
+    public FullStartInformId(long fullInformationId, long startInformId, String name, double power,
                              double powerOfGroup, int amount, double ki, double cosf, double tgf,
                              double avgDailyActivePower, double avgDailyReactivePower) {
         this.fullInformationId = fullInformationId;
@@ -64,23 +64,23 @@ public class FullStartInformId {
     }
 
 
-    public Long getFullInformationId() {
+    public long getFullInformationId() {
         return fullInformationId;
     }
 
-    public void setFullInformationId(Long fullInformationId) {
+    public void setFullInformationId(long fullInformationId) {
         this.fullInformationId = fullInformationId;
     }
 
-    public Long getStartInformId() {
+    public long getStartInformId() {
         return startInformId;
     }
 
-    public void setStartInformId(Long startInformId) {
+    public void setStartInformId(long startInformId) {
         this.startInformId = startInformId;
     }
 
-    public Integer getAmount() {
+    public int getAmount() {
         return amount;
     }
 

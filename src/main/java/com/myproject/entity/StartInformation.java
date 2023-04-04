@@ -8,7 +8,7 @@ import java.util.Objects;
 public class StartInformation {
     @Id
     @Column(name = "start_inform_Id", nullable = false)
-    private Long startInformId;
+    private long startInformId;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "power", nullable = false)
@@ -26,7 +26,7 @@ public class StartInformation {
     @Column(name = "avg_daily_reactive_power", nullable = false)
     private double avgDailyReactivePower;
 
-    public StartInformation(Long startInformId, String name, double power, int amount,
+    public StartInformation(long startInformId, String name, double power, int amount,
                             double ki, double cosf, double tgf, double avgDailyActivePower,
                             double avgDailyReactivePower) {
         this.startInformId = startInformId;
@@ -43,11 +43,11 @@ public class StartInformation {
     public StartInformation() {
     }
 
-    public void setStartInformId(Long startInformId) {
+    public void setStartInformId(long startInformId) {
         this.startInformId = startInformId;
     }
 
-    public Long getStartInformId() {
+    public long getStartInformId() {
         return startInformId;
     }
 

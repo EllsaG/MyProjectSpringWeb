@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class FullDeleteRequestDTO {
 
     @JsonProperty("deleteId")
-    private Long deleteId;
+    private long deleteId;
 
-    public Long getDeleteId() {
+    public long getDeleteId() {
         return deleteId;
     }
 }

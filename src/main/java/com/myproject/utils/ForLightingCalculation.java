@@ -13,22 +13,22 @@ import java.util.Optional;
 public class ForLightingCalculation {
 
 
-    public ForChooseLuminaire lightingCalculation(Long lightingId,
-            Double heightProductionHall, Double widthProductionHall,
-            Double lengthProductionHall) {
+    public ForChooseLuminaire lightingCalculation(long lightingId,
+            double heightProductionHall, double widthProductionHall,
+            double lengthProductionHall) {
 
-        final Double heightOfWorkSurface = 0.8;
+        final double heightOfWorkSurface = 0.8;
 
-        final Integer ratedLight = 300;
-        final Double safetyFactor = 1.5;
-        final Double coefOfLightingIrregularity = 1.15;
-        final Double coefEfficiencyOfLuminaire = 0.8;
+        final int ratedLight = 300;
+        final double safetyFactor = 1.5;
+        final double coefOfLightingIrregularity = 1.15;
+        final double coefEfficiencyOfLuminaire = 0.8;
 
-        Double heightLampUnderCeiling = 1.2; // maybe between 0 and 2.5
+        double heightLampUnderCeiling = 1.2; // maybe between 0 and 2.5
 
-        Double coef = 1.0; // coefficient of the relative ratio of suspension height and distance between luminaires (maybe between 0.8 and 1.5)
+        double coef = 1.0; // coefficient of the relative ratio of suspension height and distance between luminaires (maybe between 0.8 and 1.5)
 
-        Double heightOverWorkSurface = heightProductionHall - heightOfWorkSurface - heightLampUnderCeiling;
+        double heightOverWorkSurface = heightProductionHall - heightOfWorkSurface - heightLampUnderCeiling;
 
         double distanceBetweenRowsOfLamps = heightOverWorkSurface * coef;
 
@@ -76,7 +76,8 @@ public class ForLightingCalculation {
     }
 
 
-    public LightInformation electricCalculation(ForChooseLuminaireRepository forChooseLuminaireRepository, LightInformationRepository lightInformationRepository, Long lightingId, String modelOfLuminaire,
+    public LightInformation electricCalculation(ForChooseLuminaireRepository forChooseLuminaireRepository, LightInformationRepository lightInformationRepository,
+                                                long lightingId, String modelOfLuminaire,
                                                 String modelOfLamp, double lightFluxOneLamp, int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
 
         Optional<LightInformation> byId = lightInformationRepository.findById(lightingId);
@@ -102,17 +103,17 @@ public class ForLightingCalculation {
 
         int amountOfLuminaires = amountLuminairesPerLength * amountLuminairesPerWidth;
 
-        double activePower = Math.round(coefDemand * (amountOfLampsInOneLuminaire * amountOfLuminaires) * activePowerOneLamp * coefPRA);
+        double activePower = Math.ceil(coefDemand * (amountOfLampsInOneLuminaire * amountOfLuminaires) * activePowerOneLamp * coefPRA * 100)/ 100.0;
 
-        double reactivePower = Math.round(activePower * tgf);
+        double reactivePower = Math.ceil((activePower * tgf)* 100) / 100.0;
 
-        double fullPower = Math.round(Math.sqrt(Math.pow(activePower, 2) +
-                Math.pow(reactivePower, 2)) * 100.0) / 100.0;
+        double fullPower = Math.ceil(Math.sqrt(Math.pow(activePower, 2) +
+                Math.pow(reactivePower, 2))* 100) / 100.0;
 
-        double electricCurrent = Math.round(((coefP * fullPower) / (Math.sqrt(3) * 380)) * 100) / 100.0; // max electric current of this busbar
+        double electricCurrent = Math.ceil(((coefP * fullPower) / (Math.sqrt(3) * 380)) * 100000) / 100.0; // max electric current of this busbar
 
         double electricCurrentOfOneRowOfLuminaire = Math.round(((coefP * electricCurrent) /
-                (Math.sqrt(3) * 0.38 * amountLuminairesPerLength)) * 100) / 100.0;
+                (Math.sqrt(3) * 0.38 * amountLuminairesPerLength)) *100) / 100.0 ;
 
         return new LightInformation(lightingId, modelOfLuminaire, modelOfLamp, amountOfLuminaires, amountOfLampsInOneLuminaire,
                 activePowerOneLamp, lightFluxOneLamp, distanceBetweenRowsOfLamps,

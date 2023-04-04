@@ -18,7 +18,7 @@ public class LightInformationUpdateService {
         this.lightInformationService = lightInformationService;
     }
 
-    public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(Long lightingId,double heightProductionHall, double widthProductionHall, double lengthProductionHall) {
+    public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(long lightingId,double heightProductionHall, double widthProductionHall, double lengthProductionHall) {
         return lightInformationService.forChooseLuminaries(lightingId, heightProductionHall, widthProductionHall, lengthProductionHall);
     }
 

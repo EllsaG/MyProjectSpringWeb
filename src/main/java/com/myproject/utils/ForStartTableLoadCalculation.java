@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class ForStartTableLoadCalculation {
 
-    public static StartInformation createIfDontExist(StartInformationRepository startInformationRepository, Long startInformId,
+    public  StartInformation createIfDontExist(StartInformationRepository startInformationRepository, long startInformId,
                                                      String name, double power, int amount, double ki, double cosf, double tgf) {
 
         Optional<StartInformation> byId = startInformationRepository.findById(startInformId);

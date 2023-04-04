@@ -18,7 +18,7 @@ public class DeleteController {
         this.startInformationDeleteService = startInformationDeleteService;
     }
     @DeleteMapping("/startinformation/delete/{idForDelete}")
-    public StartInformationResponseDTO deleteInfo(@PathVariable Long idForDelete){
+    public StartInformationResponseDTO deleteInfo(@PathVariable long idForDelete){
         return startInformationDeleteService.delete(idForDelete);
     }
 

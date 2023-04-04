@@ -8,49 +8,47 @@ import java.util.List;
 public class FullInformation {
     @Id
     @Column(name = "full_information_id", nullable = false)
-    private Long id;
+    private long id;
     @Column(name = "name_of_busbar", nullable = false)
     private String nameOfBusbar;
     @Column(name = "amount", nullable = false)
-    private Integer amount;
+    private int amount;
     @Column(name = "avg_daily_active_power", nullable = false)
-    private Double avgDailyActivePower;
+    private double avgDailyActivePower;
     @Column(name = "avg_daily_reactive_power", nullable = false)
-    private Double avgDailyReactivePower;
+    private double avgDailyReactivePower;
     @Column(name = "effective_amount_of_equipment")
-    private Integer effectiveAmountOfEquipment;
+    private int effectiveAmountOfEquipment;
     @Column(name = "coefficient_max")
-    private Double coefficientMax;
+    private double coefficientMax;
     @Column(name = "max_active_power")
-    private Double maxActivePower;
+    private double maxActivePower;
     @Column(name = "max_reactive_power")
-    private Double maxReactivePower;
+    private double maxReactivePower;
     @Column(name = "max_full_power")
-    private Double maxFullPower;
+    private double maxFullPower;
     @Column(name = "max_electric_current")
-    private Double maxElectricCurrent;
+    private double maxElectricCurrent;
     @Column(name = "power_of_group", nullable = false)
-    private Double powerOfGroup;
+    private double powerOfGroup;
     @Column(name = "cos_f", nullable = false)
-    private Double cosF;
+    private double cosF;
     @Column(name = "tg_f", nullable = false)
-    private Double tgF;
+    private double tgF;
     @Column(name = "k_i", nullable = false)
-    private Double ki;
+    private double ki;
     @Column(name = "module", nullable = false)
-    private Double module;
+    private double module;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<FullStartInformId> fullStartInformId;
 
-    public FullInformation(Long id, String nameOfBusbar, Integer amount,
-                           Double avgDailyActivePower, Double avgDailyReactivePower, Integer effectiveAmountOfEquipment,
-                           Double coefficientMax, Double maxActivePower, Double maxReactivePower, Double maxFullPower,
-                           Double maxElectricCurrent, Double powerOfGroup, Double cosF, Double tgF, Double ki, Double module,
-                           List<FullStartInformId> fullStartInformId) {
+    public FullInformation(long id, String nameOfBusbar, int amount, double avgDailyActivePower,
+                           double avgDailyReactivePower, int effectiveAmountOfEquipment, double coefficientMax,
+                           double maxActivePower, double maxReactivePower, double maxFullPower, double maxElectricCurrent,
+                           double powerOfGroup, double cosF, double tgF, double ki, double module, List<FullStartInformId> fullStartInformId) {
         this.id = id;
         this.nameOfBusbar = nameOfBusbar;
         this.amount = amount;
-        this.module = module;
         this.avgDailyActivePower = avgDailyActivePower;
         this.avgDailyReactivePower = avgDailyReactivePower;
         this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
@@ -63,17 +61,18 @@ public class FullInformation {
         this.cosF = cosF;
         this.tgF = tgF;
         this.ki = ki;
-        this.fullStartInformId=fullStartInformId;
+        this.module = module;
+        this.fullStartInformId = fullStartInformId;
     }
 
     public FullInformation() {
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -85,116 +84,116 @@ public class FullInformation {
         this.nameOfBusbar = nameOfBusbar;
     }
 
-    public Integer getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public Double getModule() {
-        return module;
-    }
-
-    public void setModule(Double module) {
-        this.module = module;
-    }
-
-    public Double getAvgDailyActivePower() {
+    public double getAvgDailyActivePower() {
         return avgDailyActivePower;
     }
 
-    public void setAvgDailyActivePower(Double avgDailyActivePower) {
+    public void setAvgDailyActivePower(double avgDailyActivePower) {
         this.avgDailyActivePower = avgDailyActivePower;
     }
 
-    public Double getAvgDailyReactivePower() {
+    public double getAvgDailyReactivePower() {
         return avgDailyReactivePower;
     }
 
-    public void setAvgDailyReactivePower(Double avgDailyReactivePower) {
+    public void setAvgDailyReactivePower(double avgDailyReactivePower) {
         this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
-    public Integer getEffectiveAmountOfEquipment() {
+    public int getEffectiveAmountOfEquipment() {
         return effectiveAmountOfEquipment;
     }
 
-    public void setEffectiveAmountOfEquipment(Integer effectiveAmountOfEquipment) {
+    public void setEffectiveAmountOfEquipment(int effectiveAmountOfEquipment) {
         this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
     }
 
-    public Double getCoefficientMax() {
+    public double getCoefficientMax() {
         return coefficientMax;
     }
 
-    public void setCoefficientMax(Double coefficientMax) {
+    public void setCoefficientMax(double coefficientMax) {
         this.coefficientMax = coefficientMax;
     }
 
-    public Double getMaxActivePower() {
+    public double getMaxActivePower() {
         return maxActivePower;
     }
 
-    public void setMaxActivePower(Double maxActivePower) {
+    public void setMaxActivePower(double maxActivePower) {
         this.maxActivePower = maxActivePower;
     }
 
-    public Double getMaxReactivePower() {
+    public double getMaxReactivePower() {
         return maxReactivePower;
     }
 
-    public void setMaxReactivePower(Double maxReactivePower) {
+    public void setMaxReactivePower(double maxReactivePower) {
         this.maxReactivePower = maxReactivePower;
     }
 
-    public Double getMaxFullPower() {
+    public double getMaxFullPower() {
         return maxFullPower;
     }
 
-    public void setMaxFullPower(Double maxFullPower) {
+    public void setMaxFullPower(double maxFullPower) {
         this.maxFullPower = maxFullPower;
     }
 
-    public Double getMaxElectricCurrent() {
+    public double getMaxElectricCurrent() {
         return maxElectricCurrent;
     }
 
-    public void setMaxElectricCurrent(Double maxElectricCurrent) {
+    public void setMaxElectricCurrent(double maxElectricCurrent) {
         this.maxElectricCurrent = maxElectricCurrent;
     }
 
-    public Double getPowerOfGroup() {
+    public double getPowerOfGroup() {
         return powerOfGroup;
     }
 
-    public void setPowerOfGroup(Double powerOfGroup) {
+    public void setPowerOfGroup(double powerOfGroup) {
         this.powerOfGroup = powerOfGroup;
     }
 
-    public Double getCosF() {
+    public double getCosF() {
         return cosF;
     }
 
-    public void setCosF(Double cosF) {
+    public void setCosF(double cosF) {
         this.cosF = cosF;
     }
 
-    public Double getTgF() {
+    public double getTgF() {
         return tgF;
     }
 
-    public void setTgF(Double tgF) {
+    public void setTgF(double tgF) {
         this.tgF = tgF;
     }
 
-    public Double getKi() {
+    public double getKi() {
         return ki;
     }
 
-    public void setKi(Double ki) {
+    public void setKi(double ki) {
         this.ki = ki;
+    }
+
+    public double getModule() {
+        return module;
+    }
+
+    public void setModule(double module) {
+        this.module = module;
     }
 
     public List<FullStartInformId> getFullStartInformId() {
@@ -203,28 +202,5 @@ public class FullInformation {
 
     public void setFullStartInformId(List<FullStartInformId> fullStartInformId) {
         this.fullStartInformId = fullStartInformId;
-    }
-
-    @Override
-    public String toString() {
-        return "FullInformation{" +
-                "id=" + id +
-                ", nameOfBusbar='" + nameOfBusbar + '\'' +
-                ", amount=" + amount +
-                ", avgDailyActivePower=" + avgDailyActivePower +
-                ", avgDailyReactivePower=" + avgDailyReactivePower +
-                ", effectiveAmountOfEquipment=" + effectiveAmountOfEquipment +
-                ", coefficientMax=" + coefficientMax +
-                ", maxActivePower=" + maxActivePower +
-                ", maxReactivePower=" + maxReactivePower +
-                ", maxFullPower=" + maxFullPower +
-                ", maxElectricCurrent=" + maxElectricCurrent +
-                ", powerOfGroup=" + powerOfGroup +
-                ", cosF=" + cosF +
-                ", tgF=" + tgF +
-                ", kI=" + ki +
-                ", module=" + module +
-                ", fullStartInformId=" + fullStartInformId +
-                '}';
     }
 }

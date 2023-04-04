@@ -21,15 +21,16 @@ public class StartInformationService {
         this.startInformationRepository = startInformationRepository;
     }
 
-    public StartInformationResponseDTO save(Long startInformId, String name, double power, int amount,
+    public StartInformationResponseDTO save(long startInformId, String name, double power, int amount,
                                             double ki, double cosf, double tgf) {
-        StartInformation startInformation = ForStartTableLoadCalculation
+        ForStartTableLoadCalculation forStartTableLoadCalculation = new ForStartTableLoadCalculation();
+        StartInformation startInformation = forStartTableLoadCalculation
                 .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked  by id and name-power mapping
         startInformationRepository.save(startInformation);
         return new StartInformationResponseDTO(getAllStartInformation());
     }
 
-    public StartInformation getInformationById(Long startInformId) {
+    public StartInformation getInformationById(long startInformId) {
         return startInformationRepository.findById(startInformId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about equipment with id № " + startInformId));
     }

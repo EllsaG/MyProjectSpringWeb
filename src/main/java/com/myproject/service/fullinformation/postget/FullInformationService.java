@@ -26,18 +26,19 @@ public class FullInformationService {
         this.startInformationService = startInformationService;
     }
 
-    public FullInformationResponseDTO save(Long id, String nameOfBusbar,
+    public FullInformationResponseDTO save(long id, String nameOfBusbar,
                                            List<FullStartInformId> numbersAndAmountOfEquipments) {
-
-        FullInformation fullInformation = ForFullTableLoadCalculation.calculation(fullInformationRepository,
+        ForFullTableLoadCalculation forFullTableLoadCalculation = new ForFullTableLoadCalculation();
+        FullInformation fullInformation = forFullTableLoadCalculation.calculation(fullInformationRepository,
                 startInformationService, id, nameOfBusbar, numbersAndAmountOfEquipments);
         fullInformationRepository.save(fullInformation);
         return new FullInformationResponseDTO(getAllFullInformation());
     }
-    public FullInformationResponseDTO saveMainBusbar(Long id, String nameOfBusbar,
-                                           List<Long> numbersBusbarsIncludedInMain) {
 
-        FullInformation fullInformation = ForFullTableLoadCalculation.calculationMainBusbar(fullInformationRepository,
+    public FullInformationResponseDTO saveMainBusbar(long id, String nameOfBusbar,
+                                                     List<Long> numbersBusbarsIncludedInMain) {
+        ForFullTableLoadCalculation forFullTableLoadCalculation = new ForFullTableLoadCalculation();
+        FullInformation fullInformation = forFullTableLoadCalculation.calculationMainBusbar(fullInformationRepository,
                 id, nameOfBusbar, numbersBusbarsIncludedInMain);
         fullInformationRepository.save(fullInformation);
         return new FullInformationResponseDTO(getAllFullInformation());
@@ -47,23 +48,29 @@ public class FullInformationService {
         return fullInformationRepository.findById(fullInformationId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about busbar with id № " + fullInformationId));
     }
+
     public List<FullInformation> getAllFullInformation() {
         return fullInformationRepository.findAll();
     }
 
-    public FullInformation update(Long id, String nameOfBusbar,
-                                  List<FullStartInformId> numbersAndAmountOfEquipments) {
-        FullInformation fullInformation = ForFullTableLoadCalculation.calculation(fullInformationRepository,
+    public void update(long id, String nameOfBusbar,
+                       List<FullStartInformId> numbersAndAmountOfEquipments) {
+        ForFullTableLoadCalculation forFullTableLoadCalculation = new ForFullTableLoadCalculation();
+        FullInformation fullInformation = forFullTableLoadCalculation.calculation(fullInformationRepository,
                 startInformationService, id, nameOfBusbar, numbersAndAmountOfEquipments);
-        return fullInformationRepository.save(fullInformation);
+        fullInformationRepository.save(fullInformation);
+    }
+
+    public void updateMainBusbar(long id, String nameOfBusbar,
+                                 List<Long> numbersBusbarsIncludedInMain) {
+        ForFullTableLoadCalculation forFullTableLoadCalculation = new ForFullTableLoadCalculation();
+        FullInformation fullInformation = forFullTableLoadCalculation.calculationMainBusbar(fullInformationRepository,
+                id, nameOfBusbar, numbersBusbarsIncludedInMain);
+        fullInformationRepository.save(fullInformation);
     }
 
     public void delete(FullInformation fullInformation) {
         fullInformationRepository.delete(fullInformation);
-    }
-
-    public void saveLighting(FullInformation fullInformation) {
-        fullInformationRepository.save(fullInformation);
     }
 
 }

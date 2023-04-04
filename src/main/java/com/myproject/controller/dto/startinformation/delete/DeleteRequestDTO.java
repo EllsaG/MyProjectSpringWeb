@@ -7,9 +7,9 @@ import java.math.BigInteger;
 
 public class DeleteRequestDTO { // choose to delete by number in the body of the request. maybe i'll change it later.
     @JsonProperty("startInformId")
-    private Long startInformId;
+    private long startInformId;
 
-    public Long getStartInformId() {
+    public long getStartInformId() {
         return startInformId;
     }
 }

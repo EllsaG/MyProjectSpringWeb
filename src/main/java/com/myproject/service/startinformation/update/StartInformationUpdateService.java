@@ -16,7 +16,7 @@ public class StartInformationUpdateService {
         this.startInformationService = startInformationService;
     }
 
-    public StartInformationResponseDTO update(Long startInformId, String name, double power, int amount,
+    public StartInformationResponseDTO update(long startInformId, String name, double power, int amount,
                                               double ki, double cosf, double tgf) {
         StartInformation startInformation = startInformationService.getInformationById(startInformId);
         startInformation.setName(name);

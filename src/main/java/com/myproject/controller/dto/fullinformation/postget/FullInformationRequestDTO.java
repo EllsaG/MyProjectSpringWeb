@@ -7,14 +7,14 @@ import java.util.List;
 
 public class FullInformationRequestDTO {
     @JsonProperty("id")
-    private Long id;
+    private long id;
     @JsonProperty("nameOfBusbar")
     private String nameOfBusbar;
 
     @JsonProperty("numbersAndAmountOfEquipments")
     private List <FullStartInformIdRequestDTO> fullStartInformId;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

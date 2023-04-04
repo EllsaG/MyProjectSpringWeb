@@ -15,7 +15,7 @@ public class FullDeleteService {
         this.fullInformationService = fullInformationService;
     }
 
-    public FullInformationResponseDTO deleteInfoById(Long id){
+    public FullInformationResponseDTO deleteInfoById(long id){
         FullInformation informationById = fullInformationService.getInformationById(id);
         fullInformationService.delete(informationById);
         return new FullInformationResponseDTO(fullInformationService.getAllFullInformation());

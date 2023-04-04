@@ -16,7 +16,7 @@ public class LightInformationDeleteService {
         this.lightInformationService = lightInformationService;
     }
 
-    public LightInformationCreateNewResponseDTO deleteById(Long lightInformId) {
+    public LightInformationCreateNewResponseDTO deleteById(long lightInformId) {
         LightInformation lightInformationById = lightInformationService.getLightInformationById(lightInformId);
         return lightInformationService.deleteById(lightInformationById);
     }

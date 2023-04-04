@@ -3,12 +3,10 @@ package com.myproject.service.lightinformation.postget;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
 import com.myproject.entity.ForChooseLuminaire;
-import com.myproject.entity.FullInformation;
 import com.myproject.entity.LightInformation;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.ForChooseLuminaireRepository;
 import com.myproject.repositories.LightInformationRepository;
-import com.myproject.service.fullinformation.postget.FullInformationService;
 import com.myproject.utils.ForLightingCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +27,7 @@ public class LightInformationService {
         this.forChooseLuminaireRepository = forChooseLuminaireRepository;
     }
 
-    public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(Long lightingId, double heightProductionHall, double widthProductionHall, double lengthProductionHall) {
+    public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(long lightingId, double heightProductionHall, double widthProductionHall, double lengthProductionHall) {
         ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
         ForChooseLuminaire forChooseLuminaire = forLightingCalculation.lightingCalculation(lightingId, heightProductionHall, widthProductionHall, lengthProductionHall);
         forChooseLuminaireRepository.save(forChooseLuminaire);
@@ -39,7 +37,7 @@ public class LightInformationService {
         return new LightInformationChooseLuminariesResponseDTO(integerHashMapHashMap);
     }
 
-    public LightInformation getLightInformationById(Long lightInformId) {
+    public LightInformation getLightInformationById(long lightInformId) {
         return lightInformationRepository.findById(lightInformId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about lighting with id № " + lightInformId));
     }
@@ -49,7 +47,7 @@ public class LightInformationService {
     }
 
 
-    public LightInformationCreateNewResponseDTO createNew(Long lightingId, String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
+    public LightInformationCreateNewResponseDTO createNew(long lightingId, String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
                                                           int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
         ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
         LightInformation lightInformation = forLightingCalculation.electricCalculation(forChooseLuminaireRepository, lightInformationRepository, lightingId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
@@ -64,7 +62,7 @@ public class LightInformationService {
 
     }
 
-    public LightInformationCreateNewResponseDTO update(Long lightingId, String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
+    public LightInformationCreateNewResponseDTO update(long lightingId, String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
                                                        int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
         ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
         LightInformation lightInformation = forLightingCalculation.electricCalculation(forChooseLuminaireRepository, lightInformationRepository, lightingId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);

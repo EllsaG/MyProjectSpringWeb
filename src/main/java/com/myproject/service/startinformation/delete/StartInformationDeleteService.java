@@ -17,7 +17,7 @@ public class StartInformationDeleteService {
         this.startInformationService = startInformationService;
     }
 
-    public StartInformationResponseDTO delete(Long startInformId){
+    public StartInformationResponseDTO delete(long startInformId){
         StartInformation startInformation= startInformationService.getInformationById(startInformId);
         startInformationService.delete(startInformation);
         return new StartInformationResponseDTO(startInformationService.getAllStartInformation());

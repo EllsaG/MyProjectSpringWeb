@@ -1,5 +1,6 @@
 package com.myproject.controller.fulinformation.update;
 
+import com.myproject.controller.dto.fullinformation.postget.FullInformationMainBusbarRequestDTO;
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
 import com.myproject.controller.dto.fullinformation.update.FullInformationUpdateRequestDTO;
 import com.myproject.entity.FullStartInformId;
@@ -29,6 +30,13 @@ public class FullUpdateController {
                         .map(e -> new FullStartInformId(e.getNumberOfBusbar(), e.getNumberOfEquipment(), e.getAmountOfEquipment()))
                         .collect(Collectors.toList()));
 
+    }
+
+    @PostMapping("/fullinformation/update/main")
+    public FullInformationResponseDTO createMainBusbar(@RequestBody FullInformationMainBusbarRequestDTO fullInformationMainBusbarRequestDTO) {
+        return fullInformationUpdateService.updateMainBusbar(fullInformationMainBusbarRequestDTO.getId(),
+                fullInformationMainBusbarRequestDTO.getNameOfBusbar(),
+                fullInformationMainBusbarRequestDTO.getNumbersBusbarsIncludedInMain());
     }
 
 

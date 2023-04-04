@@ -22,7 +22,7 @@ public class FullInformationUpdateService {
     }
 
 
-    public FullInformationResponseDTO update(Long id, String nameOfBusbar,
+    public FullInformationResponseDTO update(long id, String nameOfBusbar,
                                              List<FullStartInformId> numbersAndAmountOfEquipments) {
         FullInformation informationById = fullInformationService.getInformationById(id);
         fullInformationService.delete(informationById);
@@ -31,5 +31,13 @@ public class FullInformationUpdateService {
         return new FullInformationResponseDTO(fullInformationService.getAllFullInformation());
     }
 
+    public FullInformationResponseDTO updateMainBusbar(long id, String nameOfBusbar,
+                                                       List<Long> numbersBusbarsIncludedInMain) {
+        FullInformation informationById = fullInformationService.getInformationById(id);
+        fullInformationService.delete(informationById);
+
+        fullInformationService.updateMainBusbar(id, nameOfBusbar, numbersBusbarsIncludedInMain);
+        return new FullInformationResponseDTO(fullInformationService.getAllFullInformation());
+    }
 
 }

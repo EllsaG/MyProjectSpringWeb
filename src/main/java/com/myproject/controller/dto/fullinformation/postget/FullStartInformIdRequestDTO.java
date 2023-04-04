@@ -6,21 +6,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class FullStartInformIdRequestDTO {
 
     @JsonProperty("numberOfBusbar")
-    private Long numberOfBusbar;
+    private long numberOfBusbar;
     @JsonProperty("numbersOfEquipment")
-    private Long numberOfEquipment;
+    private long numberOfEquipment;
     @JsonProperty("amountOfEquipments")
-    private Integer amountOfEquipment;
+    private int amountOfEquipment;
 
-    public Long getNumberOfBusbar() {
+    public long getNumberOfBusbar() {
         return numberOfBusbar;
     }
 
-    public Integer getAmountOfEquipment() {
+    public int getAmountOfEquipment() {
         return amountOfEquipment;
     }
 
-    public Long getNumberOfEquipment() {
+    public long getNumberOfEquipment() {
         return numberOfEquipment;
     }
 

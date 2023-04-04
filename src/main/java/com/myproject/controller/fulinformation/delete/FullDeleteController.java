@@ -17,7 +17,7 @@ public class FullDeleteController {
         this.fullDeleteService = fullDeleteService;
     }
     @DeleteMapping("/fullinformation/delete/{idForDelete}")
-    public FullInformationResponseDTO deleteInfo(@PathVariable  Long idForDelete){
+    public FullInformationResponseDTO deleteInfo(@PathVariable  long idForDelete){
         return fullDeleteService.deleteInfoById(idForDelete);
     }
 
