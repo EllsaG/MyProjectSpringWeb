@@ -4,39 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Began creating &quot;calculating main busbar&quot;. Change calculating of the &quot;effectiveAmountOfEquipment&quot;. Need to check this part of code again.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/update/FullInformationMainBusbarUpdateRequestDTO.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made &quot; full calculating main busbar&quot;. Change all data types from references to primitives.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/CompensationDeviceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/compensatingdevice/postget/CompensationDeviceRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/compensatingdevice/postget/CompensationDeviceResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/CompensationDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseCompensationDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/exceptions/IncorrectNumberValueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/CompensationDeviceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/ForChooseCompensationDeviceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/compensationdevice/CompensationDeviceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/delete/FullDeleteRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/delete/FullDeleteRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationMainBusbarRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationMainBusbarRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullInformationRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullStartInformIdRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/fullinformation/postget/FullStartInformIdRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationChooseLuminariesRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationChooseLuminariesRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationCreateNewRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationCreateNewRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/delete/DeleteRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/delete/DeleteRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/postget/StartInformationRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/update/UpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/startinformation/update/UpdateRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/delete/FullDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/delete/FullDeleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/fulinformation/update/FullUpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/lightinformation/delete/LightInformationDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/lightinformation/delete/LightInformationDeleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/lightinformation/postget/LightInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/lightinformation/postget/LightInformationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/delete/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/startinformation/delete/DeleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullStartInformId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/FullStartInformId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/LightInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/LightInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/delete/FullDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/delete/FullDeleteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/lightinformation/delete/LightInformationDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/lightinformation/delete/LightInformationDeleteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/lightinformation/postget/LightInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/lightinformation/postget/LightInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/lightinformation/update/LightInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/lightinformation/update/LightInformationUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/delete/StartInformationDeleteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/postget/StartInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/postget/StartInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/update/StartInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/startinformation/update/StartInformationUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForLightingCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForLightingCalculation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForStartTableLoadCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForStartTableLoadCalculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ReactivePowerCompensation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ReactivePowerCompensation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -244,6 +224,9 @@
       <workItem from="1680395587910" duration="5183000" />
       <workItem from="1680473367956" duration="11369000" />
       <workItem from="1680561525639" duration="10282000" />
+      <workItem from="1680731431898" duration="9653000" />
+      <workItem from="1680936420248" duration="3763000" />
+      <workItem from="1681119376010" duration="12001000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -290,7 +273,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="work-now" />
                       </list>
                     </value>
                   </entry>
@@ -316,7 +299,8 @@
     <MESSAGE value="Created response for calculating the &quot;Lighting&quot; and full &quot;delete&quot;.Need to change the &quot;light_information&quot; DB." />
     <MESSAGE value="Made full &quot;CRUD&quot; for &quot;lighting&quot;. Need to implement the &quot;exceptions&quot; in &quot;lighting&quot;." />
     <MESSAGE value="Created &quot;ChoosingOfTransformers&quot; and &quot;ReactivePowerCompensation&quot; in &quot;utils&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created &quot;ChoosingOfTransformers&quot; and &quot;ReactivePowerCompensation&quot; in &quot;utils&quot;" />
+    <MESSAGE value="Made &quot; full calculating main busbar&quot;. Change all data types from references to primitives." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made &quot; full calculating main busbar&quot;. Change all data types from references to primitives." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
