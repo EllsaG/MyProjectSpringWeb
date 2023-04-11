@@ -77,16 +77,18 @@ public class FullInformationService {
         fullInformationRepository.save(fullInformation);
     }
 
-    public void updateMainBusbar(long id, String nameOfBusbar,
+    public FullInformationResponseDTO updateMainBusbar(long id, String nameOfBusbar,
                                  List<Long> numbersBusbarsIncludedInMain) {
-        ForFullTableLoadCalculation forFullTableLoadCalculation = new ForFullTableLoadCalculation();
-        FullInformation fullInformation = forFullTableLoadCalculation.calculationMainBusbar(fullInformationRepository,
-                id, nameOfBusbar, numbersBusbarsIncludedInMain);
-        fullInformationRepository.save(fullInformation);
+        saveMainBusbar(id,nameOfBusbar, numbersBusbarsIncludedInMain);
+        return new FullInformationResponseDTO(getAllFullInformation());
     }
 
     public void delete(FullInformation fullInformation) {
+        long idForDeleteCompensationDevice = fullInformation.getId();
         fullInformationRepository.delete(fullInformation);
+        if (forChooseCompensationDeviceRepository.findById(idForDeleteCompensationDevice).isPresent()){
+            forChooseCompensationDeviceRepository.deleteById(idForDeleteCompensationDevice);
+        }
     }
 
 }

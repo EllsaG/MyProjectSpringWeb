@@ -1,9 +1,10 @@
-package com.myproject.controller.compensatingdevice;
+package com.myproject.controller.compensatingdevice.postget;
 
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceRequestDTO;
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceResponseDTO;
-import com.myproject.service.compensationdevice.CompensationDeviceService;
+import com.myproject.service.compensationdevice.postget.CompensationDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,11 @@ public class CompensationDeviceController {
         this.compensationDeviceService = compensationDeviceService;
     }
 
+
+    @GetMapping("/compensationdevice/all")
+    public CompensationDeviceResponseDTO getAll(){
+        return new CompensationDeviceResponseDTO(compensationDeviceService.getAllInformation());
+    }
 
     @PostMapping("/compensationdevice/create")
     public CompensationDeviceResponseDTO save(@RequestBody CompensationDeviceRequestDTO compensationDeviceRequestDTO) {

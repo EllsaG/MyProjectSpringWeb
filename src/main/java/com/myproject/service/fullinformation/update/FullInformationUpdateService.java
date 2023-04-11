@@ -1,6 +1,7 @@
 package com.myproject.service.fullinformation.update;
 
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
+import com.myproject.entity.ForChooseCompensationDevice;
 import com.myproject.entity.FullInformation;
 import com.myproject.entity.FullStartInformId;
 import com.myproject.service.fullinformation.postget.FullInformationService;
@@ -12,7 +13,7 @@ import java.util.List;
 @Service
 public class FullInformationUpdateService {
 
-    FullInformationService fullInformationService;
+    private final FullInformationService fullInformationService;
 
 
     @Autowired
@@ -36,8 +37,7 @@ public class FullInformationUpdateService {
         FullInformation informationById = fullInformationService.getInformationById(id);
         fullInformationService.delete(informationById);
 
-        fullInformationService.updateMainBusbar(id, nameOfBusbar, numbersBusbarsIncludedInMain);
-        return new FullInformationResponseDTO(fullInformationService.getAllFullInformation());
+        return fullInformationService.updateMainBusbar(id, nameOfBusbar, numbersBusbarsIncludedInMain);
     }
 
 }
