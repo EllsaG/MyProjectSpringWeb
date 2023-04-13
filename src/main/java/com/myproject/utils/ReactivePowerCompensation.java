@@ -7,9 +7,6 @@ import com.myproject.exceptions.IncorrectNumberValueException;
 import com.myproject.repositories.ForChooseCompensationDeviceRepository;
 import com.myproject.repositories.FullInformationRepository;
 
-import java.util.HashMap;
-import java.util.Optional;
-
 public class ReactivePowerCompensation {
     private static final double coefTakingIncreasingCosf = 0.9;
 

@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Began creating &quot;CompensationDevice&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/delete/CompensationDeviceDeleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/update/CompensationDeviceUpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/compensatingdevice/update/CompensationDeviceUpdateRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/compensationdevice/delete/CompensationDeviceDeleteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/compensationdevice/update/CompensationDeviceUpdateService.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made &quot;CompensationDevice&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseTransformers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/PowerTransformers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/CompensationDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/postget/CompensationDeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/compensationdevice/CompensationDeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/compensationdevice/postget/CompensationDeviceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/delete/FullDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/delete/FullDeleteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/postget/FullInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/service/fullinformation/update/FullInformationUpdateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ChoosingOfTransformers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ChoosingOfTransformers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ReactivePowerCompensation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ReactivePowerCompensation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +222,8 @@
       <workItem from="1681119376010" duration="12001000" />
       <workItem from="1681132925251" duration="26000" />
       <workItem from="1681206567556" duration="5126000" />
+      <workItem from="1681304405811" duration="2216000" />
+      <workItem from="1681398919954" duration="5775000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -301,7 +297,8 @@
     <MESSAGE value="Made full &quot;CRUD&quot; for &quot;lighting&quot;. Need to implement the &quot;exceptions&quot; in &quot;lighting&quot;." />
     <MESSAGE value="Created &quot;ChoosingOfTransformers&quot; and &quot;ReactivePowerCompensation&quot; in &quot;utils&quot;" />
     <MESSAGE value="Made &quot; full calculating main busbar&quot;. Change all data types from references to primitives." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made &quot; full calculating main busbar&quot;. Change all data types from references to primitives." />
+    <MESSAGE value="Made &quot;CompensationDevice&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made &quot;CompensationDevice&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
