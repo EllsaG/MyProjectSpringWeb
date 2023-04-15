@@ -4,7 +4,7 @@ import com.myproject.controller.dto.lightinformation.postget.LightInformationCho
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewRequestDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
-import com.myproject.service.lightinformation.postget.LightInformationService;
+import com.myproject.services.lightinformation.postget.LightInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

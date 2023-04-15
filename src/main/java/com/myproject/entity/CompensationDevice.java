@@ -1,10 +1,14 @@
 package com.myproject.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "compensation_device")
 public class CompensationDevice {
@@ -26,27 +30,5 @@ public class CompensationDevice {
 
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNameOfCompensationDevice() {
-        return nameOfCompensationDevice;
-    }
-
-    public void setNameOfCompensationDevice(String nameOfCompensationDevice) {
-        this.nameOfCompensationDevice = nameOfCompensationDevice;
-    }
-
-    public double getReactivePowerOfCompensationDevice() {
-        return reactivePowerOfCompensationDevice;
-    }
-
-    public void setReactivePowerOfCompensationDevice(double reactivePowerOfCompensationDevice) {
-        this.reactivePowerOfCompensationDevice = reactivePowerOfCompensationDevice;
-    }
 }

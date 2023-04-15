@@ -1,10 +1,8 @@
 package com.myproject.controller.dto.startinformation.update;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
+import lombok.Getter;
+@Getter
 public class UpdateRequestDTO {
     @JsonProperty("startInformId")
     private long startInformId;
@@ -21,31 +19,4 @@ public class UpdateRequestDTO {
     @JsonProperty("tgf")
     private double tgf;
 
-    public long getStartInformId() {
-        return startInformId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getPower() {
-        return power;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public double getKi() {
-        return ki;
-    }
-
-    public double getCosf() {
-        return cosf;
-    }
-
-    public double getTgf() {
-        return tgf;
-    }
 }

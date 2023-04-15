@@ -1,9 +1,12 @@
 package com.myproject.controller.dto.compensatingdevice.postget;
 
 import com.myproject.entity.CompensationDevice;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
-
+@Getter
+@Setter
 public class CompensationDeviceResponseDTO {
     List<CompensationDevice> list;
 
@@ -11,11 +14,4 @@ public class CompensationDeviceResponseDTO {
         this.list = list;
     }
 
-    public List<CompensationDevice> getList() {
-        return list;
-    }
-
-    public void setList(List<CompensationDevice> list) {
-        this.list = list;
-    }
 }

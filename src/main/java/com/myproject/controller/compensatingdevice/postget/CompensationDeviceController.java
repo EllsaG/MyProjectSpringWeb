@@ -2,7 +2,7 @@ package com.myproject.controller.compensatingdevice.postget;
 
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceRequestDTO;
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceResponseDTO;
-import com.myproject.service.compensationdevice.postget.CompensationDeviceService;
+import com.myproject.services.compensationdevice.postget.CompensationDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

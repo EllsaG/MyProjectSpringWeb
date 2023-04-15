@@ -1,7 +1,9 @@
 package com.myproject.controller.dto.compensatingdevice.update;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+@Getter
 public class CompensationDeviceUpdateRequestDTO {
 
     @JsonProperty("id")
@@ -11,15 +13,4 @@ public class CompensationDeviceUpdateRequestDTO {
     @JsonProperty("powerOfCompensatingDevice")
     double powerOfCompensatingDevice;
 
-    public long getId() {
-        return id;
-    }
-
-    public String getNameOfCompensationDevice() {
-        return nameOfCompensationDevice;
-    }
-
-    public double getPowerOfCompensatingDevice() {
-        return powerOfCompensatingDevice;
-    }
 }

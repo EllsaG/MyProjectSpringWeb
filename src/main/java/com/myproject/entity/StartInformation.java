@@ -1,8 +1,14 @@
 package com.myproject.entity;
 
-import javax.persistence.*;
-import java.util.Objects;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Getter
+@Setter
 @Entity
 @Table(name = "start_information")
 public class StartInformation {
@@ -43,103 +49,4 @@ public class StartInformation {
     public StartInformation() {
     }
 
-    public void setStartInformId(long startInformId) {
-        this.startInformId = startInformId;
-    }
-
-    public long getStartInformId() {
-        return startInformId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPower() {
-        return power;
-    }
-
-    public void setPower(double power) {
-        this.power = power;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public double getKi() {
-        return ki;
-    }
-
-    public void setKi(double ki) {
-        this.ki = ki;
-    }
-
-    public double getCosf() {
-        return cosf;
-    }
-
-    public void setCosf(double cosf) {
-        this.cosf = cosf;
-    }
-
-    public double getTgf() {
-        return tgf;
-    }
-
-    public void setTgf(double tgf) {
-        this.tgf = tgf;
-    }
-
-    public double getAvgDailyActivePower() {
-        return avgDailyActivePower;
-    }
-
-    public void setAvgDailyActivePower(double avgDailyActivePower) {
-        this.avgDailyActivePower = avgDailyActivePower;
-    }
-
-    public double getAvgDailyReactivePower() {
-        return avgDailyReactivePower;
-    }
-
-    public void setAvgDailyReactivePower(double avgDailyReactivePower) {
-        this.avgDailyReactivePower = avgDailyReactivePower;
-    }
-
-    @Override
-    public String toString() {
-        return "StartInformation{" +
-                "startInformId=" + startInformId +
-                ", name='" + name + '\'' +
-                ", power=" + power +
-                ", amount=" + amount +
-                ", ki=" + ki +
-                ", cosf=" + cosf +
-                ", tgf=" + tgf +
-                ", avgDailyActivePower=" + avgDailyActivePower +
-                ", avgDailyReactivePower=" + avgDailyReactivePower +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StartInformation that = (StartInformation) o;
-        return Double.compare(that.power, power) == 0 && amount == that.amount && Double.compare(that.ki, ki) == 0 && Double.compare(that.cosf, cosf) == 0 && Double.compare(that.tgf, tgf) == 0 && Double.compare(that.avgDailyActivePower, avgDailyActivePower) == 0 && Double.compare(that.avgDailyReactivePower, avgDailyReactivePower) == 0 && Objects.equals(startInformId, that.startInformId) && Objects.equals(name, that.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(startInformId, name, power, amount, ki, cosf, tgf, avgDailyActivePower, avgDailyReactivePower);
-    }
 }

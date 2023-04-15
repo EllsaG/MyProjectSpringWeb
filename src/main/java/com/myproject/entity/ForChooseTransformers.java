@@ -1,7 +1,11 @@
 package com.myproject.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Getter
+@Setter
 @Entity
 @Table(name = "for_choose_transformers")
 public class ForChooseTransformers {
@@ -21,19 +25,4 @@ public class ForChooseTransformers {
 
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public double getRatedPowerForChoosingOfTransformer() {
-        return ratedPowerForChoosingOfTransformer;
-    }
-
-    public void setRatedPowerForChoosingOfTransformer(double ratedPowerForChoosingOfTransformer) {
-        this.ratedPowerForChoosingOfTransformer = ratedPowerForChoosingOfTransformer;
-    }
 }

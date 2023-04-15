@@ -1,9 +1,11 @@
 package com.myproject.controller.dto.fullinformation.postget;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
-
+@Getter
 public class FullInformationMainBusbarRequestDTO {
     @JsonProperty("id")
     private long id;
@@ -12,15 +14,4 @@ public class FullInformationMainBusbarRequestDTO {
     @JsonProperty("numbersBusbarsIncludedInMain")
     private List<Long> numbersBusbarsIncludedInMain;
 
-    public long getId() {
-        return id;
-    }
-
-    public String getNameOfBusbar() {
-        return nameOfBusbar;
-    }
-
-    public List<Long> getNumbersBusbarsIncludedInMain() {
-        return numbersBusbarsIncludedInMain;
-    }
 }

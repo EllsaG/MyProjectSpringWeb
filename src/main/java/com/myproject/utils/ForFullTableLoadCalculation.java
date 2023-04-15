@@ -6,7 +6,7 @@ import com.myproject.entity.FullStartInformId;
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationAlreadyExistsException;
 import com.myproject.repositories.FullInformationRepository;
-import com.myproject.service.startinformation.postget.StartInformationService;
+import com.myproject.services.startinformation.postget.StartInformationService;
 
 import java.util.*;
 import java.util.stream.Collectors;

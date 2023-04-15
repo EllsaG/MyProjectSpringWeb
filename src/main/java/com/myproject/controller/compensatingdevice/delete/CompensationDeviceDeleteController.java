@@ -1,7 +1,7 @@
 package com.myproject.controller.compensatingdevice.delete;
 
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceResponseDTO;
-import com.myproject.service.compensationdevice.delete.CompensationDeviceDeleteService;
+import com.myproject.services.compensationdevice.delete.CompensationDeviceDeleteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;

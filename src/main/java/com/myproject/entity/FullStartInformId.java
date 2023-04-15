@@ -1,8 +1,12 @@
 package com.myproject.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "full_start_inform_id")
 public class FullStartInformId {
@@ -57,102 +61,5 @@ public class FullStartInformId {
     }
 
     public FullStartInformId() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-
-    public long getFullInformationId() {
-        return fullInformationId;
-    }
-
-    public void setFullInformationId(long fullInformationId) {
-        this.fullInformationId = fullInformationId;
-    }
-
-    public long getStartInformId() {
-        return startInformId;
-    }
-
-    public void setStartInformId(long startInformId) {
-        this.startInformId = startInformId;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public double getPowerOfGroup() {
-        return powerOfGroup;
-    }
-
-    public void setPowerOfGroup(double powerOfGroup) {
-        this.powerOfGroup = powerOfGroup;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPower() {
-        return power;
-    }
-
-    public void setPower(double power) {
-        this.power = power;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public double getKi() {
-        return ki;
-    }
-
-    public void setKi(double ki) {
-        this.ki = ki;
-    }
-
-    public double getCosf() {
-        return cosf;
-    }
-
-    public void setCosf(double cosf) {
-        this.cosf = cosf;
-    }
-
-    public double getTgf() {
-        return tgf;
-    }
-
-    public void setTgf(double tgf) {
-        this.tgf = tgf;
-    }
-
-    public double getAvgDailyActivePower() {
-        return avgDailyActivePower;
-    }
-
-    public void setAvgDailyActivePower(double avgDailyActivePower) {
-        this.avgDailyActivePower = avgDailyActivePower;
-    }
-
-    public double getAvgDailyReactivePower() {
-        return avgDailyReactivePower;
-    }
-
-    public void setAvgDailyReactivePower(double avgDailyReactivePower) {
-        this.avgDailyReactivePower = avgDailyReactivePower;
     }
 }

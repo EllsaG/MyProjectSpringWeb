@@ -1,7 +1,7 @@
 package com.myproject.controller.lightinformation.delete;
 
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
-import com.myproject.service.lightinformation.delete.LightInformationDeleteService;
+import com.myproject.services.lightinformation.delete.LightInformationDeleteService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

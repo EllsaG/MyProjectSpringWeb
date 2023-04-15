@@ -1,10 +1,14 @@
 package com.myproject.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "power_transformers")
 public class PowerTransformers {
@@ -49,85 +53,5 @@ public class PowerTransformers {
 
     public PowerTransformers() {
 
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getModelOfTransformer() {
-        return modelOfTransformer;
-    }
-
-    public void setModelOfTransformer(String modelOfTransformer) {
-        this.modelOfTransformer = modelOfTransformer;
-    }
-
-    public double getFullPowerOfTransformer() {
-        return fullPowerOfTransformer;
-    }
-
-    public void setFullPowerOfTransformer(double fullPowerOfTransformer) {
-        this.fullPowerOfTransformer = fullPowerOfTransformer;
-    }
-
-    public double getCoefOfTransformerLoad() {
-        return coefOfTransformerLoad;
-    }
-
-    public void setCoefOfTransformerLoad(double coefOfTransformerLoad) {
-        this.coefOfTransformerLoad = coefOfTransformerLoad;
-    }
-
-    public double getShortCircuitVoltage() {
-        return shortCircuitVoltage;
-    }
-
-    public void setShortCircuitVoltage(double shortCircuitVoltage) {
-        this.shortCircuitVoltage = shortCircuitVoltage;
-    }
-
-    public double getIdleLossesOfTransformer() {
-        return idleLossesOfTransformer;
-    }
-
-    public void setIdleLossesOfTransformer(double idleLossesOfTransformer) {
-        this.idleLossesOfTransformer = idleLossesOfTransformer;
-    }
-
-    public double getHighSideVoltage() {
-        return highSideVoltage;
-    }
-
-    public void setHighSideVoltage(double highSideVoltage) {
-        this.highSideVoltage = highSideVoltage;
-    }
-
-    public double getLowSideVoltage() {
-        return lowSideVoltage;
-    }
-
-    public void setLowSideVoltage(double lowSideVoltage) {
-        this.lowSideVoltage = lowSideVoltage;
-    }
-
-    public double getShortCircuitLosses() {
-        return shortCircuitLosses;
-    }
-
-    public void setShortCircuitLosses(double shortCircuitLosses) {
-        this.shortCircuitLosses = shortCircuitLosses;
-    }
-
-    public double getIdleCurrent() {
-        return idleCurrent;
-    }
-
-    public void setIdleCurrent(double idleCurrent) {
-        this.idleCurrent = idleCurrent;
     }
 }

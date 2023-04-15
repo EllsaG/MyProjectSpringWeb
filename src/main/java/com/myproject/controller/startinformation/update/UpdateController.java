@@ -3,7 +3,7 @@ package com.myproject.controller.startinformation.update;
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
 import com.myproject.controller.dto.startinformation.update.UpdateRequestDTO;
-import com.myproject.service.startinformation.update.StartInformationUpdateService;
+import com.myproject.services.startinformation.update.StartInformationUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

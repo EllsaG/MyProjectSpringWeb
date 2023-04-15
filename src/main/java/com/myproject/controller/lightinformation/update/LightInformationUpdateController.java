@@ -2,10 +2,9 @@ package com.myproject.controller.lightinformation.update;
 
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesRequestDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewRequestDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
 import com.myproject.controller.dto.lightinformation.update.LightInformationUpdateRequestDTO;
-import com.myproject.service.lightinformation.update.LightInformationUpdateService;
+import com.myproject.services.lightinformation.update.LightInformationUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

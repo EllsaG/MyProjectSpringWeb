@@ -2,7 +2,7 @@ package com.myproject.controller.startinformation.postget;
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationRequestDTO;
 import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
-import com.myproject.service.startinformation.postget.StartInformationService;
+import com.myproject.services.startinformation.postget.StartInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

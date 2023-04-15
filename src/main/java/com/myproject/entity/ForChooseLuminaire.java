@@ -1,7 +1,11 @@
 package com.myproject.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Getter
+@Setter
 @Entity
 @Table(name = "for_choose_luminaire")
 public class ForChooseLuminaire {
@@ -33,51 +37,4 @@ public class ForChooseLuminaire {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public double getDistanceBetweenRowsOfLamps() {
-        return distanceBetweenRowsOfLamps;
-    }
-
-    public void setDistanceBetweenRowsOfLamps(double distanceBetweenRowsOfLamps) {
-        this.distanceBetweenRowsOfLamps = distanceBetweenRowsOfLamps;
-    }
-
-    public double getDistanceBetweenWallAndFirstRowOfLamps() {
-        return distanceBetweenWallAndFirstRowOfLamps;
-    }
-
-    public void setDistanceBetweenWallAndFirstRowOfLamps(double distanceBetweenWallAndFirstRowOfLamps) {
-        this.distanceBetweenWallAndFirstRowOfLamps = distanceBetweenWallAndFirstRowOfLamps;
-    }
-
-    public int getAmountLuminairesPerLength() {
-        return amountLuminairesPerLength;
-    }
-
-    public void setAmountLuminairesPerLength(int amountLuminairesPerLength) {
-        this.amountLuminairesPerLength = amountLuminairesPerLength;
-    }
-
-    public int getAmountLuminairesPerWidth() {
-        return amountLuminairesPerWidth;
-    }
-
-    public void setAmountLuminairesPerWidth(int amountLuminairesPerWidth) {
-        this.amountLuminairesPerWidth = amountLuminairesPerWidth;
-    }
-
-    public double getLightFlux() {
-        return lightFlux;
-    }
-
-    public void setLightFlux(double lightFlux) {
-        this.lightFlux = lightFlux;
-    }
 }

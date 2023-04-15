@@ -1,8 +1,10 @@
 package com.myproject.controller.dto.startinformation.postget;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Getter
 public class StartInformationRequestDTO {
     @JsonProperty("startInformId")
     private long startInformId;
@@ -19,31 +21,4 @@ public class StartInformationRequestDTO {
     @JsonProperty("tgf")
     private double tgf;
 
-    public long getStartInformId() {
-        return startInformId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getPower() {
-        return power;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public double getKi() {
-        return ki;
-    }
-
-    public double getCosf() {
-        return cosf;
-    }
-
-    public double getTgf() {
-        return tgf;
-    }
 }

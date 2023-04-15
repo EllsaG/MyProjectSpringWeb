@@ -1,8 +1,12 @@
 package com.myproject.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "full_information")
 public class FullInformation {
@@ -68,139 +72,5 @@ public class FullInformation {
     public FullInformation() {
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNameOfBusbar() {
-        return nameOfBusbar;
-    }
-
-    public void setNameOfBusbar(String nameOfBusbar) {
-        this.nameOfBusbar = nameOfBusbar;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public double getAvgDailyActivePower() {
-        return avgDailyActivePower;
-    }
-
-    public void setAvgDailyActivePower(double avgDailyActivePower) {
-        this.avgDailyActivePower = avgDailyActivePower;
-    }
-
-    public double getAvgDailyReactivePower() {
-        return avgDailyReactivePower;
-    }
-
-    public void setAvgDailyReactivePower(double avgDailyReactivePower) {
-        this.avgDailyReactivePower = avgDailyReactivePower;
-    }
-
-    public int getEffectiveAmountOfEquipment() {
-        return effectiveAmountOfEquipment;
-    }
-
-    public void setEffectiveAmountOfEquipment(int effectiveAmountOfEquipment) {
-        this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
-    }
-
-    public double getCoefficientMax() {
-        return coefficientMax;
-    }
-
-    public void setCoefficientMax(double coefficientMax) {
-        this.coefficientMax = coefficientMax;
-    }
-
-    public double getMaxActivePower() {
-        return maxActivePower;
-    }
-
-    public void setMaxActivePower(double maxActivePower) {
-        this.maxActivePower = maxActivePower;
-    }
-
-    public double getMaxReactivePower() {
-        return maxReactivePower;
-    }
-
-    public void setMaxReactivePower(double maxReactivePower) {
-        this.maxReactivePower = maxReactivePower;
-    }
-
-    public double getMaxFullPower() {
-        return maxFullPower;
-    }
-
-    public void setMaxFullPower(double maxFullPower) {
-        this.maxFullPower = maxFullPower;
-    }
-
-    public double getMaxElectricCurrent() {
-        return maxElectricCurrent;
-    }
-
-    public void setMaxElectricCurrent(double maxElectricCurrent) {
-        this.maxElectricCurrent = maxElectricCurrent;
-    }
-
-    public double getPowerOfGroup() {
-        return powerOfGroup;
-    }
-
-    public void setPowerOfGroup(double powerOfGroup) {
-        this.powerOfGroup = powerOfGroup;
-    }
-
-    public double getCosF() {
-        return cosF;
-    }
-
-    public void setCosF(double cosF) {
-        this.cosF = cosF;
-    }
-
-    public double getTgF() {
-        return tgF;
-    }
-
-    public void setTgF(double tgF) {
-        this.tgF = tgF;
-    }
-
-    public double getKi() {
-        return ki;
-    }
-
-    public void setKi(double ki) {
-        this.ki = ki;
-    }
-
-    public double getModule() {
-        return module;
-    }
-
-    public void setModule(double module) {
-        this.module = module;
-    }
-
-    public List<FullStartInformId> getFullStartInformId() {
-        return fullStartInformId;
-    }
-
-    public void setFullStartInformId(List<FullStartInformId> fullStartInformId) {
-        this.fullStartInformId = fullStartInformId;
-    }
 }

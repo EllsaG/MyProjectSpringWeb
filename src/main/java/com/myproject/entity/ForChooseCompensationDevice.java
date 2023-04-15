@@ -1,10 +1,14 @@
 package com.myproject.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "for_choose_compensation_device")
 public class ForChooseCompensationDevice {
@@ -23,30 +27,6 @@ public class ForChooseCompensationDevice {
     }
 
     public ForChooseCompensationDevice() {
-
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public double getMinPowerOfCompensatingDevice() {
-        return minPowerOfCompensatingDevice;
-    }
-
-    public void setMinPowerOfCompensatingDevice(double minPowerOfCompensatingDevice) {
-        this.minPowerOfCompensatingDevice = minPowerOfCompensatingDevice;
-    }
-
-    public double getMaxPowerOfCompensatingDevice() {
-        return maxPowerOfCompensatingDevice;
-    }
-
-    public void setMaxPowerOfCompensatingDevice(double maxPowerOfCompensatingDevice) {
-        this.maxPowerOfCompensatingDevice = maxPowerOfCompensatingDevice;
-    }
 }

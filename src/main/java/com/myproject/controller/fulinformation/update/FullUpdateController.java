@@ -4,7 +4,7 @@ import com.myproject.controller.dto.fullinformation.postget.FullInformationMainB
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
 import com.myproject.controller.dto.fullinformation.update.FullInformationUpdateRequestDTO;
 import com.myproject.entity.FullStartInformId;
-import com.myproject.service.fullinformation.update.FullInformationUpdateService;
+import com.myproject.services.fullinformation.update.FullInformationUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +26,7 @@ public class FullUpdateController {
     public FullInformationResponseDTO updateInfo(@RequestBody FullInformationUpdateRequestDTO fullInformationUpdateRequestDTO) {
         return fullInformationUpdateService.update(fullInformationUpdateRequestDTO.getId(),
                 fullInformationUpdateRequestDTO.getNameOfBusbar(),
-                fullInformationUpdateRequestDTO.getFullStartInformIdRequestDTO().stream()
+                fullInformationUpdateRequestDTO.getFullStartInformId().stream()
                         .map(e -> new FullStartInformId(e.getNumberOfBusbar(), e.getNumberOfEquipment(), e.getAmountOfEquipment()))
                         .collect(Collectors.toList()));
 

@@ -40,7 +40,7 @@ public class ReactivePowerCompensation {
             ForChooseCompensationDevice forChooseCompensationDevice = forChooseCompensationDeviceRepository.findById(id).get();
             double minPowerOfCompensatingDevice = forChooseCompensationDevice.getMinPowerOfCompensatingDevice();
             double maxPowerOfCompensatingDevice = forChooseCompensationDevice.getMaxPowerOfCompensatingDevice();
-            throw new IncorrectNumberValueException("Incorrect value of compensating device power, as it should be between "
+            throw new IncorrectNumberValueException("Incorrect power value of the compensating device, as it should be between "
                     + minPowerOfCompensatingDevice + " and " + maxPowerOfCompensatingDevice);
         }
 
