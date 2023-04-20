@@ -22,9 +22,9 @@ public class CompensationDeviceController {
 
     @GetMapping("/compensationdevice/all")
     public CompensationDeviceResponseDTO getAll(){
-        return new CompensationDeviceResponseDTO(compensationDeviceService.getAllInformation());
+        return new CompensationDeviceResponseDTO(compensationDeviceService.getAllCompensationDevices(),
+                compensationDeviceService.getAllForChooseCompensationDevices());
     }
-
     @PostMapping("/compensationdevice/create")
     public CompensationDeviceResponseDTO save(@RequestBody CompensationDeviceRequestDTO compensationDeviceRequestDTO) {
         return compensationDeviceService.save(compensationDeviceRequestDTO.getId(),compensationDeviceRequestDTO.getNameOfCompensationDevice(),

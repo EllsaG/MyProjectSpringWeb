@@ -2,6 +2,7 @@ package com.myproject.services.compensationdevice.postget;
 
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceResponseDTO;
 import com.myproject.entity.CompensationDevice;
+import com.myproject.entity.ForChooseCompensationDevice;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.CompensationDeviceRepository;
 import com.myproject.repositories.ForChooseCompensationDeviceRepository;
@@ -33,21 +34,23 @@ public class CompensationDeviceService {
         CompensationDevice newCompensatingDevice = reactivePowerCompensation.createNewCompensatingDevice(id, nameOfCompensationDevice, powerOfCompensatingDevice,
                 fullInformationRepository, forChooseCompensationDeviceRepository);
         compensationDeviceRepository.save(newCompensatingDevice);
-        return new CompensationDeviceResponseDTO(getAllInformation());
+        return new CompensationDeviceResponseDTO(getAllCompensationDevices(), getAllForChooseCompensationDevices ());
 
     }
     public CompensationDevice getInformationById(long id) {
         return compensationDeviceRepository.findById(id)
                 .orElseThrow(()->new InformationNotFoundException("Unable to find information about compensation device with id № " + id));
     }
-    public List<CompensationDevice> getAllInformation() {
+    public List<CompensationDevice> getAllCompensationDevices() {
         return compensationDeviceRepository.findAll();
     }
-
+    public List<ForChooseCompensationDevice> getAllForChooseCompensationDevices() {
+        return forChooseCompensationDeviceRepository.findAll();
+    }
 
     public CompensationDeviceResponseDTO delete(CompensationDevice compensationDevice) {
         compensationDeviceRepository.delete(compensationDevice);
-        return new CompensationDeviceResponseDTO(getAllInformation());
+        return new CompensationDeviceResponseDTO(getAllCompensationDevices(), getAllForChooseCompensationDevices ());
     }
 
     public CompensationDeviceResponseDTO update(long id, String nameOfCompensationDevice, double powerOfCompensatingDevice) {
@@ -55,7 +58,7 @@ public class CompensationDeviceService {
         CompensationDevice newCompensatingDevice = reactivePowerCompensation.createNewCompensatingDevice(id, nameOfCompensationDevice, powerOfCompensatingDevice,
                 fullInformationRepository, forChooseCompensationDeviceRepository);
         compensationDeviceRepository.save(newCompensatingDevice);
-        return new CompensationDeviceResponseDTO(getAllInformation());
+        return new CompensationDeviceResponseDTO(getAllCompensationDevices(), getAllForChooseCompensationDevices ());
     }
 
 }
