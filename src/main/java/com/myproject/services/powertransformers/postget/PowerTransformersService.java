@@ -1,6 +1,7 @@
 package com.myproject.services.powertransformers.postget;
 
 import com.myproject.controller.dto.powertransformers.postget.PowerTransformersResponseDTO;
+import com.myproject.entity.ForChooseTransformers;
 import com.myproject.entity.PowerTransformers;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.*;
@@ -38,21 +39,24 @@ public class PowerTransformersService {
 
         powerTransformersRepository.save(newTransformer);
 
-        return new PowerTransformersResponseDTO(getAllInformation());
+        return new PowerTransformersResponseDTO(getAllPowerTransformers(), getAllForChoosePowerTransformers());
 
     }
     public PowerTransformers getInformationById(long id) {
         return powerTransformersRepository.findById(id)
                 .orElseThrow(()->new InformationNotFoundException("Unable to find information about power transformer with id № " + id));
     }
-    public List<PowerTransformers> getAllInformation() {
+    public List<PowerTransformers> getAllPowerTransformers() {
         return powerTransformersRepository.findAll();
+    }
+    public List<ForChooseTransformers> getAllForChoosePowerTransformers() {
+        return forChooseTransformersRepository.findAll();
     }
 
 
     public PowerTransformersResponseDTO delete(PowerTransformers powerTransformers) {
         powerTransformersRepository.delete(powerTransformers);
-        return new PowerTransformersResponseDTO(getAllInformation());
+        return new PowerTransformersResponseDTO(getAllPowerTransformers(), getAllForChoosePowerTransformers());
     }
 
     public PowerTransformersResponseDTO update(long id, String modelOfTransformer, double fullPowerOfTransformer,

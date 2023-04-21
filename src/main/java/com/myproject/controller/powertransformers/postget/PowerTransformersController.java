@@ -22,7 +22,8 @@ public class PowerTransformersController {
 
     @GetMapping("/powertransformer/all")
     public PowerTransformersResponseDTO getAll(){
-        return new PowerTransformersResponseDTO(powerTransformersService.getAllInformation());
+        return new PowerTransformersResponseDTO(powerTransformersService.getAllPowerTransformers(),
+                powerTransformersService.getAllForChoosePowerTransformers());
     }
 
     @PostMapping("/powertransformer/create")

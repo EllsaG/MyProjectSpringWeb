@@ -11,7 +11,6 @@ import com.myproject.utils.ForLightingCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -27,14 +26,14 @@ public class LightInformationService {
         this.forChooseLuminaireRepository = forChooseLuminaireRepository;
     }
 
-    public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(long lightingId, double heightProductionHall, double widthProductionHall, double lengthProductionHall) {
+    public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(long lightingId, double heightProductionHall,
+                                                                           double widthProductionHall, double lengthProductionHall) {
         ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
-        ForChooseLuminaire forChooseLuminaire = forLightingCalculation.lightingCalculation(lightingId, heightProductionHall, widthProductionHall, lengthProductionHall);
+        ForChooseLuminaire forChooseLuminaire = forLightingCalculation.lightingCalculation(lightingId,
+                heightProductionHall, widthProductionHall, lengthProductionHall, forChooseLuminaireRepository);
         forChooseLuminaireRepository.save(forChooseLuminaire);
-        HashMap<Integer, HashMap<Double, Double>> integerHashMapHashMap = forLightingCalculation.forResponseLightingCalculation(forChooseLuminaireRepository);
 
-
-        return new LightInformationChooseLuminariesResponseDTO(integerHashMapHashMap);
+        return forLightingCalculation.forResponseChooseLuminaries(forChooseLuminaireRepository);
     }
 
     public LightInformation getLightInformationById(long lightInformId) {
@@ -44,6 +43,11 @@ public class LightInformationService {
 
     public List<LightInformation> getAllLightInformation() {
         return lightInformationRepository.findAll();
+    }
+
+    public LightInformationChooseLuminariesResponseDTO getAllForChooseLuminaire() {
+        ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
+        return forLightingCalculation.forResponseChooseLuminaries(forChooseLuminaireRepository);
     }
 
 

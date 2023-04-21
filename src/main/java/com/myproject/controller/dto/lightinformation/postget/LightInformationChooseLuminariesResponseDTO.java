@@ -1,20 +1,19 @@
 package com.myproject.controller.dto.lightinformation.postget;
 
-import lombok.EqualsAndHashCode;
+import com.myproject.utils.LightFluxAtAmountOfLamps;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.List;
+
 @Getter
 @Setter
-@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class LightInformationChooseLuminariesResponseDTO {
 
-    HashMap<Integer, HashMap<Double,Double>> lightFluxAtAmountOfLamps;
-    public LightInformationChooseLuminariesResponseDTO(HashMap<Integer, HashMap<Double, Double>> lightFluxAtAmountOfLamps) {
-        this.lightFluxAtAmountOfLamps = lightFluxAtAmountOfLamps;
-    }
-
+    List<LightFluxAtAmountOfLamps> lightFluxAtAmountOfLampsList;
 
 }

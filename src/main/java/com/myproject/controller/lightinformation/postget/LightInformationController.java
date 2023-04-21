@@ -1,9 +1,6 @@
 package com.myproject.controller.lightinformation.postget;
 
-import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesRequestDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewRequestDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
+import com.myproject.controller.dto.lightinformation.postget.*;
 import com.myproject.services.lightinformation.postget.LightInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +18,14 @@ public class LightInformationController {
     public LightInformationController(LightInformationService lightInformationService) {
         this.lightInformationService = lightInformationService;
     }
-    @GetMapping("/lightinformation/all")
-    public LightInformationCreateNewResponseDTO getAll(){
-        return new LightInformationCreateNewResponseDTO(lightInformationService.getAllLightInformation());
+    @GetMapping("/lightinformation/all/forchooseluminaires")
+    public LightInformationChooseLuminariesResponseDTO getAllForChooseLuminaries(){
+        return lightInformationService.getAllForChooseLuminaire();
+    }
 
+    @GetMapping("/lightinformation/all/lightinformation")
+    public LightInformationCreateNewResponseDTO getAllLightingInformation(){
+        return new LightInformationCreateNewResponseDTO(lightInformationService.getAllLightInformation());
     }
 
     @PostMapping("/lightinformation/create/forchooseluminaires")

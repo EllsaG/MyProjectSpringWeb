@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made &quot;ChoosingOfTransformers&quot;. Change all code with &quot;Lombok&quot;.">
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Changed &quot;CompensationDeviceResponseDTO&quot;.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/LightFluxAtAmountOfLamps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/postget/CompensationDeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/compensatingdevice/postget/CompensationDeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/compensatingdevice/postget/CompensationDeviceResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/compensatingdevice/postget/CompensationDeviceResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/CompensationDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/CompensationDevice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/compensationdevice/postget/CompensationDeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/compensationdevice/postget/CompensationDeviceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationChooseLuminariesResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationChooseLuminariesResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationCreateNewResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/lightinformation/postget/LightInformationCreateNewResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/powertransformers/postget/PowerTransformersResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/powertransformers/postget/PowerTransformersResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/lightinformation/postget/LightInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/lightinformation/postget/LightInformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/powertransformers/postget/PowerTransformersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/powertransformers/postget/PowerTransformersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseLuminaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseLuminaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/postget/LightInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/postget/LightInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/powertransformers/postget/PowerTransformersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/powertransformers/postget/PowerTransformersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForLightingCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForLightingCalculation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +244,8 @@
       <workItem from="1681843230256" duration="28000" />
       <workItem from="1681927920415" duration="1959000" />
       <workItem from="1682002380985" duration="6935000" />
+      <workItem from="1682098848837" duration="236000" />
+      <workItem from="1682101860411" duration="6326000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -284,7 +292,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="work-now" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>

@@ -1,11 +1,15 @@
 package com.myproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "for_choose_luminaire")
 public class ForChooseLuminaire {
@@ -23,18 +27,11 @@ public class ForChooseLuminaire {
     private int amountLuminairesPerWidth;
     @Column(name = "light_flux")
     private double lightFlux;
-
-    public ForChooseLuminaire(Long id, double distanceBetweenRowsOfLamps, double distanceBetweenWallAndFirstRowOfLamps, int amountLuminairesPerLength, int amountLuminairesPerWidth, double lightFlux) {
-        this.id = id;
-        this.distanceBetweenRowsOfLamps = distanceBetweenRowsOfLamps;
-        this.distanceBetweenWallAndFirstRowOfLamps = distanceBetweenWallAndFirstRowOfLamps;
-        this.amountLuminairesPerLength = amountLuminairesPerLength;
-        this.amountLuminairesPerWidth = amountLuminairesPerWidth;
-        this.lightFlux = lightFlux;
-    }
-
-    public ForChooseLuminaire() {
-
-    }
+    @Column(name = "production_hall_height")
+    private double productionHallHeight;
+    @Column(name = "production_hall_width")
+    private double productionHallWidth;
+    @Column(name = "production_hall_length")
+    private double productionHallLength;
 
 }
