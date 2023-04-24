@@ -40,6 +40,10 @@ public class LightInformationService {
         return lightInformationRepository.findById(lightInformId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about lighting with id № " + lightInformId));
     }
+    public ForChooseLuminaire getLuminaireById(long luminaireInformId) {
+        return forChooseLuminaireRepository.findById(luminaireInformId)
+                .orElseThrow(() -> new InformationNotFoundException("Unable to find information about luminaire with id № " + luminaireInformId));
+    }
 
     public List<LightInformation> getAllLightInformation() {
         return lightInformationRepository.findAll();
@@ -63,6 +67,12 @@ public class LightInformationService {
     public LightInformationCreateNewResponseDTO deleteById(LightInformation lightInformation) {
         lightInformationRepository.delete(lightInformation);
         return new LightInformationCreateNewResponseDTO(getAllLightInformation());
+
+    }
+
+    public LightInformationChooseLuminariesResponseDTO deleteLuminareById(ForChooseLuminaire forChooseLuminaire) {
+        forChooseLuminaireRepository.delete(forChooseLuminaire);
+        return getAllForChooseLuminaire();
 
     }
 

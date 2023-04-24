@@ -18,12 +18,12 @@ public class LightInformationController {
     public LightInformationController(LightInformationService lightInformationService) {
         this.lightInformationService = lightInformationService;
     }
-    @GetMapping("/lightinformation/all/forchooseluminaires")
+    @GetMapping("/lightinformation/forchooseluminaires/all")
     public LightInformationChooseLuminariesResponseDTO getAllForChooseLuminaries(){
         return lightInformationService.getAllForChooseLuminaire();
     }
 
-    @GetMapping("/lightinformation/all/lightinformation")
+    @GetMapping("/lightinformation/lightinformation/all")
     public LightInformationCreateNewResponseDTO getAllLightingInformation(){
         return new LightInformationCreateNewResponseDTO(lightInformationService.getAllLightInformation());
     }

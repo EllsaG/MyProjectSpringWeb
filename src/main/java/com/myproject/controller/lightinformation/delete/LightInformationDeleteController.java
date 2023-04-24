@@ -1,5 +1,6 @@
 package com.myproject.controller.lightinformation.delete;
 
+import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
 import com.myproject.services.lightinformation.delete.LightInformationDeleteService;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,10 +16,13 @@ public class LightInformationDeleteController {
         this.lightInformationDeleteService = lightInformationDeleteService;
     }
     @DeleteMapping("/lightinformatiion/delete/{lightInformId}")
-    public LightInformationCreateNewResponseDTO deleteById(@PathVariable long lightInformId){
+    public LightInformationCreateNewResponseDTO deleteLightingById(@PathVariable long lightInformId){
         return lightInformationDeleteService.deleteById(lightInformId);
     }
-
+    @DeleteMapping("/lightinformatiion/delete/forchooseluminaires/{lightInformId}")
+    public LightInformationChooseLuminariesResponseDTO deleteLuminaireById(@PathVariable long lightInformId){
+        return lightInformationDeleteService.deleteLuminaireById(lightInformId);
+    }
 
 
 }
