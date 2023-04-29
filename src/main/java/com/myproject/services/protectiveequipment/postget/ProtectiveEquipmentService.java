@@ -3,6 +3,8 @@ package com.myproject.services.protectiveequipment.postget;
 import com.myproject.controller.dto.protectiveequipment.postget.ProtectiveEquipmentResponseDTO;
 import com.myproject.entity.ForChooseProtectiveEquipment;
 import com.myproject.entity.ProtectiveEquipment;
+import com.myproject.entity.StartInformation;
+import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.ForChooseProtectiveEquipmentRepository;
 import com.myproject.repositories.ProtectiveEquipmentRepository;
 import com.myproject.repositories.StartInformationRepository;
@@ -42,13 +44,28 @@ public class ProtectiveEquipmentService {
 
     }
 
+    public ProtectiveEquipmentResponseDTO update(long id, double nominalCurrentOfThermalRelease, double nominalCurrentOfElectromagneticRelease,
+                                                 double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker) {
+        return save(id, nominalCurrentOfThermalRelease, nominalCurrentOfElectromagneticRelease,
+                nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker);
+    }
+
+
+    public void delete(ProtectiveEquipment protectiveEquipment) {
+        protectiveEquipmentRepository.delete(protectiveEquipment);
+    }
+
+    public ProtectiveEquipment getByIdProtectiveEquipment(long id) {
+        return protectiveEquipmentRepository.findById(id)
+                .orElseThrow(() -> new InformationNotFoundException("Unable to find information about the protected equipment. Check the availability of this equipment."));
+    }
+
     public List<ProtectiveEquipment> getAllProtectiveEquipment() {
         return protectiveEquipmentRepository.findAll();
     }
 
     public List<ForChooseProtectiveEquipment> getAllForChooseProtectiveEquipment() {
-        List<ForChooseProtectiveEquipment> all = forChooseProtectiveEquipmentRepository.findAll();
-        return all;
+        return forChooseProtectiveEquipmentRepository.findAll();
     }
 
 }

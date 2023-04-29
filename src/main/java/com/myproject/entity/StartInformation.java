@@ -1,6 +1,8 @@
 package com.myproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "start_information")
 public class StartInformation {
@@ -32,21 +36,6 @@ public class StartInformation {
     @Column(name = "avg_daily_reactive_power", nullable = false)
     private double avgDailyReactivePower;
 
-    public StartInformation(long startInformId, String name, double power, int amount,
-                            double ki, double cosf, double tgf, double avgDailyActivePower,
-                            double avgDailyReactivePower) {
-        this.startInformId = startInformId;
-        this.name = name;
-        this.power = power;
-        this.amount = amount;
-        this.ki = ki;
-        this.cosf = cosf;
-        this.tgf = tgf;
-        this.avgDailyActivePower = avgDailyActivePower;
-        this.avgDailyReactivePower = avgDailyReactivePower;
-    }
 
-    public StartInformation() {
-    }
 
 }

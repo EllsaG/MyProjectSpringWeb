@@ -36,7 +36,7 @@ public class ForProtectiveEquipment {
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about the protected equipment. Check the availability of this equipment."));
 
         return new ProtectiveEquipment(id, typeOfCircuitBreaker, nominalCurrentOfThermalRelease, nominalCurrentOfElectromagneticRelease,
-                nominalCurrentOfCircuitBreaker, startInformation,forChooseProtectiveEquipment);
+                nominalCurrentOfCircuitBreaker);
     }
 
 

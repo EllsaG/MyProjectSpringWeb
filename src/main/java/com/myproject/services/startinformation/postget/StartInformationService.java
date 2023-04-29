@@ -52,6 +52,7 @@ public class StartInformationService {
         return startInformationRepository.save(startInformation);
     }
 
+
     public void delete(StartInformation startInformation) {
         long startInformId = startInformation.getStartInformId();
         startInformationRepository.delete(startInformation);

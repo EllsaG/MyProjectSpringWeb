@@ -27,10 +27,5 @@ public class ProtectiveEquipment {
     @Column(name = "nominal_current_of_circuit_breaker", nullable = false)
     private double nominalCurrentOfCircuitBreaker;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    StartInformation startInformation;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    ForChooseProtectiveEquipment forChooseProtectiveEquipment;
-
 
 }
