@@ -1,5 +1,6 @@
 package com.myproject.utils;
 
+import com.myproject.entity.Cables;
 import com.myproject.entity.ForChooseProtectiveEquipment;
 import com.myproject.entity.ProtectiveEquipment;
 import com.myproject.entity.StartInformation;
@@ -27,7 +28,7 @@ public class ForProtectiveEquipment {
 
 
     public ProtectiveEquipment createNew(long id, double nominalCurrentOfThermalRelease, double nominalCurrentOfElectromagneticRelease,
-                                         double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker, StartInformationRepository startInformationRepository,
+                                         double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker,String cableType, StartInformationRepository startInformationRepository,
                                          ForChooseProtectiveEquipmentRepository forChooseProtectiveEquipmentRepository) {
 
         StartInformation startInformation = startInformationRepository.findById(id)
@@ -36,7 +37,7 @@ public class ForProtectiveEquipment {
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about the protected equipment. Check the availability of this equipment."));
 
         return new ProtectiveEquipment(id, typeOfCircuitBreaker, nominalCurrentOfThermalRelease, nominalCurrentOfElectromagneticRelease,
-                nominalCurrentOfCircuitBreaker);
+                nominalCurrentOfCircuitBreaker, new Cables(cableType));
     }
 
 

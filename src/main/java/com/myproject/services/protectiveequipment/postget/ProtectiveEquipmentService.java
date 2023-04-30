@@ -1,10 +1,11 @@
 package com.myproject.services.protectiveequipment.postget;
 
 import com.myproject.controller.dto.protectiveequipment.postget.ProtectiveEquipmentResponseDTO;
+import com.myproject.entity.Cables;
 import com.myproject.entity.ForChooseProtectiveEquipment;
 import com.myproject.entity.ProtectiveEquipment;
-import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
+import com.myproject.repositories.CablesRepository;
 import com.myproject.repositories.ForChooseProtectiveEquipmentRepository;
 import com.myproject.repositories.ProtectiveEquipmentRepository;
 import com.myproject.repositories.StartInformationRepository;
@@ -19,23 +20,25 @@ public class ProtectiveEquipmentService {
     private final ForChooseProtectiveEquipmentRepository forChooseProtectiveEquipmentRepository;
     private final StartInformationRepository startInformationRepository;
     private final ProtectiveEquipmentRepository protectiveEquipmentRepository;
+    private final CablesRepository cablesRepository;
 
     @Autowired
     public ProtectiveEquipmentService(ForChooseProtectiveEquipmentRepository forChooseProtectiveEquipmentRepository,
                                       StartInformationRepository startInformationRepository,
-                                      ProtectiveEquipmentRepository protectiveEquipmentRepository) {
+                                      ProtectiveEquipmentRepository protectiveEquipmentRepository, CablesRepository cablesRepository) {
         this.forChooseProtectiveEquipmentRepository = forChooseProtectiveEquipmentRepository;
         this.startInformationRepository = startInformationRepository;
         this.protectiveEquipmentRepository = protectiveEquipmentRepository;
+        this.cablesRepository = cablesRepository;
     }
 
 
     public ProtectiveEquipmentResponseDTO save(long id, double nominalCurrentOfThermalRelease, double nominalCurrentOfElectromagneticRelease,
-                                               double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker) {
+                                               double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker, String cableType) {
 
         ForProtectiveEquipment forProtectiveEquipment = new ForProtectiveEquipment();
         ProtectiveEquipment newProtectiveEquipment = forProtectiveEquipment.createNew(id, nominalCurrentOfThermalRelease,
-                nominalCurrentOfElectromagneticRelease, nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker,
+                nominalCurrentOfElectromagneticRelease, nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker, cableType,
                 startInformationRepository, forChooseProtectiveEquipmentRepository);
 
         protectiveEquipmentRepository.save(newProtectiveEquipment);
@@ -45,9 +48,9 @@ public class ProtectiveEquipmentService {
     }
 
     public ProtectiveEquipmentResponseDTO update(long id, double nominalCurrentOfThermalRelease, double nominalCurrentOfElectromagneticRelease,
-                                                 double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker) {
+                                                 double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker, String cableType) {
         return save(id, nominalCurrentOfThermalRelease, nominalCurrentOfElectromagneticRelease,
-                nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker);
+                nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker, cableType);
     }
 
 

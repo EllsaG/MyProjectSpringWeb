@@ -6,12 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "protective_equipment")
 public class ProtectiveEquipment {
@@ -27,5 +26,8 @@ public class ProtectiveEquipment {
     @Column(name = "nominal_current_of_circuit_breaker", nullable = false)
     private double nominalCurrentOfCircuitBreaker;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cables_id", nullable = false)
+    private Cables cables;
 
 }

@@ -24,6 +24,6 @@ public class ProtectiveEquipmentUpdateController {
     public ProtectiveEquipmentResponseDTO update(@RequestBody ProtectiveEquipmentUpdateRequestDTO protectiveEquipmentUpdateRequestDTO) {
         return protectiveEquipmentUpdateService.update(protectiveEquipmentUpdateRequestDTO.getId(), protectiveEquipmentUpdateRequestDTO.getNominalCurrentOfThermalRelease(),
                 protectiveEquipmentUpdateRequestDTO.getNominalCurrentOfElectromagneticRelease(), protectiveEquipmentUpdateRequestDTO.getNominalCurrentOfCircuitBreaker(),
-                protectiveEquipmentUpdateRequestDTO.getTypeOfCircuitBreaker());
+                protectiveEquipmentUpdateRequestDTO.getTypeOfCircuitBreaker(), protectiveEquipmentUpdateRequestDTO.getCableType());
     }
 }

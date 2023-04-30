@@ -34,7 +34,7 @@ public class ProtectiveEquipmentController {
     public ProtectiveEquipmentResponseDTO create(@RequestBody ProtectiveEquipmentRequestDTO protectiveEquipmentRequestDTO) {
         return protectiveEquipmentService.save(protectiveEquipmentRequestDTO.getId(),protectiveEquipmentRequestDTO.getNominalCurrentOfThermalRelease(),
                 protectiveEquipmentRequestDTO.getNominalCurrentOfElectromagneticRelease(), protectiveEquipmentRequestDTO.getNominalCurrentOfCircuitBreaker(),
-                protectiveEquipmentRequestDTO.getTypeOfCircuitBreaker());
+                protectiveEquipmentRequestDTO.getTypeOfCircuitBreaker(),protectiveEquipmentRequestDTO.getCableType());
     }
 
 

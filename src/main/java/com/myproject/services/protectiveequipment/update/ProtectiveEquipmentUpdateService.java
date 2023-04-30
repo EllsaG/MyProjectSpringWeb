@@ -20,11 +20,11 @@ public class ProtectiveEquipmentUpdateService {
 
 
     public ProtectiveEquipmentResponseDTO update(long id, double nominalCurrentOfThermalRelease, double nominalCurrentOfElectromagneticRelease,
-                                                 double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker) {
+                                                 double nominalCurrentOfCircuitBreaker, String typeOfCircuitBreaker,String cableType) {
         ProtectiveEquipment byIdProtectiveEquipment = protectiveEquipmentService.getByIdProtectiveEquipment(id);
         protectiveEquipmentService.delete(byIdProtectiveEquipment);
         return protectiveEquipmentService.update(id, nominalCurrentOfThermalRelease, nominalCurrentOfElectromagneticRelease
-                ,nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker);
+                ,nominalCurrentOfCircuitBreaker, typeOfCircuitBreaker, cableType);
     }
 
 

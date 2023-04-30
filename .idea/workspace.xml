@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Began creating &quot;ProtectiveEquipment&quot;. Need to change the DB.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/update/ProtectiveEquipmentUpdateRequestDTO.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made &quot;ProtectiveEquipment&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/Cables.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/CablesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/delete/ProtectiveEquipmentDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/delete/ProtectiveEquipmentDeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/postget/ProtectiveEquipmentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/postget/ProtectiveEquipmentRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/update/ProtectiveEquipmentUpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/update/ProtectiveEquipmentUpdateRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/postget/ProtectiveEquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/postget/ProtectiveEquipmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/update/ProtectiveEquipmentUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/update/ProtectiveEquipmentUpdateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ProtectiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ProtectiveEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/StartInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/delete/ProtectiveEquipmentDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/delete/ProtectiveEquipmentDeleteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/postget/ProtectiveEquipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/postget/ProtectiveEquipmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/update/ProtectiveEquipmentUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/update/ProtectiveEquipmentUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/startinformation/postget/StartInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/startinformation/postget/StartInformationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForProtectiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForProtectiveEquipment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -257,6 +258,7 @@
       <workItem from="1682622916775" duration="14911000" />
       <workItem from="1682645160381" duration="33000" />
       <workItem from="1682722961442" duration="4515000" />
+      <workItem from="1682806930689" duration="14849000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -303,7 +305,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="work-now" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>

@@ -17,6 +17,7 @@ public class ProtectiveEquipmentRequestDTO {
     private double nominalCurrentOfElectromagneticRelease;
     @JsonProperty("nominalCurrentOfCircuitBreaker")
     private double nominalCurrentOfCircuitBreaker;
-
+    @JsonProperty("cableType")
+    private String cableType;
 
 }
