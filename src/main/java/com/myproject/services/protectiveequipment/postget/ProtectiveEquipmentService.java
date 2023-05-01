@@ -20,16 +20,15 @@ public class ProtectiveEquipmentService {
     private final ForChooseProtectiveEquipmentRepository forChooseProtectiveEquipmentRepository;
     private final StartInformationRepository startInformationRepository;
     private final ProtectiveEquipmentRepository protectiveEquipmentRepository;
-    private final CablesRepository cablesRepository;
+
 
     @Autowired
     public ProtectiveEquipmentService(ForChooseProtectiveEquipmentRepository forChooseProtectiveEquipmentRepository,
                                       StartInformationRepository startInformationRepository,
-                                      ProtectiveEquipmentRepository protectiveEquipmentRepository, CablesRepository cablesRepository) {
+                                      ProtectiveEquipmentRepository protectiveEquipmentRepository) {
         this.forChooseProtectiveEquipmentRepository = forChooseProtectiveEquipmentRepository;
         this.startInformationRepository = startInformationRepository;
         this.protectiveEquipmentRepository = protectiveEquipmentRepository;
-        this.cablesRepository = cablesRepository;
     }
 
 

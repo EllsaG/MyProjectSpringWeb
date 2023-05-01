@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made &quot;ProtectiveEquipment&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/Cables.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/CablesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Began creating &quot;HighVoltCalculation&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseHighVoltCable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/HighVoltCables.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/ForChooseHighVoltCableRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/postget/ProtectiveEquipmentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/postget/ProtectiveEquipmentRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/update/ProtectiveEquipmentUpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/protectiveequipment/update/ProtectiveEquipmentUpdateRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/postget/ProtectiveEquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/postget/ProtectiveEquipmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/update/ProtectiveEquipmentUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/protectiveequipment/update/ProtectiveEquipmentUpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ProtectiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ProtectiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/Cables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/Cables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseCompensationDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ForChooseCompensationDevice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/postget/ProtectiveEquipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/postget/ProtectiveEquipmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/update/ProtectiveEquipmentUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/update/ProtectiveEquipmentUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForProtectiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForProtectiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +255,8 @@
       <workItem from="1682645160381" duration="33000" />
       <workItem from="1682722961442" duration="4515000" />
       <workItem from="1682806930689" duration="14849000" />
+      <workItem from="1682825546222" duration="100000" />
+      <workItem from="1682914246925" duration="7502000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -336,7 +334,8 @@
     <MESSAGE value="Made &quot;ChoosingOfTransformers&quot;. Change all code with &quot;Lombok&quot;." />
     <MESSAGE value="Changed &quot;PowerTransformersResponseDTO&quot; and response of the lighting ." />
     <MESSAGE value="Began creating &quot;ProtectiveEquipment&quot;. Need to change the DB." />
-    <option name="LAST_COMMIT_MESSAGE" value="Began creating &quot;ProtectiveEquipment&quot;. Need to change the DB." />
+    <MESSAGE value="Began creating &quot;HighVoltCalculation&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Began creating &quot;HighVoltCalculation&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,7 +10,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "cables")
-public class Cables {
+public class HighVoltCables {
+
 
     @Id
     @Column(name = "id", nullable = false)
@@ -20,7 +21,8 @@ public class Cables {
     @Setter
     private String cableType;
 
-    public Cables(String cableType) {
+    public HighVoltCables(String cableType) {
         this.cableType = cableType;
     }
+
 }
