@@ -1,11 +1,9 @@
 package com.myproject.services.protectiveequipment.postget;
 
 import com.myproject.controller.dto.protectiveequipment.postget.ProtectiveEquipmentResponseDTO;
-import com.myproject.entity.Cables;
 import com.myproject.entity.ForChooseProtectiveEquipment;
 import com.myproject.entity.ProtectiveEquipment;
 import com.myproject.exceptions.InformationNotFoundException;
-import com.myproject.repositories.CablesRepository;
 import com.myproject.repositories.ForChooseProtectiveEquipmentRepository;
 import com.myproject.repositories.ProtectiveEquipmentRepository;
 import com.myproject.repositories.StartInformationRepository;

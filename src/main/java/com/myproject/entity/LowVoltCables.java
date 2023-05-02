@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "cables")
-public class Cables {
+@Table(name = "low_volt_cables")
+public class LowVoltCables {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -20,7 +20,7 @@ public class Cables {
     @Setter
     private String cableType;
 
-    public Cables(String cableType) {
+    public LowVoltCables(String cableType) {
         this.cableType = cableType;
     }
 }

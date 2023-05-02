@@ -21,7 +21,7 @@ public class LightInformationUpdateService {
 
     public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(long lightingId,double heightProductionHall, double widthProductionHall, double lengthProductionHall) {
         ForChooseLuminaire luminaireById = lightInformationService.getLuminaireById(lightingId);
-        lightInformationService.deleteLuminareById(luminaireById);
+        lightInformationService.deleteLuminaireById(luminaireById);
         return lightInformationService.forChooseLuminaries(lightingId, heightProductionHall, widthProductionHall, lengthProductionHall);
     }
 

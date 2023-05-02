@@ -1,6 +1,6 @@
 package com.myproject.utils;
 
-import com.myproject.entity.Cables;
+import com.myproject.entity.LowVoltCables;
 import com.myproject.entity.ForChooseProtectiveEquipment;
 import com.myproject.entity.ProtectiveEquipment;
 import com.myproject.entity.StartInformation;
@@ -37,7 +37,7 @@ public class ForProtectiveEquipment {
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about the protected equipment. Check the availability of this equipment."));
 
         return new ProtectiveEquipment(id, typeOfCircuitBreaker, nominalCurrentOfThermalRelease, nominalCurrentOfElectromagneticRelease,
-                nominalCurrentOfCircuitBreaker, new Cables(cableType));
+                nominalCurrentOfCircuitBreaker, new LowVoltCables(cableType));
     }
 
 

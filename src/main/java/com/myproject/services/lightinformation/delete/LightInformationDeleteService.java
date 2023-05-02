@@ -24,7 +24,7 @@ public class LightInformationDeleteService {
     }
     public LightInformationChooseLuminariesResponseDTO deleteLuminaireById(long lightInformId) {
         ForChooseLuminaire luminaireById = lightInformationService.getLuminaireById(lightInformId);
-        return lightInformationService.deleteLuminareById(luminaireById);
+        return lightInformationService.deleteLuminaireById(luminaireById);
     }
 
 }

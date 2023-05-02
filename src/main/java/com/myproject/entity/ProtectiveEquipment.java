@@ -27,7 +27,6 @@ public class ProtectiveEquipment {
     private double nominalCurrentOfCircuitBreaker;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cables_id", nullable = false)
-    private Cables cables;
+    private LowVoltCables lowVoltCables;
 
 }

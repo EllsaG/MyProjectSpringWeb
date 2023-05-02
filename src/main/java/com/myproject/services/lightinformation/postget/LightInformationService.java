@@ -70,7 +70,7 @@ public class LightInformationService {
 
     }
 
-    public LightInformationChooseLuminariesResponseDTO deleteLuminareById(ForChooseLuminaire forChooseLuminaire) {
+    public LightInformationChooseLuminariesResponseDTO deleteLuminaireById(ForChooseLuminaire forChooseLuminaire) {
         forChooseLuminaireRepository.delete(forChooseLuminaire);
         return getAllForChooseLuminaire();
 
@@ -78,11 +78,7 @@ public class LightInformationService {
 
     public LightInformationCreateNewResponseDTO update(long lightingId, String modelOfLuminaire, String modelOfLamp, double lightFluxOneLamp,
                                                        int amountOfLampsInOneLuminaire, double activePowerOneLamp) {
-        ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
-        LightInformation lightInformation = forLightingCalculation.electricCalculation(forChooseLuminaireRepository, lightInformationRepository, lightingId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
-        lightInformationRepository.save(lightInformation);
-
-        return new LightInformationCreateNewResponseDTO(getAllLightInformation());
+        return createNew(lightingId, modelOfLuminaire, modelOfLamp, lightFluxOneLamp, amountOfLampsInOneLuminaire, activePowerOneLamp);
     }
 
 

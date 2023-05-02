@@ -267,9 +267,9 @@ public class ForFullTableLoadCalculation {
         return Math.round((kMax[b][j]) * 100.0) / 100.0; //  round to two argument after point
     }
 
-    private void isExists(FullInformationRepository fullInformationRepository, Long id){
-        Optional<FullInformation> byId = fullInformationRepository.findById(id);
-        if (byId.isPresent()) {
+    private void isExists(FullInformationRepository fullInformationRepository, long id){
+        boolean present = fullInformationRepository.findById(id).isPresent();
+        if (present) {
             throw new InformationAlreadyExistsException("Information about busbar with id № " + id + " is already exists");
         }
     }

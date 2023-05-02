@@ -1,10 +1,13 @@
 package com.myproject.utils;
 
 import com.myproject.entity.ForChooseHighVoltCable;
-import com.myproject.entity.PowerTransformers;
-import com.myproject.repositories.PowerTransformersRepository;
+import com.myproject.entity.HighVoltCables;
+import com.myproject.entity.HighVoltInformation;
+import com.myproject.entity.InductiveImpedanceAreas;
+import com.myproject.exceptions.InformationNotFoundException;
+import com.myproject.repositories.HighVoltInformationRepository;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class HighVoltCalculation {
 
@@ -36,13 +39,12 @@ public class HighVoltCalculation {
     */
 
 
+    public HighVoltInformation shortCircuitCurrentCalculation(long id, double productionHallTransformerFullPower, int baseVoltage, int baseFullPower,
+                                                              double relativeBaselineUnrestrictedPowerResistance,
+                                                              double highVoltageAirLineLength, double headTransformerFullPower, double shortCircuitVoltage,
+                                                              double cableLineLength, double ratedVoltageOfHigherVoltageWindingOfTransformer,
+                                                              List<InductiveImpedanceAreas> inductiveImpedanceAreas) {
 
-
-    public ForChooseHighVoltCable ShortCircuitCurrentCalculation(long id, double productionHallTransformerFullPower, int baseVoltage, int baseFullPower,
-                                                                 double relativeBaselineUnrestrictedPowerResistance,
-                                                                 double highVoltageAirLineLength, double headTransformerFullPower, double shortCircuitVoltage,
-                                                                 double cableLineLength, double ratedVoltageOfHigherVoltageWindingOfTransformer,
-                                                                 double[] inductiveImpedanceAreas) {
 
         double relativeBasisResistance = relativeBaselineUnrestrictedPowerResistance; //Относительное базисное сопротивление x_c=x_1=0,5
 
@@ -64,7 +66,10 @@ public class HighVoltCalculation {
                 (100 * productionHallTransformerFullPower / 1000); //Относительное реактивное сопротивление трансформатора Т2
 
 
-        double reactiveResistanceAtPointK1 = Arrays.stream(inductiveImpedanceAreas).sum(); //  Реактивное сопротивление до точки k1   (x_∑k1 = x_1 + ... + x_4)
+        double reactiveResistanceAtPointK1 = inductiveImpedanceAreas.stream()
+                .map(InductiveImpedanceAreas::getInductiveResistance)
+                .reduce(Double::sum)
+                .get(); //  Реактивное сопротивление до точки k1   (x_∑k1 = x_1 + ... + x_4)
 
         double baseCurrentAtPointK1 = baseFullPower / (Math.sqrt(3) * shortCircuitVoltage); //Базисный ток в точке k1
 
@@ -80,10 +85,23 @@ public class HighVoltCalculation {
         double shortCircuitPowerAtPointK1 = baseFullPower / fullResistanceAtPointK1; // Мощность короткого замыкания в точке k1
 
 
-
         double ratedPowerTransformerCurrent = productionHallTransformerFullPower /
                 (ratedVoltageOfHigherVoltageWindingOfTransformer * Math.sqrt(3)); // Номинальный ток силового трансформатора Iном, А
 
+        return new HighVoltInformation(id, highVoltageAirLineInductiveResistance, highVoltageCableLineInductiveResistance, highVoltageCableLineActiveResistance,
+                surgeCoefficient, economicCurrentDensity, fixedTime, coefficientTakingEmittedHeatDifference, productionHallTransformerFullPower, baseVoltage,
+                baseFullPower, relativeBaselineUnrestrictedPowerResistance, highVoltageAirLineLength, headTransformerFullPower, shortCircuitVoltage, cableLineLength,
+                ratedVoltageOfHigherVoltageWindingOfTransformer, relativeBasisResistance, powerLineRelativeResistance, firstTransformerRelativeReactiveResistance,
+                cableLineRelativeReactiveResistance, secondTransformerRelativeReactiveResistance, reactiveResistanceAtPointK1, baseCurrentAtPointK1,
+                fullResistanceAtPointK1, shortCircuitCurrentAtPointK1, surgeCurrentAtPointK1, shortCircuitPowerAtPointK1, ratedPowerTransformerCurrent,
+                inductiveImpedanceAreas);
+
+    }
+
+    public ForChooseHighVoltCable forChooseHighVoltCable(HighVoltInformation highVoltInformation) {
+        long id = highVoltInformation.getId();
+        double ratedPowerTransformerCurrent = highVoltInformation.getRatedPowerTransformerCurrent();
+        double shortCircuitCurrentAtPointK1 = highVoltInformation.getShortCircuitCurrentAtPointK1();
 
         double cableSection = ratedPowerTransformerCurrent / economicCurrentDensity; // Расчёт сечения по экономической плотности S, мм2
 
@@ -91,13 +109,19 @@ public class HighVoltCalculation {
         double minCableSectionForChoose = shortCircuitCurrentAtPointK1 * 1000 * Math.sqrt(fixedTime) /
                 coefficientTakingEmittedHeatDifference; //Проверка кабеля на термическую устойчивость токам короткого замыкания Sмин , мм2
 
-        if (cableSection>minCableSectionForChoose){
+        if (cableSection > minCableSectionForChoose) {
             return new ForChooseHighVoltCable(id, cableSection);
-        }else {
+        } else {
             return new ForChooseHighVoltCable(id, minCableSectionForChoose);
         }
     }
 
-
-
+    public HighVoltCables createNewHighVoltCable(long id,String cableType, HighVoltInformationRepository highVoltInformationRepository){
+        boolean present = highVoltInformationRepository.findById(id).isPresent();
+        if(present){
+            return new HighVoltCables(id,cableType);
+        }else {
+            throw new InformationNotFoundException("Unable to find high volt information. Check the availability of the calculation.");
+        }
+    }
 }
