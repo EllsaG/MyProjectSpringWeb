@@ -14,5 +14,5 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class ChooseHighVoltCablesResponseDTO {
-List<HighVoltCables> highVoltCables;
+List<ForChooseHighVoltCable> highVoltCables;
 }

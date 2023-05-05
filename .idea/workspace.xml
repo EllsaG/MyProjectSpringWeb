@@ -4,30 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Changed &quot;HighVoltCalculation&quot; and created entity for it.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/ChooseHighVoltCablesRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/ChooseHighVoltCablesResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/HighVoltCablesRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/HighVoltCablesResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/update/HighVoltCablesUpdateRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/HighVoltInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/InductiveImpedanceAreas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/HighVoltCablesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/HighVoltInformationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/InductiveImpedanceAreasRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/postget/HighVoltCablesService.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made service for &quot;HighVoltCables&quot; and changed &quot;HighVoltCalculation&quot; .">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/delete/LightInformationDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/postget/HighVoltCableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/update/HighVoltCableUpdateController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/delete/HighVoltCableDeleteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/update/HighVoltCableUpdateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/Cables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/LowVoltCables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/HighVoltCables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/HighVoltCables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ProtectiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/ProtectiveEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/CablesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/repositories/LowVoltCablesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/delete/LightInformationDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/delete/LightInformationDeleteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/postget/LightInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/postget/LightInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/update/LightInformationUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/lightinformation/update/LightInformationUpdateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/postget/ProtectiveEquipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/protectiveequipment/postget/ProtectiveEquipmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForFullTableLoadCalculation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForProtectiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/ForProtectiveEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/ChooseHighVoltCablesResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/ChooseHighVoltCablesResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/postget/HighVoltCablesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/postget/HighVoltCablesService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +86,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "work-now",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Vegas/IdeaProjects/UIForMyProject",
+    "last_opened_file_path": "C:/Users/Vegas/IdeaProjects/MyProjectSpringWeb/src/main/java/com/myproject/controller/highvoltcable",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,18 +108,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\controller\highvoltcable" />
       <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\service\powertransformers" />
       <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\service" />
       <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\controller\dto" />
       <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\controller\powertransformers" />
-      <recent name="C:\Users\Vegas\IdeaProjects\MyProjectSpringWeb\src\main\java\com\myproject\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.myproject.services.highvoltcables.update" />
+      <recent name="com.myproject.services.highvoltcables.delete" />
       <recent name="com.myproject.controller.dto.highvoltcable.update" />
       <recent name="com.myproject.controller.dto.highvoltcable.postget" />
       <recent name="com.myproject.controller.dto.protectiveequipment.update" />
-      <recent name="com.myproject.controller.dto.protectiveequipment.postget" />
-      <recent name="com.myproject.service.powertransformers.delete" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -275,6 +260,8 @@
       <workItem from="1682930184108" duration="30000" />
       <workItem from="1682992290212" duration="19000" />
       <workItem from="1682998724570" duration="13646000" />
+      <workItem from="1683057959626" duration="19000" />
+      <workItem from="1683255704222" duration="6905000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -353,7 +340,8 @@
     <MESSAGE value="Changed &quot;PowerTransformersResponseDTO&quot; and response of the lighting ." />
     <MESSAGE value="Began creating &quot;ProtectiveEquipment&quot;. Need to change the DB." />
     <MESSAGE value="Began creating &quot;HighVoltCalculation&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Began creating &quot;HighVoltCalculation&quot;" />
+    <MESSAGE value="Made service for &quot;HighVoltCables&quot; and changed &quot;HighVoltCalculation&quot; ." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made service for &quot;HighVoltCables&quot; and changed &quot;HighVoltCalculation&quot; ." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
