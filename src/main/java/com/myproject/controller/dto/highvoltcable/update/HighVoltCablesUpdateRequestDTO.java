@@ -1,7 +1,7 @@
 package com.myproject.controller.dto.highvoltcable.update;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.myproject.entity.InductiveImpedanceAreas;
+import com.myproject.controller.dto.highvoltcable.postget.InductiveResistanceAreasRequestDTO;
 import lombok.Getter;
 
 import java.util.List;
@@ -27,5 +27,5 @@ public class HighVoltCablesUpdateRequestDTO {
     @JsonProperty("ratedVoltageOfHigherVoltageWindingOfTransformer")
     private double ratedVoltageOfHigherVoltageWindingOfTransformer;
     @JsonProperty("inductiveImpedanceAreas")
-    private List<InductiveImpedanceAreas> inductiveImpedanceAreas;
+    private List<InductiveResistanceAreasRequestDTO> inductiveResistanceAreasList;
 }

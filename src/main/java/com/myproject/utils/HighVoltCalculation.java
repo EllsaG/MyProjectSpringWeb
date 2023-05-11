@@ -1,12 +1,12 @@
 package com.myproject.utils;
 
-import com.myproject.entity.ForChooseHighVoltCable;
-import com.myproject.entity.HighVoltCables;
-import com.myproject.entity.HighVoltInformation;
-import com.myproject.entity.InductiveImpedanceAreas;
+import com.myproject.controller.dto.highvoltcable.postget.InductiveResistanceAreasRequestDTO;
+import com.myproject.entity.*;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.HighVoltInformationRepository;
+import com.myproject.repositories.PowerTransformersRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HighVoltCalculation {
@@ -39,54 +39,64 @@ public class HighVoltCalculation {
     */
 
 
-    public HighVoltInformation shortCircuitCurrentCalculation(long id, double productionHallTransformerFullPower, int baseVoltage, int baseFullPower,
+    public HighVoltInformation shortCircuitCurrentCalculation(long id, int baseVoltage, int baseFullPower,
                                                               double relativeBaselineUnrestrictedPowerResistance,
                                                               double highVoltageAirLineLength, double headTransformerFullPower, double shortCircuitVoltage,
                                                               double cableLineLength, double ratedVoltageOfHigherVoltageWindingOfTransformer,
-                                                              List<InductiveImpedanceAreas> inductiveImpedanceAreas) {
-
-
+                                                              List<InductiveResistanceAreasRequestDTO> inductiveResistanceAreasList,
+                                                              PowerTransformersRepository powerTransformersRepository) {
+        PowerTransformers powerTransformers = powerTransformersRepository.findById(id)
+                .orElseThrow(() -> new InformationNotFoundException("Unable to find information about power transformer with id № " + id));
+        double productionHallTransformerShortCircuitVoltage = powerTransformers.getShortCircuitVoltage();
+        double productionHallTransformerFullPower = powerTransformers.getFullPowerOfTransformer();
         double relativeBasisResistance = relativeBaselineUnrestrictedPowerResistance; //Относительное базисное сопротивление x_c=x_1=0,5
 
-        double powerLineRelativeResistance = highVoltageAirLineInductiveResistance *
-                highVoltageAirLineLength * baseFullPower / Math.pow(baseVoltage, 2); //Относительное сопротивление ЛЭП
+        double powerLineRelativeResistance = Math.round(highVoltageAirLineInductiveResistance *
+                highVoltageAirLineLength * baseFullPower / Math.pow(baseVoltage, 2) *100)/100.0; //Относительное сопротивление ЛЭП
 
 
-        double firstTransformerRelativeReactiveResistance = shortCircuitVoltage * baseFullPower / (100 * headTransformerFullPower); //Относительное реактивное сопротивление трансформатора Т1
+        double firstTransformerRelativeReactiveResistance = Math.round(shortCircuitVoltage * baseFullPower / (100 * headTransformerFullPower) *100)/100.0; //Относительное реактивное сопротивление трансформатора Т1
 
 
-        double cableLineRelativeReactiveResistance = highVoltageCableLineInductiveResistance * cableLineLength /
-                baseFullPower / Math.pow(shortCircuitVoltage, 2); //Относительное реактивное сопротивление кабельной линии
+        double cableLineRelativeReactiveResistance = Math.round(highVoltageCableLineInductiveResistance * cableLineLength *
+                baseFullPower / Math.pow(shortCircuitVoltage, 2) *100)/100.0; //Относительное реактивное сопротивление кабельной линии
 
 
-        double cableLineRelativeActiveResistance = highVoltageCableLineActiveResistance * cableLineLength *
-                baseFullPower / Math.pow(ratedVoltageOfHigherVoltageWindingOfTransformer, 2);//Активное сопротивление на участке кабельной линии
+        double cableLineRelativeActiveResistance = Math.round(highVoltageCableLineActiveResistance * cableLineLength *
+                baseFullPower / Math.pow(ratedVoltageOfHigherVoltageWindingOfTransformer, 2) *100)/100.0;//Активное сопротивление на участке кабельной линии
 
-        double secondTransformerRelativeReactiveResistance = shortCircuitVoltage * baseFullPower /
-                (100 * productionHallTransformerFullPower / 1000); //Относительное реактивное сопротивление трансформатора Т2
+        double secondTransformerRelativeReactiveResistance = Math.round(productionHallTransformerShortCircuitVoltage * baseFullPower /
+                (100 * productionHallTransformerFullPower / 1000)*100)/100.0; //Относительное реактивное сопротивление трансформатора Т2
 
 
-        double reactiveResistanceAtPointK1 = inductiveImpedanceAreas.stream()
-                .map(InductiveImpedanceAreas::getInductiveResistance)
+        double reactiveResistanceAtPointK1 = Math.round(inductiveResistanceAreasList.stream()
+                .map(InductiveResistanceAreasRequestDTO::getInductiveResistance)
                 .reduce(Double::sum)
-                .get(); //  Реактивное сопротивление до точки k1   (x_∑k1 = x_1 + ... + x_4)
+                .get() *100)/100.0; //  Реактивное сопротивление до точки k1   (x_∑k1 = x_1 + ... + x_4)
 
-        double baseCurrentAtPointK1 = baseFullPower / (Math.sqrt(3) * shortCircuitVoltage); //Базисный ток в точке k1
+        double baseCurrentAtPointK1 = Math.round(baseFullPower / (Math.sqrt(3) * shortCircuitVoltage) *100)/100.0; //Базисный ток в точке k1
 
-        double fullResistanceAtPointK1 = Math.sqrt((Math.pow(cableLineRelativeActiveResistance, 2) + Math.pow(reactiveResistanceAtPointK1, 2)));
+        double fullResistanceAtPointK1 = Math.round(Math.sqrt((Math.pow(cableLineRelativeActiveResistance, 2) + Math.pow(reactiveResistanceAtPointK1, 2))) *100)/100.0;
         /*Полное сопротивление до точки k1 〖 z〗_k1 т.к. cableLineRelativeActiveResistance > (reactiveResistanceAtPointK1 * 0.33)*/
 
 
-        double shortCircuitCurrentAtPointK1 = baseCurrentAtPointK1 / fullResistanceAtPointK1; // Ток короткого замыкания в точке k1
+        double shortCircuitCurrentAtPointK1 = Math.round(baseCurrentAtPointK1 / fullResistanceAtPointK1*100)/100.0; // Ток короткого замыкания в точке k1
 
 
-        double surgeCurrentAtPointK1 = Math.sqrt(2) * surgeCoefficient * shortCircuitCurrentAtPointK1; // Ударный ток в точке k1
+        double surgeCurrentAtPointK1 = Math.round(Math.sqrt(2) * surgeCoefficient * shortCircuitCurrentAtPointK1 *100)/100.0; // Ударный ток в точке k1
 
-        double shortCircuitPowerAtPointK1 = baseFullPower / fullResistanceAtPointK1; // Мощность короткого замыкания в точке k1
+        double shortCircuitPowerAtPointK1 = Math.round(baseFullPower / fullResistanceAtPointK1 *10)/100.0; // Мощность короткого замыкания в точке k1
 
 
-        double ratedPowerTransformerCurrent = productionHallTransformerFullPower /
-                (ratedVoltageOfHigherVoltageWindingOfTransformer * Math.sqrt(3)); // Номинальный ток силового трансформатора Iном, А
+        double ratedPowerTransformerCurrent = Math.round(productionHallTransformerFullPower /
+                (ratedVoltageOfHigherVoltageWindingOfTransformer * Math.sqrt(3)) *100)/100.0; // Номинальный ток силового трансформатора Iном, А
+
+        List<InductiveImpedanceAreas> inductiveImpedanceAreasList = new ArrayList<>();
+        for (int i = 0; i < inductiveResistanceAreasList.size(); i++) {
+            InductiveImpedanceAreas inductiveImpedanceAreas1 = new InductiveImpedanceAreas();
+            inductiveImpedanceAreas1.setInductiveResistance(inductiveResistanceAreasList.get(i).getInductiveResistance());
+            inductiveImpedanceAreasList.add(inductiveImpedanceAreas1);
+        }
 
         return new HighVoltInformation(id, highVoltageAirLineInductiveResistance, highVoltageCableLineInductiveResistance, highVoltageCableLineActiveResistance,
                 surgeCoefficient, economicCurrentDensity, fixedTime, coefficientTakingEmittedHeatDifference, productionHallTransformerFullPower, baseVoltage,
@@ -94,7 +104,7 @@ public class HighVoltCalculation {
                 ratedVoltageOfHigherVoltageWindingOfTransformer, relativeBasisResistance, powerLineRelativeResistance, firstTransformerRelativeReactiveResistance,
                 cableLineRelativeReactiveResistance, secondTransformerRelativeReactiveResistance, reactiveResistanceAtPointK1, baseCurrentAtPointK1,
                 fullResistanceAtPointK1, shortCircuitCurrentAtPointK1, surgeCurrentAtPointK1, shortCircuitPowerAtPointK1, ratedPowerTransformerCurrent,
-                inductiveImpedanceAreas);
+                inductiveImpedanceAreasList );
 
     }
 
@@ -103,11 +113,12 @@ public class HighVoltCalculation {
         double ratedPowerTransformerCurrent = highVoltInformation.getRatedPowerTransformerCurrent();
         double shortCircuitCurrentAtPointK1 = highVoltInformation.getShortCircuitCurrentAtPointK1();
 
-        double cableSection = ratedPowerTransformerCurrent / economicCurrentDensity; // Расчёт сечения по экономической плотности S, мм2
+        double cableSection = Math.round( ratedPowerTransformerCurrent / economicCurrentDensity*100)/100.0; // Расчёт сечения по экономической плотности S, мм2
 
 
-        double minCableSectionForChoose = shortCircuitCurrentAtPointK1 * 1000 * Math.sqrt(fixedTime) /
-                coefficientTakingEmittedHeatDifference; //Проверка кабеля на термическую устойчивость токам короткого замыкания Sмин , мм2
+        double minCableSectionForChoose = Math.round(shortCircuitCurrentAtPointK1 * 1000 * Math.sqrt(fixedTime) /
+                coefficientTakingEmittedHeatDifference*100)/100.0; //Проверка кабеля на термическую устойчивость токам короткого замыкания Sмин , мм2
+
 
         if (cableSection > minCableSectionForChoose) {
             return new ForChooseHighVoltCable(id, cableSection);

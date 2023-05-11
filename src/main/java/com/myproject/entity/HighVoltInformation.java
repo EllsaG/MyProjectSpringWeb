@@ -53,7 +53,7 @@ public class HighVoltInformation {
     private double cableLineLength;
     @Column(name = "rated_voltage_of_higher_voltage_winding_of_transformer", nullable = false)
     private double ratedVoltageOfHigherVoltageWindingOfTransformer;
-    @Column(name = "relative_vasis_resistance", nullable = false)
+    @Column(name = "relative_basis_resistance", nullable = false)
     private double relativeBasisResistance;
     @Column(name = "power_line_relative_resistance", nullable = false)
     private double powerLineRelativeResistance;

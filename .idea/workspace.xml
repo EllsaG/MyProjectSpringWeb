@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made service for &quot;HighVoltCables&quot; and changed &quot;HighVoltCalculation&quot; .">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/delete/LightInformationDeleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/postget/HighVoltCableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/update/HighVoltCableUpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/delete/HighVoltCableDeleteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/update/HighVoltCableUpdateService.java" afterDir="false" />
+    <list default="true" id="4a0a533f-9150-4543-9338-6ba4b9644282" name="Changes" comment="Made full &quot;HighVoltCables&quot;.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/InductiveResistanceAreasRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/ChooseHighVoltCablesResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/ChooseHighVoltCablesResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/HighVoltCablesRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/postget/HighVoltCablesRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/update/HighVoltCablesUpdateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/dto/highvoltcable/update/HighVoltCablesUpdateRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/postget/HighVoltCableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/postget/HighVoltCableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/update/HighVoltCableUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/controller/highvoltcable/update/HighVoltCableUpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/entity/HighVoltInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/entity/HighVoltInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/delete/HighVoltCableDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/delete/HighVoltCableDeleteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/postget/HighVoltCablesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/postget/HighVoltCablesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/update/HighVoltCableUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/services/highvoltcables/update/HighVoltCableUpdateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -262,6 +265,7 @@
       <workItem from="1682998724570" duration="13646000" />
       <workItem from="1683057959626" duration="19000" />
       <workItem from="1683255704222" duration="6905000" />
+      <workItem from="1683814347765" duration="11796000" />
     </task>
     <task id="LOCAL-00001" summary="began to build the application with spring">
       <created>1675825577118</created>
@@ -350,6 +354,11 @@
           <properties class="com.myproject.exceptions.InformationNotFoundException" package="com.myproject.exceptions" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/myproject/utils/HighVoltCalculation.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

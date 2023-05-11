@@ -4,10 +4,6 @@ import com.myproject.controller.dto.highvoltcable.postget.ChooseHighVoltCablesRe
 import com.myproject.controller.dto.highvoltcable.postget.ChooseHighVoltCablesResponseDTO;
 import com.myproject.controller.dto.highvoltcable.postget.HighVoltCablesRequestDTO;
 import com.myproject.controller.dto.highvoltcable.postget.HighVoltCablesResponseDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesRequestDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewRequestDTO;
-import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
 import com.myproject.services.highvoltcables.postget.HighVoltCablesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,12 +34,12 @@ public class HighVoltCableController {
 
     @PostMapping("/highvoltcable/create/forchoosehighvoltcales")
     public ChooseHighVoltCablesResponseDTO chooseHighVoltCables(@RequestBody HighVoltCablesRequestDTO highVoltCablesRequestDTO) {
-        return highVoltCablesService.forChooseHighVoltCables(highVoltCablesRequestDTO.getId(),highVoltCablesRequestDTO.getHeadTransformerFullPower(),
+        return highVoltCablesService.forChooseHighVoltCables(highVoltCablesRequestDTO.getId(),
                 highVoltCablesRequestDTO.getBaseVoltage(),highVoltCablesRequestDTO.getBaseFullPower(),
                 highVoltCablesRequestDTO.getRelativeBaselineUnrestrictedPowerResistance(),highVoltCablesRequestDTO.getHighVoltageAirLineLength(),
                 highVoltCablesRequestDTO.getHeadTransformerFullPower(),highVoltCablesRequestDTO.getShortCircuitVoltage(),
                 highVoltCablesRequestDTO.getCableLineLength(),highVoltCablesRequestDTO.getRatedVoltageOfHigherVoltageWindingOfTransformer(),
-                highVoltCablesRequestDTO.getInductiveImpedanceAreas());
+                highVoltCablesRequestDTO.getInductiveResistanceAreasList());
 
     }
 
