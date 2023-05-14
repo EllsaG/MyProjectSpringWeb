@@ -21,7 +21,7 @@ public class HighVoltCalculation {
 //    double cableLineLength = 2.5; //Длина кабельной линии  L_к=2,5 км;
 //    double productionHallTransformerFullPower = 1000; //Мощность трансформатора цеховой КТП S_(н.тр2)=1000 кВА;
 //    double ratedVoltageOfHigherVoltageWindingOfTransformer = 10.5; //Номинальное напряжение обмотки высшего напряжения U_ВН=10,5 кВ
-    //    double[] inductiveImpedanceAreas = {0.5, 0.07, 0.2, 0.54}; // массив областей и их  индуктивное сопротивление
+    //    double[] inductiveResistanceAreas = {0.5, 0.07, 0.2, 0.54}; // массив областей и их  индуктивное сопротивление
 
     double ratedVoltageOfLowerVoltageWindingOfTransformer = 0.4; // Номинальное напряжение обмотки  низшего напряжения U_НН=0,4 кВ;
 

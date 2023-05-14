@@ -26,6 +26,6 @@ public class HighVoltCablesUpdateRequestDTO {
     private double cableLineLength;
     @JsonProperty("ratedVoltageOfHigherVoltageWindingOfTransformer")
     private double ratedVoltageOfHigherVoltageWindingOfTransformer;
-    @JsonProperty("inductiveImpedanceAreas")
+    @JsonProperty("inductiveResistanceAreasList")
     private List<InductiveResistanceAreasRequestDTO> inductiveResistanceAreasList;
 }
