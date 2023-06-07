@@ -1,9 +1,8 @@
 package com.myproject.utils;
 
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
-import com.myproject.entity.ForChooseLuminaire;
+import com.myproject.entity.LuminaireSelection;
 import com.myproject.entity.LightInformation;
-import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationAlreadyExistsException;
 import com.myproject.repositories.ForChooseLuminaireRepository;
 import com.myproject.repositories.LightInformationRepository;
@@ -15,16 +14,16 @@ import java.util.Optional;
 public class ForLightingCalculation {
 
 
-    public ForChooseLuminaire lightingCalculation(long lightingId, double productionHallHeight,
-                                                  double productionHallWidth,double productionHallLength,
+    public LuminaireSelection lightingCalculation(long lightingId, double productionHallHeight,
+                                                  double productionHallWidth, double productionHallLength,
                                                   ForChooseLuminaireRepository forChooseLuminaireRepository) {
 
-        Optional<ForChooseLuminaire> byId = forChooseLuminaireRepository.findById(lightingId);
+        Optional<LuminaireSelection> byId = forChooseLuminaireRepository.findById(lightingId);
         if (byId.isPresent()) {
             throw new InformationAlreadyExistsException("Information about production hall with id № " + lightingId + " is already exists");
         }
 
-        List<ForChooseLuminaire> all = forChooseLuminaireRepository.findAll();
+        List<LuminaireSelection> all = forChooseLuminaireRepository.findAll();
 
         for (int i = 0; i < all.size(); i++) {
             if (all.get(i).getProductionHallHeight() == productionHallHeight &&
@@ -63,19 +62,19 @@ public class ForLightingCalculation {
         double lightFlux = Math.ceil((ratedLight * productionHallLength * productionHallWidth * safetyFactor * coefOfLightingIrregularity) /
                 (1 * amountLuminairesPerLength * amountLuminairesPerWidth * coefEfficiencyOfLuminaire));
 
-        return new ForChooseLuminaire(lightingId, distanceBetweenRowsOfLamps, distanceBetweenWallAndFirstRowOfLamps,
+        return new LuminaireSelection(lightingId, distanceBetweenRowsOfLamps, distanceBetweenWallAndFirstRowOfLamps,
                 amountLuminairesPerLength, amountLuminairesPerWidth, lightFlux, productionHallHeight, productionHallWidth, productionHallLength);
 
     }
 
     public LightInformationChooseLuminariesResponseDTO forResponseChooseLuminaries(ForChooseLuminaireRepository forChooseLuminaireRepository) {
 
-        List<ForChooseLuminaire> all = forChooseLuminaireRepository.findAll();
+        List<LuminaireSelection> all = forChooseLuminaireRepository.findAll();
         LightInformationChooseLuminariesResponseDTO lightInformationChooseLuminariesResponseDTO =
                 new LightInformationChooseLuminariesResponseDTO();// min and max light flux at 1, 2, 3 and 4 lamps in the Luminaire
         List<LightFluxAtAmountOfLamps> lightFluxAtAmountOfLamps = new ArrayList<>();
 
-        for (ForChooseLuminaire f: all) {
+        for (LuminaireSelection f: all) {
             double lightFlux = f.getLightFlux();
             double minLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.4);
             double maxLightFluxForChooseLuminaire = Math.ceil(lightFlux * 1.6);
@@ -113,10 +112,10 @@ public class ForLightingCalculation {
         final double cosf = 0.95;
         final double tgf = 0.33;
 
-        List<ForChooseLuminaire> all = forChooseLuminaireRepository.findAll();
+        List<LuminaireSelection> all = forChooseLuminaireRepository.findAll();
 
-        double distanceBetweenRowsOfLamps = all.get(0).getDistanceBetweenRowsOfLamps();
-        double distanceBetweenWallAndFirstRowOfLamps = all.get(0).getDistanceBetweenWallAndFirstRowOfLamps();
+        double distanceBetweenRowsOfLamps = all.get(0).getDistanceBetweenLampRows();
+        double distanceBetweenWallAndFirstRowOfLamps = all.get(0).getDistanceBetweenWallAndFirstLampRow();
         int amountLuminairesPerLength = all.get(0).getAmountLuminairesPerLength();
         int amountLuminairesPerWidth = all.get(0).getAmountLuminairesPerWidth();
 

@@ -2,7 +2,7 @@ package com.myproject.services.compensationdevice.postget;
 
 import com.myproject.controller.dto.compensatingdevice.postget.CompensationDeviceResponseDTO;
 import com.myproject.entity.CompensationDevice;
-import com.myproject.entity.ForChooseCompensationDevice;
+import com.myproject.entity.CompensationDeviceSelection;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.CompensationDeviceRepository;
 import com.myproject.repositories.ForChooseCompensationDeviceRepository;
@@ -44,7 +44,7 @@ public class CompensationDeviceService {
     public List<CompensationDevice> getAllCompensationDevices() {
         return compensationDeviceRepository.findAll();
     }
-    public List<ForChooseCompensationDevice> getAllForChooseCompensationDevices() {
+    public List<CompensationDeviceSelection> getAllForChooseCompensationDevices() {
         return forChooseCompensationDeviceRepository.findAll();
     }
 

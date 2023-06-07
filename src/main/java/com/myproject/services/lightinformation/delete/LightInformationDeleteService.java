@@ -2,7 +2,7 @@ package com.myproject.services.lightinformation.delete;
 
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
-import com.myproject.entity.ForChooseLuminaire;
+import com.myproject.entity.LuminaireSelection;
 import com.myproject.entity.LightInformation;
 import com.myproject.services.lightinformation.postget.LightInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class LightInformationDeleteService {
         return lightInformationService.deleteById(lightInformationById);
     }
     public LightInformationChooseLuminariesResponseDTO deleteLuminaireById(long lightInformId) {
-        ForChooseLuminaire luminaireById = lightInformationService.getLuminaireById(lightInformId);
+        LuminaireSelection luminaireById = lightInformationService.getLuminaireById(lightInformId);
         return lightInformationService.deleteLuminaireById(luminaireById);
     }
 

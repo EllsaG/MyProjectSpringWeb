@@ -1,6 +1,5 @@
 package com.myproject.controller.dto.lightinformation.postget;
 
-import com.myproject.entity.ForChooseLuminaire;
 import com.myproject.entity.LightInformation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

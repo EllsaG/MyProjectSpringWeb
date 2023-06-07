@@ -17,14 +17,14 @@ public class ProtectiveEquipment {
     @Id
     @Column(name = "id", nullable = false)
     private long id;
-    @Column(name = "type_of_circuit_breaker", nullable = false)
-    private String typeOfCircuitBreaker;
-    @Column(name = "nominal_current_of_thermal_release", nullable = false)
-    private double nominalCurrentOfThermalRelease;
-    @Column(name = "nominal_current_of_electromagnetic_releas", nullable = false)
-    private double nominalCurrentOfElectromagneticRelease;
-    @Column(name = "nominal_current_of_circuit_breaker", nullable = false)
-    private double nominalCurrentOfCircuitBreaker;
+    @Column(name = "circuit_breaker_type", nullable = false)
+    private String circuitBreakerType;
+    @Column(name = "thermal_release_rated_current", nullable = false)
+    private double thermalReleaseRatedCurrent;
+    @Column(name = "electromagnetic_releas_rated_current", nullable = false)
+    private double electromagneticReleaseRatedCurrent;
+    @Column(name = "circuit_breaker_rated_current", nullable = false)
+    private double circuitBreakerRatedCurrent;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private LowVoltCables lowVoltCables;

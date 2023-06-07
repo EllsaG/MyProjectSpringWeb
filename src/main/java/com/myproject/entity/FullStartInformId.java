@@ -1,12 +1,15 @@
 package com.myproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "full_start_inform_id")
 public class FullStartInformId {
@@ -60,6 +63,4 @@ public class FullStartInformId {
         this.avgDailyReactivePower = avgDailyReactivePower;
     }
 
-    public FullStartInformId() {
-    }
 }

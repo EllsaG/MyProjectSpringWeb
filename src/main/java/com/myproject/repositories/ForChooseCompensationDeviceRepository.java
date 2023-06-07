@@ -1,8 +1,8 @@
 package com.myproject.repositories;
 
-import com.myproject.entity.ForChooseCompensationDevice;
+import com.myproject.entity.CompensationDeviceSelection;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ForChooseCompensationDeviceRepository
-        extends JpaRepository<ForChooseCompensationDevice, Long> {
+        extends JpaRepository<CompensationDeviceSelection, Long> {
 }

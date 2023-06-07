@@ -24,7 +24,7 @@ public class ProtectiveEquipmentController {
     public ProtectiveEquipmentResponseDTO getAll() {
         ProtectiveEquipmentResponseDTO protectiveEquipmentResponseDTO = new ProtectiveEquipmentResponseDTO();
         protectiveEquipmentResponseDTO.setProtectiveEquipmentList(protectiveEquipmentService.getAllProtectiveEquipment());
-        protectiveEquipmentResponseDTO.setForChooseProtectiveEquipmentList(protectiveEquipmentService.getAllForChooseProtectiveEquipment());
+        protectiveEquipmentResponseDTO.setProtectiveEquipmentSelectionList(protectiveEquipmentService.getAllForChooseProtectiveEquipment());
 
         return protectiveEquipmentResponseDTO;
 

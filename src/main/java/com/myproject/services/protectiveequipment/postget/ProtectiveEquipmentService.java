@@ -1,7 +1,7 @@
 package com.myproject.services.protectiveequipment.postget;
 
 import com.myproject.controller.dto.protectiveequipment.postget.ProtectiveEquipmentResponseDTO;
-import com.myproject.entity.ForChooseProtectiveEquipment;
+import com.myproject.entity.ProtectiveEquipmentSelection;
 import com.myproject.entity.ProtectiveEquipment;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.ForChooseProtectiveEquipmentRepository;
@@ -64,7 +64,7 @@ public class ProtectiveEquipmentService {
         return protectiveEquipmentRepository.findAll();
     }
 
-    public List<ForChooseProtectiveEquipment> getAllForChooseProtectiveEquipment() {
+    public List<ProtectiveEquipmentSelection> getAllForChooseProtectiveEquipment() {
         return forChooseProtectiveEquipmentRepository.findAll();
     }
 

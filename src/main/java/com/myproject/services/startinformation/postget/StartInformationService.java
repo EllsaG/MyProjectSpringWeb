@@ -1,7 +1,7 @@
 package com.myproject.services.startinformation.postget;
 
 import com.myproject.controller.dto.startinformation.postget.StartInformationResponseDTO;
-import com.myproject.entity.ForChooseProtectiveEquipment;
+import com.myproject.entity.ProtectiveEquipmentSelection;
 import com.myproject.entity.StartInformation;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.ForChooseProtectiveEquipmentRepository;
@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -32,9 +31,9 @@ public class StartInformationService {
         StartInformation startInformation = forStartTableLoadCalculation
                 .createIfDontExist(startInformationRepository, startInformId, name, power, amount, ki, cosf, tgf);// method checked  by id and name-power mapping
         ForProtectiveEquipment forProtectiveEquipment = new ForProtectiveEquipment();
-        ForChooseProtectiveEquipment forChooseProtectiveEquipment = forProtectiveEquipment.forChooseProtectiveEquipment(startInformation);
+        ProtectiveEquipmentSelection protectiveEquipmentSelection = forProtectiveEquipment.forChooseProtectiveEquipment(startInformation);
 
-        forChooseProtectiveEquipmentRepository.save(forChooseProtectiveEquipment);
+        forChooseProtectiveEquipmentRepository.save(protectiveEquipmentSelection);
         startInformationRepository.save(startInformation);
 
         return new StartInformationResponseDTO(getAllStartInformation());

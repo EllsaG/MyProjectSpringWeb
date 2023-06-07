@@ -2,8 +2,8 @@ package com.myproject.services.fullinformation.postget;
 
 
 import com.myproject.controller.dto.fullinformation.postget.FullInformationResponseDTO;
-import com.myproject.entity.ForChooseCompensationDevice;
-import com.myproject.entity.ForChooseTransformers;
+import com.myproject.entity.CompensationDeviceSelection;
+import com.myproject.entity.TransformerSelection;
 import com.myproject.entity.FullInformation;
 import com.myproject.entity.FullStartInformId;
 import com.myproject.exceptions.InformationNotFoundException;
@@ -53,15 +53,15 @@ public class FullInformationService {
                 id, nameOfBusbar, numbersBusbarsIncludedInMain);
 
         ReactivePowerCompensation reactivePowerCompensation = new ReactivePowerCompensation();
-        ForChooseCompensationDevice forChooseCompensationDevice = reactivePowerCompensation.powerOfCompensatingDevice(
+        CompensationDeviceSelection compensationDeviceSelection = reactivePowerCompensation.powerOfCompensatingDevice(
                 id, fullInformation.getAvgDailyActivePower(), fullInformation.getTgF());
 
         ChoosingOfTransformers choosingOfTransformers = new ChoosingOfTransformers();
-        ForChooseTransformers forChooseTransformers = choosingOfTransformers.ratedPowerForChoosingOfTransformer(id, fullInformation.getMaxFullPower());
+        TransformerSelection transformerSelection = choosingOfTransformers.ratedPowerForChoosingOfTransformer(id, fullInformation.getMaxFullPower());
 
 
-        forChooseCompensationDeviceRepository.save(forChooseCompensationDevice);
-        forChooseTransformersRepository.save(forChooseTransformers);
+        forChooseCompensationDeviceRepository.save(compensationDeviceSelection);
+        forChooseTransformersRepository.save(transformerSelection);
         fullInformationRepository.save(fullInformation);
 
         return new FullInformationResponseDTO(getAllFullInformation());

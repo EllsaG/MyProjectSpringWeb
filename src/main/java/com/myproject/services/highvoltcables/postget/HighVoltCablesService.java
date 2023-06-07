@@ -45,9 +45,9 @@ public class HighVoltCablesService {
                 relativeBaselineUnrestrictedPowerResistance, highVoltageAirLineLength, headTransformerFullPower, shortCircuitVoltage,
                 cableLineLength, ratedVoltageOfHigherVoltageWindingOfTransformer, inductiveResistanceAreasList,powerTransformersRepository);
 
-        ForChooseHighVoltCable forChooseHighVoltCable = highVoltCalculation.forChooseHighVoltCable(highVoltInformation);
+        HighVoltCableSelection highVoltCableSelection = highVoltCalculation.forChooseHighVoltCable(highVoltInformation);
 
-        forChooseHighVoltCableRepository.save(forChooseHighVoltCable);
+        forChooseHighVoltCableRepository.save(highVoltCableSelection);
         highVoltInformationRepository.save(highVoltInformation);
 
         return new ChooseHighVoltCablesResponseDTO(getAllForChooseHighVoltCable());
@@ -66,9 +66,9 @@ public class HighVoltCablesService {
         return new ChooseHighVoltCablesResponseDTO(getAllForChooseHighVoltCable());
     }
 
-    public HighVoltCablesResponseDTO deleteHighVoltInfoById(HighVoltInformation highVoltInformation, ForChooseHighVoltCable forChooseHighVoltCable){
+    public HighVoltCablesResponseDTO deleteHighVoltInfoById(HighVoltInformation highVoltInformation, HighVoltCableSelection highVoltCableSelection){
         highVoltInformationRepository.delete(highVoltInformation);
-        forChooseHighVoltCableRepository.delete(forChooseHighVoltCable);
+        forChooseHighVoltCableRepository.delete(highVoltCableSelection);
         return new HighVoltCablesResponseDTO(getAllHighVoltInformation(),getAllForChooseHighVoltCable());
     }
 
@@ -93,7 +93,7 @@ public class HighVoltCablesService {
         return highVoltInformationRepository.findById(id)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about calculation with id № " + id));
     }
-    public ForChooseHighVoltCable getForChooseCableById(long id) {
+    public HighVoltCableSelection getForChooseCableById(long id) {
         return forChooseHighVoltCableRepository.findById(id)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find  information for cable selection with id № " + id));
     }
@@ -106,7 +106,7 @@ public class HighVoltCablesService {
         return highVoltInformationRepository.findAll();
     }
 
-    public List<ForChooseHighVoltCable> getAllForChooseHighVoltCable() {
+    public List<HighVoltCableSelection> getAllForChooseHighVoltCable() {
         return forChooseHighVoltCableRepository.findAll();
     }
     public List<HighVoltCables> getAllHighVoltCables() {

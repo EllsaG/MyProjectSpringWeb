@@ -1,20 +1,24 @@
 package com.myproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "full_information")
 public class FullInformation {
     @Id
-    @Column(name = "full_information_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private long id;
-    @Column(name = "name_of_busbar", nullable = false)
-    private String nameOfBusbar;
+    @Column(name = "busbar_name", nullable = false)
+    private String busbarName;
     @Column(name = "amount", nullable = false)
     private int amount;
     @Column(name = "avg_daily_active_power", nullable = false)
@@ -46,31 +50,7 @@ public class FullInformation {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<FullStartInformId> fullStartInformId;
 
-    public FullInformation(long id, String nameOfBusbar, int amount, double avgDailyActivePower,
-                           double avgDailyReactivePower, int effectiveAmountOfEquipment, double coefficientMax,
-                           double maxActivePower, double maxReactivePower, double maxFullPower, double maxElectricCurrent,
-                           double powerOfGroup, double cosF, double tgF, double ki, double module, List<FullStartInformId> fullStartInformId) {
-        this.id = id;
-        this.nameOfBusbar = nameOfBusbar;
-        this.amount = amount;
-        this.avgDailyActivePower = avgDailyActivePower;
-        this.avgDailyReactivePower = avgDailyReactivePower;
-        this.effectiveAmountOfEquipment = effectiveAmountOfEquipment;
-        this.coefficientMax = coefficientMax;
-        this.maxActivePower = maxActivePower;
-        this.maxReactivePower = maxReactivePower;
-        this.maxFullPower = maxFullPower;
-        this.maxElectricCurrent = maxElectricCurrent;
-        this.powerOfGroup = powerOfGroup;
-        this.cosF = cosF;
-        this.tgF = tgF;
-        this.ki = ki;
-        this.module = module;
-        this.fullStartInformId = fullStartInformId;
-    }
 
-    public FullInformation() {
-    }
 
 
 }

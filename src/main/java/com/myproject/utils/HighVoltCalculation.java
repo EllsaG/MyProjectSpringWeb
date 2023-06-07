@@ -48,7 +48,7 @@ public class HighVoltCalculation {
         PowerTransformers powerTransformers = powerTransformersRepository.findById(id)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about power transformer with id № " + id));
         double productionHallTransformerShortCircuitVoltage = powerTransformers.getShortCircuitVoltage();
-        double productionHallTransformerFullPower = powerTransformers.getFullPowerOfTransformer();
+        double productionHallTransformerFullPower = powerTransformers.getTransformerFullPower();
         double relativeBasisResistance = relativeBaselineUnrestrictedPowerResistance; //Относительное базисное сопротивление x_c=x_1=0,5
 
         double powerLineRelativeResistance = Math.round(highVoltageAirLineInductiveResistance *
@@ -108,7 +108,7 @@ public class HighVoltCalculation {
 
     }
 
-    public ForChooseHighVoltCable forChooseHighVoltCable(HighVoltInformation highVoltInformation) {
+    public HighVoltCableSelection forChooseHighVoltCable(HighVoltInformation highVoltInformation) {
         long id = highVoltInformation.getId();
         double ratedPowerTransformerCurrent = highVoltInformation.getRatedPowerTransformerCurrent();
         double shortCircuitCurrentAtPointK1 = highVoltInformation.getShortCircuitCurrentAtPointK1();
@@ -121,9 +121,9 @@ public class HighVoltCalculation {
 
 
         if (cableSection > minCableSectionForChoose) {
-            return new ForChooseHighVoltCable(id, cableSection);
+            return new HighVoltCableSelection(id, cableSection);
         } else {
-            return new ForChooseHighVoltCable(id, minCableSectionForChoose);
+            return new HighVoltCableSelection(id, minCableSectionForChoose);
         }
     }
 

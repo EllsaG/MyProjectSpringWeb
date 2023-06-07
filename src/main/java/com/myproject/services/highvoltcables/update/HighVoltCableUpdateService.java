@@ -27,7 +27,7 @@ public class HighVoltCableUpdateService {
                                                                    double cableLineLength, double ratedVoltageOfHigherVoltageWindingOfTransformer,
                                                                    List<InductiveResistanceAreasRequestDTO> inductiveResistanceAreasList) {
         HighVoltInformation informationById = highVoltCablesService.getInformationById(id);
-        ForChooseHighVoltCable forChooseCableById = highVoltCablesService.getForChooseCableById(id);
+        HighVoltCableSelection forChooseCableById = highVoltCablesService.getForChooseCableById(id);
         highVoltCablesService.deleteHighVoltInfoById(informationById,forChooseCableById);
         return highVoltCablesService.updateForChooseHighVoltCables(id, baseVoltage, baseFullPower,
                 relativeBaselineUnrestrictedPowerResistance, highVoltageAirLineLength, headTransformerFullPower, shortCircuitVoltage,

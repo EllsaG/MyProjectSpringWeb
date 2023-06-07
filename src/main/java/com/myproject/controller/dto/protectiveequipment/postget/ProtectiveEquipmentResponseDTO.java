@@ -1,6 +1,6 @@
 package com.myproject.controller.dto.protectiveequipment.postget;
 
-import com.myproject.entity.ForChooseProtectiveEquipment;
+import com.myproject.entity.ProtectiveEquipmentSelection;
 import com.myproject.entity.ProtectiveEquipment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,5 +14,5 @@ import java.util.List;
 @NoArgsConstructor
 public class ProtectiveEquipmentResponseDTO {
     List<ProtectiveEquipment> protectiveEquipmentList;
-    List<ForChooseProtectiveEquipment> forChooseProtectiveEquipmentList;
+    List<ProtectiveEquipmentSelection> protectiveEquipmentSelectionList;
 }

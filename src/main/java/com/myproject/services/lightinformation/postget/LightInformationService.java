@@ -2,7 +2,7 @@ package com.myproject.services.lightinformation.postget;
 
 import com.myproject.controller.dto.lightinformation.postget.LightInformationChooseLuminariesResponseDTO;
 import com.myproject.controller.dto.lightinformation.postget.LightInformationCreateNewResponseDTO;
-import com.myproject.entity.ForChooseLuminaire;
+import com.myproject.entity.LuminaireSelection;
 import com.myproject.entity.LightInformation;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.ForChooseLuminaireRepository;
@@ -29,9 +29,9 @@ public class LightInformationService {
     public LightInformationChooseLuminariesResponseDTO forChooseLuminaries(long lightingId, double heightProductionHall,
                                                                            double widthProductionHall, double lengthProductionHall) {
         ForLightingCalculation forLightingCalculation = new ForLightingCalculation();
-        ForChooseLuminaire forChooseLuminaire = forLightingCalculation.lightingCalculation(lightingId,
+        LuminaireSelection luminaireSelection = forLightingCalculation.lightingCalculation(lightingId,
                 heightProductionHall, widthProductionHall, lengthProductionHall, forChooseLuminaireRepository);
-        forChooseLuminaireRepository.save(forChooseLuminaire);
+        forChooseLuminaireRepository.save(luminaireSelection);
 
         return forLightingCalculation.forResponseChooseLuminaries(forChooseLuminaireRepository);
     }
@@ -40,7 +40,7 @@ public class LightInformationService {
         return lightInformationRepository.findById(lightInformId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about lighting with id № " + lightInformId));
     }
-    public ForChooseLuminaire getLuminaireById(long luminaireInformId) {
+    public LuminaireSelection getLuminaireById(long luminaireInformId) {
         return forChooseLuminaireRepository.findById(luminaireInformId)
                 .orElseThrow(() -> new InformationNotFoundException("Unable to find information about luminaire with id № " + luminaireInformId));
     }
@@ -70,8 +70,8 @@ public class LightInformationService {
 
     }
 
-    public LightInformationChooseLuminariesResponseDTO deleteLuminaireById(ForChooseLuminaire forChooseLuminaire) {
-        forChooseLuminaireRepository.delete(forChooseLuminaire);
+    public LightInformationChooseLuminariesResponseDTO deleteLuminaireById(LuminaireSelection luminaireSelection) {
+        forChooseLuminaireRepository.delete(luminaireSelection);
         return getAllForChooseLuminaire();
 
     }

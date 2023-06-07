@@ -1,6 +1,8 @@
 package com.myproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "power_transformers")
 public class PowerTransformers {
@@ -16,16 +20,16 @@ public class PowerTransformers {
     @Id
     @Column(name = "id", nullable = false)
     private long id;
-    @Column(name = "model_of_transformer", nullable = false)
-    private String modelOfTransformer;
-    @Column(name = "full_power_of_transformer", nullable = false)
-    private double fullPowerOfTransformer;
-    @Column(name = "coef_of_transformer_load", nullable = false)
-    private double coefOfTransformerLoad;
+    @Column(name = "transformer_model", nullable = false)
+    private String transformerModel;
+    @Column(name = "transformer_full_power", nullable = false)
+    private double transformerFullPower;
+    @Column(name = "transformer_load_coef", nullable = false)
+    private double transformerLoadCoef;
     @Column(name = "short_circuit_voltage", nullable = false)
     private double shortCircuitVoltage;
-    @Column(name = "idle_losses_of_transformer", nullable = false)
-    private double idleLossesOfTransformer;
+    @Column(name = "transformer_idle_losses", nullable = false)
+    private double transformerIdleLosses;
     @Column(name = "high_side_voltage", nullable = false)
     private double highSideVoltage;
     @Column(name = "low_side_voltage", nullable = false)
@@ -35,23 +39,4 @@ public class PowerTransformers {
     @Column(name = "idle_current", nullable = false)
     private double idleCurrent;
 
-
-    public PowerTransformers(long id, String modelOfTransformer, double fullPowerOfTransformer,
-                             double coefOfTransformerLoad, double shortCircuitVoltage, double idleLossesOfTransformer,
-                             double highSideVoltage, double lowSideVoltage, double shortCircuitLosses, double idleCurrent) {
-        this.id = id;
-        this.modelOfTransformer = modelOfTransformer;
-        this.fullPowerOfTransformer = fullPowerOfTransformer;
-        this.coefOfTransformerLoad = coefOfTransformerLoad;
-        this.shortCircuitVoltage = shortCircuitVoltage;
-        this.idleLossesOfTransformer = idleLossesOfTransformer;
-        this.highSideVoltage = highSideVoltage;
-        this.lowSideVoltage = lowSideVoltage;
-        this.shortCircuitLosses = shortCircuitLosses;
-        this.idleCurrent = idleCurrent;
-    }
-
-    public PowerTransformers() {
-
-    }
 }

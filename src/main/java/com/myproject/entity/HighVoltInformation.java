@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Getter
@@ -31,8 +29,8 @@ public class HighVoltInformation {
     private double surgeCoefficient;
     @Column(name = "economic_current_density", nullable = false)
     private double economicCurrentDensity;
-    @Column(name = "fixed_time", nullable = false)
-    private double fixedTime ;
+    @Column(name = "short_circuit_time", nullable = false)
+    private double shortCircuitTime;
     @Column(name = "coefficient_taking_emitted_heat_difference", nullable = false)
     private double coefficientTakingEmittedHeatDifference ;
     @Column(name = "production_hall_transformer_full_power", nullable = false)

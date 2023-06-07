@@ -1,7 +1,7 @@
 package com.myproject.services.powertransformers.postget;
 
 import com.myproject.controller.dto.powertransformers.postget.PowerTransformersResponseDTO;
-import com.myproject.entity.ForChooseTransformers;
+import com.myproject.entity.TransformerSelection;
 import com.myproject.entity.PowerTransformers;
 import com.myproject.exceptions.InformationNotFoundException;
 import com.myproject.repositories.*;
@@ -49,7 +49,7 @@ public class PowerTransformersService {
     public List<PowerTransformers> getAllPowerTransformers() {
         return powerTransformersRepository.findAll();
     }
-    public List<ForChooseTransformers> getAllForChoosePowerTransformers() {
+    public List<TransformerSelection> getAllForChoosePowerTransformers() {
         return forChooseTransformersRepository.findAll();
     }
 
